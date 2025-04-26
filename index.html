@@ -3,123 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V.L.P.H.A. Global</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <title>V.L.P.H.A. Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Cinzel', serif;
             background-color: black;
             color: gold;
-            overflow-x: hidden;
+            font-family: 'UnifrakturCook', cursive;
+            background-image: url('images/sacred_symbols.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         header {
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px;
             text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            padding: 30px;
             border-bottom: 2px solid gold;
         }
-        nav {
-            margin-top: 10px;
+        header img {
+            height: 120px;
         }
         nav a {
             color: gold;
-            text-decoration: none;
             margin: 0 15px;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: white;
+            text-decoration: none;
+            font-size: 20px;
         }
         .hero {
-            padding: 100px 20px;
             text-align: center;
+            padding: 100px 20px;
         }
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 64px;
+            margin: 0;
         }
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 24px;
+            margin: 20px 0;
         }
         .btn {
-            border: 2px solid gold;
-            padding: 12px 30px;
-            color: gold;
-            background: transparent;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 15px 30px;
             font-size: 20px;
+            border: 2px solid gold;
+            background: transparent;
+            color: gold;
+            text-decoration: none;
             border-radius: 10px;
-            transition: background 0.3s, color 0.3s;
-        }
-        .btn:hover {
-            background: gold;
-            color: black;
         }
         footer {
             text-align: center;
             padding: 30px;
             font-size: 14px;
-            color: #aaa;
-            margin-top: 100px;
+            color: #bbb;
+            margin-top: 50px;
             border-top: 1px solid gold;
-        }
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
         }
     </style>
 </head>
 <body>
+    <header>
+        <img src="images/vlpha_logo.png" alt="V.L.P.H.A. Logo">
+        <nav>
+            <a href="#">Pest Masters</a>
+            <a href="#">Vibe 'N Dive</a>
+            <a href="#">V.L.P.H.A. Clothing</a>
+            <a href="#">Our Mission</a>
+        </nav>
+    </header>
 
-<div id="particles-js"></div>
+    <section class="hero">
+        <h1>Welcome Home</h1>
+        <p>Vision. Love. Peace. Huge Action.</p>
+        <a class="btn" href="#">ENTER THE FREQUENCY</a>
+    </section>
 
-<header>
-    V.L.P.H.A. Global
-    <nav>
-        <a href="#">Pest Masters</a>
-        <a href="#">Vibe 'N Dive</a>
-        <a href="#">V.L.P.H.A. Clothing</a>
-        <a href="#">Our Mission</a>
-    </nav>
-</header>
+    <audio autoplay loop controls style="display:block;margin:20px auto;">
+        <source src="ambient.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-<section class="hero">
-    <h1>Welcome Home, Guardian</h1>
-    <p>Vision. Love. Peace. Huge Action.</p>
-    <a class="btn" href="#">ENTER THE FREQUENCY</a>
-</section>
-
-<footer>
-    &copy; 2025 V.L.P.H.A. | Forged with Light & Huge Action
-</footer>
-
-<!-- Particle.js library -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-particlesJS("particles-js", {
-    "particles": {
-        "number": { "value": 100, "density": { "enable": true, "value_area": 1200 } },
-        "color": { "value": "#ffd700" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5, "random": true },
-        "size": { "value": 3, "random": true },
-        "line_linked": { "enable": false },
-        "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
-    }
-});
-</script>
-
+    <footer>
+        &copy; 2025 V.L.P.H.A. — Forged with Light, Love, and Huge Action.
+    </footer>
 </body>
 </html>
