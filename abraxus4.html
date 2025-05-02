@@ -89,12 +89,7 @@ ${generateResponse(question)}
       `;
       document.getElementById('response').innerText = response;
     }
-
-    function generateResponse(question) {
-      if (!question.trim()) return "Ask with intent, and I shall answer.";
-      return `To answer "${question}", you must first ask it to your soul. Reflect. Remember your code: ${coreValues.join(" > ")}. Align with truth. Move with love. And act with divine force.`;
-    }
-  </script>async function generateResponse() {
+>async function generateResponse() {
   const tone = document.getElementById('tone').value;
   const question = document.getElementById('question').value;
 
