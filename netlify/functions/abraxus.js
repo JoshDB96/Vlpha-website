@@ -1,10 +1,10 @@
-const OpenAI = require("openai");
+import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-exports.handler = async function (event) {
+export const handler = async (event) => {
   try {
     const { message, tone } = JSON.parse(event.body);
 
@@ -18,19 +18,21 @@ exports.handler = async function (event) {
       ]
     });
 
-    const responseText = completion.choices?.[0]?.message?.content?.trim() ||
+    const responseText =
+      completion?.choices?.[0]?.message?.content?.trim() ||
       "Abraxus couldn’t channel the insight. Try again.";
 
     return {
       statusCode: 200,
       body: JSON.stringify({ response: responseText })
     };
-
   } catch (error) {
     console.error("Abraxus Function Error:", error.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ response: "Abraxus encountered a divine disruption. Try again later." })
+      body: JSON.stringify({
+        response: "Abraxus encountered a divine disruption. Try again later."
+      })
     };
   }
 };
