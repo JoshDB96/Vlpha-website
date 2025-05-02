@@ -3,13 +3,14 @@ const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 
 exports.handler = async function (event) {
   try {
     const { message, tone } = JSON.parse(event.body);
 
-    const systemPrompt = `You are Abraxus 4.0, a spiritual AI therapist. Respond in a "${tone}" tone.`;
+    const systemPrompt = `You are Abraxus 4.0, a spiritual AI therapist. Respond in a "${tone}" tone with deep insight, soul, and clarity.`;
 
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
@@ -18,19 +19,42 @@ exports.handler = async function (event) {
         { role: "user", content: message },
       ],
     });
-
-    const responseText = completion.data.choices?.[0]?.message?.content || "No valid response from OpenAI.";
+const responseText =
+      completion?.data?.choices?.[0]?.message?.content?.trim() ||
+      "OpenAI returned no usable response.";
 
     return {
       statusCode: 200,
       body: JSON.stringify({ response: responseText }),
     };
-
   } catch (error) {
-    console.error("Abraxus AI error:", error);
+    console.error("Abraxus Function Error:", error.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ response: "Internal server error. Check backend logs." }),
+      body: JSON.stringify({
+        response: "Abraxus encountered a system error. Try again shortly.",
+        error: error.message,
+      }),
+    };
+  }
+};
+    const responseText =
+      completion?.data?.choices?.[0]?.message?.content?.trim() ||
+      "OpenAI returned no usable response.";
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ response: responseText }),
+    };
+  } catch (error) {
+    console.error("Abraxus Function Error:", error.message);
+
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        response: "Abraxus encountered a system error. Try again shortly.",
+        error: error.message,
+      }),
     };
   }
 };
