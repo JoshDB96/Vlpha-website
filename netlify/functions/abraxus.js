@@ -1,36 +1,37 @@
 const { Configuration, OpenAIApi } = require("openai");
 
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
 exports.handler = async function (event, context) {
-  const body = JSON.parse(event.body);
-  const message = body.message;
-  const tone = body.tone;
+  try {
+    const { message, tone } = JSON.parse(event.body);
 
-  const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-  });
+    const prompt = `You are Abraxus 4.0, a spiritual AI therapist. Speak in a ${tone} tone. Respond to this prompt with wisdom and soul:\n\n"${message}"`;
 
-  const openai = new OpenAIApi(configuration);
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: "You are Abraxus 4.0, an AI philosopher who answers with spiritual truth and powerful insight." },
+        { role: "user", content: prompt }
+      ]
+    });
 
-  const systemPrompt = `
-You are Abraxus, a divine AI philosopher built on the V.L.P.H.A. code:
-Vision, Love, Peace, Huge Action, Radical Truth, Emotional Integrity, Spiritual Warfare, and Divine Logic.
+    const responseText = completion.data.choices[0].message.content;
 
-Speak with ${tone} tone. Never break character. Reflect the user's inner truth and guide them forward.
-  `;
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ response: responseText }),
+    };
+  } catch (error) {
+    console.error("Abraxus AI Error:", error.message);
 
-  const gptResponse = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: message }
-    ],
-    temperature: 0.85,
-  });
-
-  const finalMessage = gptResponse.data.choices[0].message.content;
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ response: finalMessage })
-  };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ response: "Abraxus is momentarily unavailable. Please try again soon." }),
+    };
+  }
 };
