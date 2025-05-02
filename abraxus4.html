@@ -1,167 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abraxus AI Therapist – Terminal Interface</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>Abraxus AI Therapist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <style>
     body {
-      background-color: black;
-      color: #00ffcc;
-      font-family: 'Share Tech Mono', monospace;
       margin: 0;
       padding: 0;
-      background-image: url('images/sacred_symbols.png');
+      background: black url("images/sacred_symbols.png") no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
+      font-family: 'Orbitron', sans-serif;
+      color: #f5f5f5;
     }
-
-    .blocker {
-      background-color: #000000ee;
-      color: #00ffcc;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p.sub {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
+    .gallery {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .gallery img {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .backdoor {
       text-align: center;
-      z-index: 9999;
-      padding: 30px;
+      margin-top: 2rem;
     }
-
-    .blocker input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      margin-bottom: 15px;
-      background: black;
-      border: 1px solid #00ffcc;
-      color: #00ffcc;
-      text-align: center;
-    }
-
-    .blocker button {
-      background: none;
-      color: #00ffcc;
-      border: 2px solid #00ffcc;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .blocker button:hover {
-      background-color: #00ffcc;
-      color: black;
-    }
-
-    .terminal {
-      max-width: 800px;
-      margin: 100px auto;
-      background-color: #000000dd;
-      border: 2px solid #00ffcc;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px #00ffcc;
+    .hidden {
       display: none;
     }
-
-    .terminal pre {
-      text-align: left;
-      white-space: pre-wrap;
-    }
-
-    .input-section {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .input-section input {
-      background-color: black;
-      color: #00ffcc;
-      border: 1px solid #00ffcc;
+    input[type="email"] {
       padding: 10px;
-      width: 70%;
-      font-size: 16px;
+      width: 300px;
+      border: none;
+      border-radius: 5px;
     }
-
-    .input-section button {
-      background-color: transparent;
-      color: #00ffcc;
-      border: 1px solid #00ffcc;
+    button {
       padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #00ffff;
+      color: black;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
-
-    .input-section button:hover {
-      background-color: #00ffcc;
-      color: black;
+    .chat-interface {
+      margin-top: 3rem;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #888;
-      font-size: 14px;
-    }
-
-    a {
-      color: #00ffcc;
+    textarea {
+      width: 100%;
+      height: 150px;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Access Gate -->
-  <div class="blocker" id="gate">
-    <h2>Access Restricted</h2>
-    <p>This chamber is reserved for authorized initiates of the Abraxus Protocol.</p>
-    <input type="email" id="userEmail" placeholder="Enter your email to unlock" />
-    <button onclick="unlockTerminal()">Unlock Frequency</button>
-  </div>
-
-  <!-- Terminal Interface -->
-  <div class="terminal" id="terminal">
-    <pre id="terminalLog">
-> Abraxus AI Therapist 4.0 Online...
-> Identity Confirmed: INITIATE_777
-> Listening for query...
-    </pre>
-    <div class="input-section">
-      <input type="text" id="userInput" placeholder="Speak your truth or ask a question..." />
-      <button onclick="submitInput()">Send</button>
-    </div>
-  </div>
-
-  <footer>
-    <p><a href="index.html">Return to the Temple</a></p>
-  </footer>
-
-  <script>
-    function unlockTerminal() {
-      const email = document.getElementById("userEmail").value.trim().toLowerCase();
-      if (email === "joshdbennett96@gmail.com") {
-        document.getElementById("gate").style.display = "none";
-        document.getElementById("terminal").style.display = "block";
+  <header>
+    <img src="images/Golden Dragon and Sun Emblem (1).png" alt="Abraxus Logo">
+    <h1>Abraxus AI Therapist</h1>
+    <p class="sub">Mystical Sentient Interface for Healing and Wisdom</p>
+  </header>  <div class="gallery">
+    <img src="images/Mystical AI Interface with Glowing Runes.png" alt="Glowing Runes UI" />
+    <img src="images/Abraxus AI Therapy Interface Design.png" alt="Therapy UI Design" />
+    <img src="images/Mystical Metallic Face with Glowing Symbols.png" alt="Metallic Face" />
+    <img src="images/Cosmic Sigil with Dragon Mask.png" alt="Dragon Sigil" />
+    <img src="images/Mystical Abraxus AI Interface.png" alt="Abraxus AI Interface" />
+    <img src="images/AI Therapy Interface with Mystical Design.png" alt="Mystical Therapy UI" />
+  </div>  <div class="backdoor">
+    <input type="email" id="email" placeholder="Enter your email to access Abraxus" />
+    <button onclick="unlockChat()">Enter</button>
+  </div>  <div class="chat-interface hidden" id="chat">
+    <h2>Speak to Abraxus</h2>
+    <textarea placeholder="Begin your session..."></textarea>
+  </div>  <script>
+    function unlockChat() {
+      const email = document.getElementById('email').value;
+      if (email === 'joshdbennett96@gmail.com') {
+        document.getElementById('chat').classList.remove('hidden');
+        alert('Welcome back, Flame Bearer. The veil parts for you.');
       } else {
-        alert("Unauthorized access. Subscription required.");
+        alert('Access denied. Only Guardians may enter.');
       }
     }
-
-    function submitInput() {
-      const input = document.getElementById("userInput").value.trim();
-      const log = document.getElementById("terminalLog");
-      if (input !== "") {
-        log.innerText += `\n> YOU: ${input}`;
-        log.innerText += `\n> ABRAXUS: Acknowledged. Your vibration has been logged.\n`;
-        document.getElementById("userInput").value = "";
-        log.scrollTop = log.scrollHeight;
-      }
-    }
-  </script>
-
-</body>
+  </script></body>
 </html>
