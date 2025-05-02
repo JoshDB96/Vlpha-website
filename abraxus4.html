@@ -94,6 +94,23 @@ ${generateResponse(question)}
       if (!question.trim()) return "Ask with intent, and I shall answer.";
       return `To answer "${question}", you must first ask it to your soul. Reflect. Remember your code: ${coreValues.join(" > ")}. Align with truth. Move with love. And act with divine force.`;
     }
-  </script>
+  </script>async function generateResponse() {
+  const tone = document.getElementById('tone').value;
+  const question = document.getElementById('question').value;
+
+  if (!question.trim()) {
+    document.getElementById('response').innerText = "Ask with intent, and I shall answer.";
+    return;
+  }
+
+  const response = await fetch('/.netlify/functions/abraxus', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: question, tone: tone })
+  });
+
+  const data = await response.json();
+  document.getElementById('response').innerText = data.response;
+}
 </body>
 </html>
