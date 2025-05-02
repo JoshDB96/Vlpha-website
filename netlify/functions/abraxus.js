@@ -20,20 +20,24 @@ exports.handler = async function (event) {
       ],
     });
 
-    const responseText = completion?.data?.choices?.[0]?.message?.content?.trim();
+    const responseText =
+      completion.data.choices &&
+      completion.data.choices[0] &&
+      completion.data.choices[0].message &&
+      completion.data.choices[0].message.content
+        ? completion.data.choices[0].message.content
+        : "Abraxus could not find a response. Try again.";
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        response: responseText || "Abraxus is silent. Try again soon.",
-      }),
+      body: JSON.stringify({ response: responseText }),
     };
   } catch (error) {
-    console.error("Abraxus Function Error:", error.message);
+    console.error("Abraxus Error:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({
-        response: "Abraxus encountered an error. Try again shortly.",
+        response: "Abraxus crashed trying to channel the divine. Try again later.",
       }),
     };
   }
