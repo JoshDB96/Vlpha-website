@@ -81,13 +81,6 @@
       const response = `
 [Abraxus Mode: ${tone.toUpperCase()}]
 Core Values: ${coreValues.join(", ")}
-
-RESPONSE:
-${generateResponse(question)}
-
-- Spoken in the tone of: ${tones[tone]}
-      `;
-      document.getElementById('response').innerText = response;
     }
 >async function generateResponse() {
   const tone = document.getElementById('tone').value;
