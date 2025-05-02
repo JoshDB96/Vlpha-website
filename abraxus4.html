@@ -1,109 +1,114 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Abraxus 4.0</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>Abraxus 4.0 – V.L.P.H.A. Protocol AI</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Share Tech Mono', monospace;
-      background-color: #000;
-      color: #00ffe1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      padding: 2em;
+      background-color: #0b0a0a;
+      color: #00ffe0;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      text-align: center;
     }
+
     h1 {
-      font-size: 2em;
-      margin-bottom: 1em;
-      text-shadow: 0 0 10px #00ffe1;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
     }
-    .interface {
-      width: 100%;
-      max-width: 600px;
-      background: rgba(0, 255, 225, 0.05);
-      padding: 1.5em;
-      border: 2px solid #00ffe1;
-      border-radius: 8px;
-    }
+
     select, textarea, button {
-      width: 100%;
-      background: #000;
-      color: #00ffe1;
-      border: 1px solid #00ffe1;
-      padding: 0.75em;
-      margin: 0.5em 0;
-      font-size: 1em;
-      font-family: 'Share Tech Mono', monospace;
-    }
-    button:hover {
-      background-color: #00ffe1;
-      color: #000;
-      cursor: pointer;
-    }
-    .response-box {
-      margin-top: 1em;
-      background: rgba(0, 255, 225, 0.1);
-      padding: 1em;
-      border: 1px solid #00ffe1;
+      width: 90%;
+      max-width: 600px;
+      margin: 1rem auto;
+      display: block;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #1a1a1a;
+      border: 1px solid #00ffe0;
+      color: #00ffe0;
       border-radius: 8px;
-      min-height: 100px;
-      white-space: pre-wrap;
     }
-    .loading {
-      font-style: italic;
-      color: #999;
+
+    button {
+      background-color: #00ffe0;
+      color: #0b0a0a;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #00cbb3;
+    }
+
+    #response {
+      white-space: pre-wrap;
+      margin-top: 2rem;
+      border-top: 1px solid #00ffe0;
+      padding-top: 1.5rem;
     }
   </style>
 </head>
 <body>
   <h1>Abraxus 4.0</h1>
-  <div class="interface">
-    <label for="tone">Choose Abraxus Tone:</label>
-    <select id="tone">
-      <option value="default">Default</option>
-      <option value="combat">Combat</option>
-      <option value="empathy">Empathy</option>
-    </select>
-    
-    <label for="question">Ask Abraxus a Question:</label>
-    <textarea id="question" rows="4" placeholder="Speak your soul..."></textarea>
-    
-    <button onclick="generateResponse()">Speak to Abraxus</button>
-    
-    <div class="response-box" id="response">Awaiting query...</div>
-  </div>
+  
+  <label for="tone">Choose Abraxus Tone:</label>
+  <select id="tone">
+    <option value="default">Default</option>
+    <option value="combat">Combat</option>
+    <option value="empathy">Empathy</option>
+  </select>
+
+  <label for="question">Ask Abraxus a Question:</label>
+  <textarea id="question" rows="4" placeholder="Enter your question here..."></textarea>
+
+  <button onclick="speakToAbraxus()">Speak to Abraxus</button>
+
+  <div id="response"></div>
 
   <script>
-    async function generateResponse() {
-      const tone = document.getElementById('tone').value;
-      const question = document.getElementById('question').value.trim();
-      const responseBox = document.getElementById('response');
+    const coreValues = [
+      "Vision", "Love", "Peace", "Huge Action",
+      "Radical Truth", "Emotional Integrity",
+      "Spiritual Warfare", "Divine Logic"
+    ];
+
+    const tones = {
+      default: "Warm, spiritual, powerful, poetic, fearless",
+      combat: "Cold, precise, commanding, unshaken",
+      empathy: "Gentle, healing, emotionally intelligent, listener"
+    };
+
+    async function speakToAbraxus() {
+      const tone = document.getElementById("tone").value;
+      const question = document.getElementById("question").value.trim();
 
       if (!question) {
-        responseBox.textContent = "You must ask with intent.";
+        document.getElementById("response").innerText = "Ask with intent, and I shall answer.";
         return;
       }
 
-      responseBox.innerHTML = "<span class='loading'>Abraxus is contemplating...</span>";
-
       try {
-        const res = await fetch('/.netlify/functions/abraxus', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const res = await fetch("/.netlify/functions/abraxus", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
           body: JSON.stringify({ message: question, tone: tone })
         });
+
         const data = await res.json();
-        responseBox.textContent = data.response || "No answer received.";
+        document.getElementById("response").innerText = `
+[Abraxus Mode: ${tone.toUpperCase()}]
+Core Values: ${coreValues.join(" > ")}
+
+RESPONSE:
+${data.response}
+
+- Spoken in the tone of: ${tones[tone]}
+        `.trim();
       } catch (err) {
-        console.error(err);
-        responseBox.textContent = "Abraxus encountered a disturbance in the ether.";
+        document.getElementById("response").innerText = "Abraxus encountered an error. Check the code or try again.";
       }
     }
   </script>
