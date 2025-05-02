@@ -19,41 +19,21 @@ exports.handler = async function (event) {
         { role: "user", content: message },
       ],
     });
-const responseText =
-      completion?.data?.choices?.[0]?.message?.content?.trim() ||
-      "OpenAI returned no usable response.";
+
+    const responseText = completion?.data?.choices?.[0]?.message?.content?.trim();
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ response: responseText }),
-    };
-  } catch (error) {
-    console.error("Abraxus Function Error:", error.message);
-    return {
-      statusCode: 500,
       body: JSON.stringify({
-        response: "Abraxus encountered a system error. Try again shortly.",
-        error: error.message,
+        response: responseText || "Abraxus is silent. Try again soon.",
       }),
     };
-  }
-};
-    const responseText =
-      completion?.data?.choices?.[0]?.message?.content?.trim() ||
-      "OpenAI returned no usable response.";
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ response: responseText }),
-    };
   } catch (error) {
     console.error("Abraxus Function Error:", error.message);
-
     return {
       statusCode: 500,
       body: JSON.stringify({
-        response: "Abraxus encountered a system error. Try again shortly.",
-        error: error.message,
+        response: "Abraxus encountered an error. Try again shortly.",
       }),
     };
   }
