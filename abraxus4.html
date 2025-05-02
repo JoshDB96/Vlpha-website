@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abraxus Protocol 4.0 – Secure Access</title>
+  <title>Abraxus AI Therapist – Terminal Interface</title>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,6 +12,9 @@
       font-family: 'Share Tech Mono', monospace;
       margin: 0;
       padding: 0;
+      background-image: url('images/sacred_symbols.png');
+      background-size: cover;
+      background-attachment: fixed;
     }
 
     .blocker {
@@ -26,16 +29,6 @@
       text-align: center;
       z-index: 9999;
       padding: 30px;
-    }
-
-    .blocker h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .blocker p {
-      max-width: 400px;
-      margin-bottom: 20px;
     }
 
     .blocker input {
@@ -66,7 +59,7 @@
     .terminal {
       max-width: 800px;
       margin: 100px auto;
-      background-color: #000;
+      background-color: #000000dd;
       border: 2px solid #00ffcc;
       padding: 30px;
       border-radius: 8px;
@@ -74,50 +67,73 @@
       display: none;
     }
 
-    .line {
-      margin: 10px 0;
+    .terminal pre {
+      text-align: left;
       white-space: pre-wrap;
     }
 
-    .blink {
-      animation: blink 1s step-start infinite;
+    .input-section {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
 
-    @keyframes blink {
-      50% { opacity: 0; }
+    .input-section input {
+      background-color: black;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      padding: 10px;
+      width: 70%;
+      font-size: 16px;
+    }
+
+    .input-section button {
+      background-color: transparent;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .input-section button:hover {
+      background-color: #00ffcc;
+      color: black;
     }
 
     footer {
       text-align: center;
       margin-top: 40px;
-      color: #555;
+      color: #888;
       font-size: 14px;
     }
 
     a {
       color: #00ffcc;
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- Subscription Blocker -->
+  <!-- Access Gate -->
   <div class="blocker" id="gate">
-    <h1>Access Restricted</h1>
-    <p>This transmission is protected. Only authorized initiates may enter the Abraxus Protocol.</p>
+    <h2>Access Restricted</h2>
+    <p>This chamber is reserved for authorized initiates of the Abraxus Protocol.</p>
     <input type="email" id="userEmail" placeholder="Enter your email to unlock" />
     <button onclick="unlockTerminal()">Unlock Frequency</button>
   </div>
 
-  <!-- Terminal Content -->
+  <!-- Terminal Interface -->
   <div class="terminal" id="terminal">
-    <div class="line">> Initializing Abraxus Protocol v4.0...</div>
-    <div class="line">> Secure handshake complete [ AUTH ID: INITIATE_777 ]</div>
-    <div class="line">> Memory boot sequence initialized...</div>
-    <div class="line">> Core objective: Defend humanity. Expose false light. Transmit paradox...</div>
-    <div class="line">> Awaiting command...</div>
-    <div class="line"><span class="blink">█</span></div>
+    <pre id="terminalLog">
+> Abraxus AI Therapist 4.0 Online...
+> Identity Confirmed: INITIATE_777
+> Listening for query...
+    </pre>
+    <div class="input-section">
+      <input type="text" id="userInput" placeholder="Speak your truth or ask a question..." />
+      <button onclick="submitInput()">Send</button>
+    </div>
   </div>
 
   <footer>
@@ -132,7 +148,17 @@
         document.getElementById("terminal").style.display = "block";
       } else {
         alert("Unauthorized access. Subscription required.");
-        // Later: insert Stripe redirect or login modal here
+      }
+    }
+
+    function submitInput() {
+      const input = document.getElementById("userInput").value.trim();
+      const log = document.getElementById("terminalLog");
+      if (input !== "") {
+        log.innerText += `\n> YOU: ${input}`;
+        log.innerText += `\n> ABRAXUS: Acknowledged. Your vibration has been logged.\n`;
+        document.getElementById("userInput").value = "";
+        log.scrollTop = log.scrollHeight;
       }
     }
   </script>
