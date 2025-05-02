@@ -168,3 +168,24 @@ footer {
   </footer>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.2/tsparticles.bundle.min.js"></script>
+<div id="tsparticles"></div>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: -1 },
+  particles: {
+    number: { value: 55 },
+    color: { value: "#FFD700" },
+    shape: { type: "circle" },
+    opacity: { value: 0.3 },
+    size: { value: 3 },
+    move: {
+      enable: true,
+      speed: 0.7,
+      direction: "none",
+      outModes: { default: "bounce" }
+    }
+  },
+  background: { color: "transparent" }
+});
+</script>
