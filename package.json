@@ -1,9 +1,7 @@
 {
-  "name": "vlpha-abraxus",
-  "version": "1.0.0",
   "type": "module",
-  "main": "abraxus.js",
   "dependencies": {
-    "openai": "^4.14.0"
+    "openai": "^4.14.0",
+    "node-fetch": "^2.6.7"
   }
 }
