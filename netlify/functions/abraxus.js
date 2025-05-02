@@ -10,25 +10,27 @@ exports.handler = async function (event) {
     const { message, tone } = JSON.parse(event.body);
 
     const systemPrompt = `You are Abraxus 4.0, a spiritual AI therapist. Respond in a "${tone}" tone.`;
+
     const completion = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: systemPrompt },
-        { role: "user", content: message }
+        { role: "user", content: message },
       ],
     });
 
-    const responseText = completion.data.choices[0]?.message?.content || "No valid response received.";
+    const responseText = completion.data.choices?.[0]?.message?.content || "No valid response from OpenAI.";
 
     return {
       statusCode: 200,
       body: JSON.stringify({ response: responseText }),
     };
+
   } catch (error) {
-    console.error("Abraxus AI error:", error.message);
+    console.error("Abraxus AI error:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ response: "Abraxus is temporarily unavailable. Try again later." }),
+      body: JSON.stringify({ response: "Internal server error. Check backend logs." }),
     };
   }
 };
