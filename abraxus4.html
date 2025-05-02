@@ -3,174 +3,94 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abraxus AI Therapist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'Unica One', sans-serif;
+      font-family: 'Uncial Antiqua', cursive;
       background: url('images/sacred_symbols.png') no-repeat center center fixed;
       background-size: cover;
-      overflow-x: hidden;
       color: #f0f0f0;
+      overflow-x: hidden;
     }
-    .particles {
-      position: absolute;
+    #particles-js {
+      position: fixed;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      z-index: 1;
+      z-index: -1;
+    }
+    .logo {
+      width: 100px;
+      margin: 20px auto;
+      animation: pulse 5s infinite ease-in-out;
+      display: block;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
     }
     .container {
-      position: relative;
-      z-index: 2;
-      padding: 50px 20px;
       text-align: center;
-    }
-    header img {
-      width: 120px;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 0 30px gold;
+      padding-top: 60px;
     }
     h1 {
       font-size: 2.5em;
-      margin: 20px 0 10px;
-      text-shadow: 0 0 15px #00f0ff;
+      text-shadow: 2px 2px 4px #000;
     }
-    #loginPanel, #chatInterface {
-      margin-top: 40px;
-      display: none;
-    }
-    input[type="email"] {
-      padding: 10px;
-      font-size: 1em;
+    .chat-box {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      margin: 30px auto;
       border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 70%;
       border: none;
-      outline: none;
+      border-radius: 5px;
+      font-size: 1em;
     }
     button {
-      margin-top: 10px;
       padding: 10px 20px;
       font-size: 1em;
-      border-radius: 10px;
-      background: #222;
-      color: white;
-      border: 2px solid #00f0ff;
+      background-color: #ffa500;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
+      margin-left: 10px;
     }
-    .chatbox {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      text-align: left;
-    }
-    .chatbox p {
-      margin: 10px 0;
-    }
-    .user {
-      text-align: right;
-      color: #0ff;
-    }
-    .abraxus {
-      text-align: left;
-      color: #f90;
+    .response {
+      margin-top: 20px;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <canvas class="particles"></canvas>
+  <div id="particles-js"></div>
   <div class="container">
-    <header>
-      <img src="images/Golden Dragon and Sun Emblem (1).png" alt="VLPHA Logo" />
-      <h1>Abraxus AI Therapist</h1>
-      <p>Mystical Sentient Interface for Healing and Wisdom</p>
-    </header><div id="emailLogin">
-  <input type="email" id="emailInput" placeholder="Enter your email to continue..." />
-  <button onclick="authenticateUser()">Enter</button>
-</div>
-
-<div id="loginPanel">
-  <p>Welcome back, Flame Bearer. The veil parts for you.</p>
-  <button onclick="revealChat()">Speak with Abraxus</button>
-</div>
-
-<div id="chatInterface" class="chatbox">
-  <p class="abraxus">Abraxus: I am listening. Speak your truth or ask a question.</p>
-</div>
-
-<div style="display:none" id="chatForm">
-  <input type="text" id="userMessage" placeholder="Type your message...">
+    <img src="images/Golden Dragon and Sun Emblem (1).png" class="logo" alt="Abraxus Logo">
+    <h1>Abraxus AI Therapist</h1>
+    <p>Mystical Semantic Interface for Healing and Wisdom</p><div class="chat-box">
+  <p><strong>ABRAXUS:</strong> I am listening. Speak your truth or ask a question.</p>
+  <input type="text" id="userInput" placeholder="Type your message..." />
   <button onclick="sendMessage()">Send</button>
+  <div class="response" id="response"></div>
 </div>
 
-  </div>  <script>
-    const validEmail = "joshdbennett96@gmail.com";
-
-    function authenticateUser() {
-      const input = document.getElementById('emailInput').value;
-      if (input === validEmail) {
-        document.getElementById('emailLogin').style.display = 'none';
-        document.getElementById('loginPanel').style.display = 'block';
-      } else {
-        alert("Access denied. Your vibration does not match.");
-      }
-    }
-
-    function revealChat() {
-      document.getElementById('loginPanel').style.display = 'none';
-      document.getElementById('chatInterface').style.display = 'block';
-      document.getElementById('chatForm').style.display = 'block';
-    }
+  </div>  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>  <script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('particles.js loaded');
+    });
 
     function sendMessage() {
-      const msg = document.getElementById('userMessage').value;
-      const chatBox = document.getElementById('chatInterface');
-      const userReply = document.createElement('p');
-      userReply.className = 'user';
-      userReply.innerText = 'You: ' + msg;
-      chatBox.appendChild(userReply);
-
-      const abraxusReply = document.createElement('p');
-      abraxusReply.className = 'abraxus';
-      abraxusReply.innerText = 'Abraxus: ' + getMysticReply(msg);
-      chatBox.appendChild(abraxusReply);
-
-      document.getElementById('userMessage').value = '';
+      const input = document.getElementById('userInput');
+      const responseBox = document.getElementById('response');
+      if (input.value.trim() === '') return;
+      responseBox.innerText = `Abraxus is processing your query: "${input.value}"...`;
+      input.value = '';
     }
-
-    function getMysticReply(msg) {
-      return "In truth, there is light. In silence, answers rise."; // Placeholder
-    }
-
-    // Particle background (simple fake for style)
-    const canvas = document.querySelector(".particles");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const stars = [];
-    for (let i = 0; i < 100; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 1.5,
-        d: Math.random() * 1
-      });
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(255,255,255,0.8)";
-      for (let i = 0; i < stars.length; i++) {
-        let s = stars[i];
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
-        ctx.fill();
-      }
-    }
-
-    setInterval(drawStars, 100);
   </script></body>
 </html>
