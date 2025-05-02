@@ -1,8 +1,13 @@
 {
-  "name": "vlpha-functions",
+  "name": "vlpha-abraxus",
   "version": "1.0.0",
+  "description": "Abraxus 4.0 spiritual AI therapist function",
+  "main": "abraxus.js",
+  "type": "module",
+  "scripts": {
+    "start": "node abraxus.js"
+  },
   "dependencies": {
-    "openai": "^4.14.0",
-    "node-fetch": "^2.6.7"
+    "openai": "^4.14.0"
   }
 }
