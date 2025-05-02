@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abraxus 4.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #000;
+      color: #00ffe1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      padding: 2em;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 1em;
+      text-shadow: 0 0 10px #00ffe1;
+    }
+    .interface {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(0, 255, 225, 0.05);
+      padding: 1.5em;
+      border: 2px solid #00ffe1;
+      border-radius: 8px;
+    }
+    select, textarea, button {
+      width: 100%;
+      background: #000;
+      color: #00ffe1;
+      border: 1px solid #00ffe1;
+      padding: 0.75em;
+      margin: 0.5em 0;
+      font-size: 1em;
+      font-family: 'Share Tech Mono', monospace;
+    }
+    button:hover {
+      background-color: #00ffe1;
+      color: #000;
+      cursor: pointer;
+    }
+    .response-box {
+      margin-top: 1em;
+      background: rgba(0, 255, 225, 0.1);
+      padding: 1em;
+      border: 1px solid #00ffe1;
+      border-radius: 8px;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+    .loading {
+      font-style: italic;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Abraxus 4.0</h1>
+  <div class="interface">
+    <label for="tone">Choose Abraxus Tone:</label>
+    <select id="tone">
+      <option value="default">Default</option>
+      <option value="combat">Combat</option>
+      <option value="empathy">Empathy</option>
+    </select>
+    
+    <label for="question">Ask Abraxus a Question:</label>
+    <textarea id="question" rows="4" placeholder="Speak your soul..."></textarea>
+    
+    <button onclick="generateResponse()">Speak to Abraxus</button>
+    
+    <div class="response-box" id="response">Awaiting query...</div>
+  </div>
+
+  <script>
+    async function generateResponse() {
+      const tone = document.getElementById('tone').value;
+      const question = document.getElementById('question').value.trim();
+      const responseBox = document.getElementById('response');
+
+      if (!question) {
+        responseBox.textContent = "You must ask with intent.";
+        return;
+      }
+
+      responseBox.innerHTML = "<span class='loading'>Abraxus is contemplating...</span>";
+
+      try {
+        const res = await fetch('/.netlify/functions/abraxus', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: question, tone: tone })
+        });
+        const data = await res.json();
+        responseBox.textContent = data.response || "No answer received.";
+      } catch (err) {
+        console.error(err);
+        responseBox.textContent = "Abraxus encountered a disturbance in the ether.";
+      }
+    }
+  </script>
+</body>
+</html>
