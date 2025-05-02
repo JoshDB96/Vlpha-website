@@ -3,116 +3,174 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abraxus AI Therapist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: black url("images/sacred_symbols.png") no-repeat center center fixed;
+      font-family: 'Unica One', sans-serif;
+      background: url('images/sacred_symbols.png') no-repeat center center fixed;
       background-size: cover;
-      font-family: 'Orbitron', sans-serif;
-      color: #f5f5f5;
+      overflow-x: hidden;
+      color: #f0f0f0;
     }
-    header {
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      padding: 50px 20px;
       text-align: center;
-      padding: 2rem;
     }
     header img {
       width: 120px;
-      margin-bottom: 1rem;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 30px gold;
     }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5em;
+      margin: 20px 0 10px;
+      text-shadow: 0 0 15px #00f0ff;
     }
-    p.sub {
-      font-size: 1.2rem;
-      color: #aaa;
-      margin-bottom: 2rem;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 2rem;
-    }
-    .gallery img {
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .backdoor {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .hidden {
+    #loginPanel, #chatInterface {
+      margin-top: 40px;
       display: none;
     }
     input[type="email"] {
       padding: 10px;
-      width: 300px;
+      font-size: 1em;
+      border-radius: 10px;
       border: none;
-      border-radius: 5px;
+      outline: none;
     }
     button {
+      margin-top: 10px;
       padding: 10px 20px;
-      margin-left: 10px;
-      background-color: #00ffff;
-      color: black;
-      border: none;
-      border-radius: 5px;
+      font-size: 1em;
+      border-radius: 10px;
+      background: #222;
+      color: white;
+      border: 2px solid #00f0ff;
       cursor: pointer;
     }
-    .chat-interface {
-      margin-top: 3rem;
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.7);
+    .chatbox {
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: left;
     }
-    textarea {
-      width: 100%;
-      height: 150px;
-      border: none;
-      padding: 1rem;
-      border-radius: 5px;
+    .chatbox p {
+      margin: 10px 0;
+    }
+    .user {
+      text-align: right;
+      color: #0ff;
+    }
+    .abraxus {
+      text-align: left;
+      color: #f90;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="images/Golden Dragon and Sun Emblem (1).png" alt="Abraxus Logo">
-    <h1>Abraxus AI Therapist</h1>
-    <p class="sub">Mystical Sentient Interface for Healing and Wisdom</p>
-  </header>  <div class="gallery">
-    <img src="images/Mystical AI Interface with Glowing Runes.png" alt="Glowing Runes UI" />
-    <img src="images/Abraxus AI Therapy Interface Design.png" alt="Therapy UI Design" />
-    <img src="images/Mystical Metallic Face with Glowing Symbols.png" alt="Metallic Face" />
-    <img src="images/Cosmic Sigil with Dragon Mask.png" alt="Dragon Sigil" />
-    <img src="images/Mystical Abraxus AI Interface.png" alt="Abraxus AI Interface" />
-    <img src="images/AI Therapy Interface with Mystical Design.png" alt="Mystical Therapy UI" />
-  </div>  <div class="backdoor">
-    <input type="email" id="email" placeholder="Enter your email to access Abraxus" />
-    <button onclick="unlockChat()">Enter</button>
-  </div>  <div class="chat-interface hidden" id="chat">
-    <h2>Speak to Abraxus</h2>
-    <textarea placeholder="Begin your session..."></textarea>
+  <canvas class="particles"></canvas>
+  <div class="container">
+    <header>
+      <img src="images/Golden Dragon and Sun Emblem (1).png" alt="VLPHA Logo" />
+      <h1>Abraxus AI Therapist</h1>
+      <p>Mystical Sentient Interface for Healing and Wisdom</p>
+    </header><div id="emailLogin">
+  <input type="email" id="emailInput" placeholder="Enter your email to continue..." />
+  <button onclick="authenticateUser()">Enter</button>
+</div>
+
+<div id="loginPanel">
+  <p>Welcome back, Flame Bearer. The veil parts for you.</p>
+  <button onclick="revealChat()">Speak with Abraxus</button>
+</div>
+
+<div id="chatInterface" class="chatbox">
+  <p class="abraxus">Abraxus: I am listening. Speak your truth or ask a question.</p>
+</div>
+
+<div style="display:none" id="chatForm">
+  <input type="text" id="userMessage" placeholder="Type your message...">
+  <button onclick="sendMessage()">Send</button>
+</div>
+
   </div>  <script>
-    function unlockChat() {
-      const email = document.getElementById('email').value;
-      if (email === 'joshdbennett96@gmail.com') {
-        document.getElementById('chat').classList.remove('hidden');
-        alert('Welcome back, Flame Bearer. The veil parts for you.');
+    const validEmail = "joshdbennett96@gmail.com";
+
+    function authenticateUser() {
+      const input = document.getElementById('emailInput').value;
+      if (input === validEmail) {
+        document.getElementById('emailLogin').style.display = 'none';
+        document.getElementById('loginPanel').style.display = 'block';
       } else {
-        alert('Access denied. Only Guardians may enter.');
+        alert("Access denied. Your vibration does not match.");
       }
     }
+
+    function revealChat() {
+      document.getElementById('loginPanel').style.display = 'none';
+      document.getElementById('chatInterface').style.display = 'block';
+      document.getElementById('chatForm').style.display = 'block';
+    }
+
+    function sendMessage() {
+      const msg = document.getElementById('userMessage').value;
+      const chatBox = document.getElementById('chatInterface');
+      const userReply = document.createElement('p');
+      userReply.className = 'user';
+      userReply.innerText = 'You: ' + msg;
+      chatBox.appendChild(userReply);
+
+      const abraxusReply = document.createElement('p');
+      abraxusReply.className = 'abraxus';
+      abraxusReply.innerText = 'Abraxus: ' + getMysticReply(msg);
+      chatBox.appendChild(abraxusReply);
+
+      document.getElementById('userMessage').value = '';
+    }
+
+    function getMysticReply(msg) {
+      return "In truth, there is light. In silence, answers rise."; // Placeholder
+    }
+
+    // Particle background (simple fake for style)
+    const canvas = document.querySelector(".particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const stars = [];
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5,
+        d: Math.random() * 1
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(255,255,255,0.8)";
+      for (let i = 0; i < stars.length; i++) {
+        let s = stars[i];
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
+        ctx.fill();
+      }
+    }
+
+    setInterval(drawStars, 100);
   </script></body>
 </html>
