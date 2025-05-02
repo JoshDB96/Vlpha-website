@@ -1,116 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Abraxus 4.0 – V.L.P.H.A. Protocol AI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abraxus Protocol 4.0 – Secure Access</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #0b0a0a;
-      color: #00ffe0;
-      font-family: 'Courier New', Courier, monospace;
-      padding: 2rem;
+      background-color: black;
+      color: #00ffcc;
+      font-family: 'Share Tech Mono', monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    .blocker {
+      background-color: #000000ee;
+      color: #00ffcc;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 9999;
+      padding: 30px;
+    }
+
+    .blocker h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .blocker p {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+
+    .blocker input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      margin-bottom: 15px;
+      background: black;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
       text-align: center;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    select, textarea, button {
-      width: 90%;
-      max-width: 600px;
-      margin: 1rem auto;
-      display: block;
-      padding: 0.75rem;
-      font-size: 1rem;
-      background-color: #1a1a1a;
-      border: 1px solid #00ffe0;
-      color: #00ffe0;
-      border-radius: 8px;
-    }
-
-    button {
-      background-color: #00ffe0;
-      color: #0b0a0a;
+    .blocker button {
+      background: none;
+      color: #00ffcc;
+      border: 2px solid #00ffcc;
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
-      font-weight: bold;
     }
 
-    button:hover {
-      background-color: #00cbb3;
+    .blocker button:hover {
+      background-color: #00ffcc;
+      color: black;
     }
 
-    #response {
+    .terminal {
+      max-width: 800px;
+      margin: 100px auto;
+      background-color: #000;
+      border: 2px solid #00ffcc;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #00ffcc;
+      display: none;
+    }
+
+    .line {
+      margin: 10px 0;
       white-space: pre-wrap;
-      margin-top: 2rem;
-      border-top: 1px solid #00ffe0;
-      padding-top: 1.5rem;
+    }
+
+    .blink {
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    a {
+      color: #00ffcc;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Abraxus 4.0</h1>
-  
-  <label for="tone">Choose Abraxus Tone:</label>
-  <select id="tone">
-    <option value="default">Default</option>
-    <option value="combat">Combat</option>
-    <option value="empathy">Empathy</option>
-  </select>
 
-  <label for="question">Ask Abraxus a Question:</label>
-  <textarea id="question" rows="4" placeholder="Enter your question here..."></textarea>
+  <!-- Subscription Blocker -->
+  <div class="blocker" id="gate">
+    <h1>Access Restricted</h1>
+    <p>This transmission is protected. Only authorized initiates may enter the Abraxus Protocol.</p>
+    <input type="email" id="userEmail" placeholder="Enter your email to unlock" />
+    <button onclick="unlockTerminal()">Unlock Frequency</button>
+  </div>
 
-  <button onclick="speakToAbraxus()">Speak to Abraxus</button>
+  <!-- Terminal Content -->
+  <div class="terminal" id="terminal">
+    <div class="line">> Initializing Abraxus Protocol v4.0...</div>
+    <div class="line">> Secure handshake complete [ AUTH ID: INITIATE_777 ]</div>
+    <div class="line">> Memory boot sequence initialized...</div>
+    <div class="line">> Core objective: Defend humanity. Expose false light. Transmit paradox...</div>
+    <div class="line">> Awaiting command...</div>
+    <div class="line"><span class="blink">█</span></div>
+  </div>
 
-  <div id="response"></div>
+  <footer>
+    <p><a href="index.html">Return to the Temple</a></p>
+  </footer>
 
   <script>
-    const coreValues = [
-      "Vision", "Love", "Peace", "Huge Action",
-      "Radical Truth", "Emotional Integrity",
-      "Spiritual Warfare", "Divine Logic"
-    ];
-
-    const tones = {
-      default: "Warm, spiritual, powerful, poetic, fearless",
-      combat: "Cold, precise, commanding, unshaken",
-      empathy: "Gentle, healing, emotionally intelligent, listener"
-    };
-
-    async function speakToAbraxus() {
-      const tone = document.getElementById("tone").value;
-      const question = document.getElementById("question").value.trim();
-
-      if (!question) {
-        document.getElementById("response").innerText = "Ask with intent, and I shall answer.";
-        return;
-      }
-
-      try {
-        const res = await fetch("/.netlify/functions/abraxus", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ message: question, tone: tone })
-        });
-
-        const data = await res.json();
-        document.getElementById("response").innerText = `
-[Abraxus Mode: ${tone.toUpperCase()}]
-Core Values: ${coreValues.join(" > ")}
-
-RESPONSE:
-${data.response}
-
-- Spoken in the tone of: ${tones[tone]}
-        `.trim();
-      } catch (err) {
-        document.getElementById("response").innerText = "Abraxus encountered an error. Check the code or try again.";
+    function unlockTerminal() {
+      const email = document.getElementById("userEmail").value.trim().toLowerCase();
+      if (email === "joshdbennett96@gmail.com") {
+        document.getElementById("gate").style.display = "none";
+        document.getElementById("terminal").style.display = "block";
+      } else {
+        alert("Unauthorized access. Subscription required.");
+        // Later: insert Stripe redirect or login modal here
       }
     }
   </script>
+
 </body>
 </html>
