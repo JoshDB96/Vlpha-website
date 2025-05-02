@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abraxus 4.0 - V.L.P.H.A. Protocol AI</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00ffe1;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2em;
+    }
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .box {
+      background: #111;
+      border: 1px solid #00ffe1;
+      border-radius: 10px;
+      padding: 1em;
+      margin-bottom: 1em;
+    }
+    select, textarea, button {
+      width: 100%;
+      padding: 0.5em;
+      background: #000;
+      color: #00ffe1;
+      border: 1px solid #00ffe1;
+      border-radius: 5px;
+      margin-top: 0.5em;
+    }
+    button:hover {
+      background: #00ffe1;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Abraxus 4.0</h1>
+  <div class="box">
+    <label for="tone">Choose Abraxus Tone:</label>
+    <select id="tone">
+      <option value="default">Default</option>
+      <option value="combat">Combat</option>
+      <option value="empathy">Empathy</option>
+    </select>
+    <label for="question">Ask Abraxus a Question:</label>
+    <textarea id="question" rows="4" placeholder="What troubles you, warrior?"></textarea>
+    <button onclick="speakToAbraxus()">Speak to Abraxus</button>
+  </div>
+
+  <div class="box">
+    <h3>Response:</h3>
+    <pre id="response">Awaiting input...</pre>
+  </div>
+
+  <script>
+    const coreValues = [
+      "Vision",
+      "Love",
+      "Peace",
+      "Huge Action",
+      "Radical Truth",
+      "Emotional Integrity",
+      "Spiritual Warfare",
+      "Divine Logic"
+    ];
+
+    const tones = {
+      default: "Warm, spiritual, powerful, poetic, fearless",
+      combat: "Cold, precise, commanding, unshaken",
+      empathy: "Gentle, healing, emotionally intelligent, listener"
+    };
+
+    function speakToAbraxus() {
+      const tone = document.getElementById('tone').value;
+      const question = document.getElementById('question').value;
+
+      const response = `
+[Abraxus Mode: ${tone.toUpperCase()}]
+Core Values: ${coreValues.join(", ")}
+
+RESPONSE:
+${generateResponse(question)}
+
+- Spoken in the tone of: ${tones[tone]}
+      `;
+      document.getElementById('response').innerText = response;
+    }
+
+    function generateResponse(question) {
+      if (!question.trim()) return "Ask with intent, and I shall answer.";
+      return `To answer "${question}", you must first ask it to your soul. Reflect. Remember your code: ${coreValues.join(" > ")}. Align with truth. Move with love. And act with divine force.`;
+    }
+  </script>
+</body>
+</html>
