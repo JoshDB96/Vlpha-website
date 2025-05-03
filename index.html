@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>V.L.P.H.A.</title>
-  <link rel="icon" href="images/VLPHA_Logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
-
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Cinzel', serif;
-      background: url('images/VLPHA_Background.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background-color: #000;
       color: #FFD700;
       text-align: center;
+    }
+
+    .glow {
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    }
+
+    header img.logo {
+      width: 100px;
+      display: block;
+      margin: 10px auto;
     }
 
     nav {
@@ -29,58 +35,39 @@
       font-weight: bold;
     }
 
-    h1.glow {
+    .hero h1 {
       font-size: 3em;
-      text-shadow: 0 0 10px rgba(255,215,0,0.8), 0 0 20px rgba(255,215,0,0.6);
+      margin-top: 0.5em;
     }
 
-    p, h2, h3, footer {
-      color: #FFD700;
-      text-shadow: 0 0 10px rgba(255,215,0,0.5);
+    .hero p {
+      font-size: 1.2em;
     }
 
     .button {
-      display: inline-block;
+      border: 1px solid #FFD700;
       padding: 10px 20px;
-      border: 2px solid #FFD700;
+      display: inline-block;
+      margin: 20px 0;
       text-decoration: none;
       color: #FFD700;
-      margin-top: 20px;
     }
 
-    #particle-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
+    section {
+      margin: 40px auto;
+      max-width: 800px;
     }
 
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #FFD700;
-      border-radius: 50%;
-      animation: float 15s linear infinite;
-      opacity: 0.5;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    footer {
+      margin: 50px 0 20px;
+      font-size: 0.9em;
     }
   </style>
 </head>
-
 <body>
-  <div id="particle-background"></div>
+
   <header>
-    <img src="images/VLPHA_Logo.png" alt="VLPHA Logo" width="100"/>
+    <img src="images/VLPHA-Logo.png" alt="VLPHA Logo" class="logo" />
     <nav>
       <a href="#">Stream Portal</a>
       <a href="#">Sigil Gear</a>
@@ -90,40 +77,36 @@
     </nav>
   </header>
 
-  <main>
+  <div class="hero">
     <h1 class="glow">Welcome Home</h1>
     <p>Vision. Love. Peace. Huge Action.</p>
-    <a class="button" href="#">Enter the Frequency</a>
+    <a href="#" class="button">Enter the Frequency</a>
     <p>777 Guardians have entered the Frequency.</p>
+  </div>
 
-    <section>
-      <h2 class="glow">The Message</h2>
-      <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
-      <h2 class="glow">The Codex</h2>
-      <p>The sacred mythos and paradox code behind the movement.</p>
-      <h2 class="glow">Stream Portal</h2>
-      <p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
-      <h2 class="glow">Sigil Gear (Coming Soon)</h2>
-      <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
-      <h2 class="glow">Abraxus AI Therapist</h2>
-      <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
-    </section>
-  </main>
+  <section>
+    <h2 class="glow">The Message</h2>
+    <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
+
+    <h2 class="glow">The Codex</h2>
+    <p>The sacred mythos and paradox code behind the movement.</p>
+
+    <h2 class="glow">Stream Portal</h2>
+    <p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
+
+    <h2 class="glow">Sigil Gear (Coming Soon)</h2>
+    <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
+
+    <h2 class="glow">Abraxus AI Therapist</h2>
+    <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
+    <a href="abraxus4.html">
+      <img src="images/Mystical Abraxus AI Interface.png" alt="Abraxus Portal" width="150" />
+    </a>
+  </section>
 
   <footer>
     <p>© 2023 V.L.P.H.A. – Forged through Light, Love, and Huge Action.</p>
   </footer>
 
-  <script>
-    const container = document.getElementById("particle-background");
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.animationDelay = `${Math.random() * 20}s`;
-      p.style.animationDuration = `${10 + Math.random() * 20}s`;
-      container.appendChild(p);
-    }
-  </script>
 </body>
 </html>
