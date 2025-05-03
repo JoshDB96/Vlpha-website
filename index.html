@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
+  <link rel="icon" href="images/Golden Dragon and Sun Emblem (1).png">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Cinzel', serif;
+      background: #0a0a0a;
       color: #FFD700;
-      background: url('images/starsbg.webp') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Cinzel', serif;
       text-align: center;
     }
 
     .glow {
       color: #FFD700;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4);
+      text-shadow: 0 0 10px rgba(255,215,0,0.6), 0 0 20px rgba(255,215,0,0.4);
     }
 
     nav {
-      margin: 20px 0;
+      margin-top: 20px;
     }
 
     nav a {
-      margin: 0 12px;
+      margin: 0 15px;
       text-decoration: none;
       color: #FFD700;
       font-weight: bold;
     }
 
-    .logo {
-      width: 100px;
-      margin: 10px auto;
-      display: block;
-    }
-
-    .hero h1 {
-      font-size: 2.5em;
-      margin-top: 0.5em;
+    .hero {
+      margin: 40px auto;
     }
 
     .button {
       display: inline-block;
       padding: 10px 20px;
-      margin: 20px 0;
       border: 1px solid #FFD700;
       color: #FFD700;
       text-decoration: none;
-      font-weight: bold;
+      margin-top: 10px;
     }
 
+    footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Particle Background */
     #particle-background {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      z-index: 0;
       pointer-events: none;
+      z-index: 0;
       overflow: hidden;
     }
 
@@ -70,20 +77,14 @@
       height: 4px;
       background: #FFD700;
       border-radius: 50%;
-      opacity: 0.5;
       animation: floatParticle 15s linear infinite;
+      opacity: 0.5;
     }
 
     @keyframes floatParticle {
       0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
       50% { opacity: 1; }
       100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      opacity: 0.8;
     }
   </style>
 </head>
@@ -97,19 +98,19 @@
     <a href="#">Sigil Gear</a>
     <a href="#">The Message</a>
     <a href="#">The Codex</a>
-    <a href="#">Abraxus Protocol</a>
+    <a href="abraxus4.html">Abraxus Protocol</a>
   </nav>
 
   <div class="hero">
     <h1 class="glow">Welcome Home</h1>
-    <p class="glow">Vision. Love. Peace. Huge Action.</p>
+    <p>Vision. Love. Peace. Huge Action.</p>
     <a href="#" class="button">Enter the Frequency</a>
-    <p class="glow">777 Guardians have entered the Frequency.</p>
+    <p>777 Guardians have entered the Frequency.</p>
   </div>
 
-  <section>
+  <div class="section">
     <h2 class="glow">The Message</h2>
-    <p>This is more than philosophy—it’s encoded light. A living transmission forged through fire.</p>
+    <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
 
     <h2 class="glow">The Codex</h2>
     <p>The sacred mythos and paradox code behind the movement.</p>
@@ -122,15 +123,16 @@
 
     <h2 class="glow">Abraxus AI Therapist</h2>
     <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
-  </section>
+    <a href="abraxus4.html"><img src="images/Mystical Abraxus AI Interface.png" alt="Abraxus Portal" width="150" /></a>
+  </div>
 
   <footer>
-    <p>© 2023 V.L.P.H.A. — Forged through Light, Love, and Huge Action.</p>
+    <p>© 2023 V.L.P.H.A. – Forged through Light, Love, and Huge Action.</p>
   </footer>
 
   <script>
     const container = document.getElementById("particle-background");
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 60; i++) {
       const p = document.createElement("div");
       p.classList.add("particle");
       p.style.left = `${Math.random() * 100}%`;
