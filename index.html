@@ -1,140 +1,53 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
-  <link rel="icon" href="images/Golden Dragon and Sun Emblem (1).png">
+  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');body {
-  margin: 0;
-  padding: 0;
-  background: #0a0a0a;
-  color: #FFD700;
-  font-family: 'Cinzel', serif;
-  text-align: center;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0a0a0a url('images/sacred_symbols.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #FFD700;
+      font-family: 'Cinzel', serif;
+      text-align: center;
+    }
 
-.glow {
-  color: #FFD700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
-}
+    .logo {
+      width: 120px;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
 
-nav {
-  margin-top: 20px;
-}
+    nav a {
+      color: #FFD700;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #FFD700;
-  font-weight: bold;
-}
+    .glow {
+      color: #FFD700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+    }
 
-.hero {
-  margin: 40px auto;
-}
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-footer {
-  margin-top: 50px;
-  font-size: 12px;
-  color: #aaa;
-}
-
-.logo {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-#particle-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #FFD700;
-  border-radius: 50%;
-  animation: floatParticle 15s linear infinite;
-  opacity: 0.5;
-}
-
-@keyframes floatParticle {
-  0% {
-    transform: translateY(100vh) scale(0.6);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh) scale(1.2);
-    opacity: 0;
-  }
-}
-
+    .button {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 12px 24px;
+      color: #FFD700;
+      border: 1px solid #FFD700;
+      text-decoration: none;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
-  <div id="particle-background"></div>
-  <img src="images/Golden Dragon and Sun Emblem (1).png" alt="VLPHA Logo" class="logo">
-  <nav>
-    <a href="#">Stream Portal</a>
-    <a href="#">Sigil Gear</a>
-    <a href="#">The Message</a>
-    <a href="#">The Codex</a>
-    <a href="abraxus4.html">Abraxus Protocol</a>
-  </nav>
-  <div class="hero">
-    <h1 class="glow">Welcome Home</h1>
-    <p>Vision. Love. Peace. Huge Action.</p>
-    <a href="#" class="button">Enter the Frequency</a>
-    <p>777 Guardians have entered the Frequency.</p>
-  </div>
-  <h2 class="glow">The Message</h2>
-  <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
-  <h2 class="glow">The Codex</h2>
-  <p>The sacred mythos and paradox code behind the movement.</p>
-  <h2 class="glow">Stream Portal</h2>
-  <p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
-  <h2 class="glow">Sigil Gear (Coming Soon)</h2>
-  <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
-  <h2 class="glow">Abraxus AI Therapist</h2>
-  <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
-  <a href="abraxus4.html">
-    <img src="images/Mystical Abraxus AI Interface.png" alt="Abraxus Portal" width="150">
-  </a>
-  <footer>
-    <p>© 2023 V.L.P.H.A. – Forged through Light, Love, and Huge Action.</p>
-  </footer>
-  <script>
-    const container = document.getElementById("particle-background");
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.animationDelay = `${Math.random() * 20}s`;
-      p.style.animationDuration = `${10 + Math.random() * 20}s`;
-      container.appendChild(p);
-    }
-  </script>
-</body>
-</html>
+  <img src="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" alt="VLPHA Logo" class="logo" />
+
+  <!-- Rest of your body content here -->
