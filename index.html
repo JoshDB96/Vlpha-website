@@ -125,5 +125,67 @@
   </div>  <footer>
     <p>© 2023 V.L.P.H.A. &mdash; Forged through Light, Love, and Huge Action.</p>
   </footer>
-</body>
+</body><!-- Begin: Floating Particle Animation + Golden Font Upgrade -->
+<style>
+  /* Golden Glowing Font */
+  .golden-glow {
+    font-family: 'Cinzel', serif;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+
+  /* Particle Background Container */
+  #particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: float 15s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1);
+      opacity: 0;
+    }
+  }
+</style>
+
+<!-- Particle Container -->
+<div id="particle-background"></div>
+
+<!-- Create Floating Particles with JavaScript -->
+<script>
+  const particleContainer = document.getElementById("particle-background");
+
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement("div");
+    p.classList.add("particle");
+    p.style.left = `${Math.random() * 100}%`;
+    p.style.animationDelay = `${Math.random() * 20}s`;
+    p.style.animationDuration = `${10 + Math.random() * 20}s`;
+    particleContainer.appendChild(p);
+  }
+</script>
+<!-- End: Floating Particle Animation + Golden Font Upgrade -->
 </html>
