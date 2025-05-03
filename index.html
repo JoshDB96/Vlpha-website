@@ -126,5 +126,78 @@ footer {
       p.style.animationDuration = `${10 + Math.random() * 20}s`;
       container.appendChild(p);
     }
-  </script></body>
+  </script></body><!-- BEGIN UPGRADE BLOCK -->
+
+<!-- Smooth Scrolling -->
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Animated fade-in on load */
+  body {
+    animation: fadeIn 2s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Hover effects for links */
+  a:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+  }
+
+  /* Responsive nav menu for mobile */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: #FFD700;
+    background: none;
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    nav a {
+      display: block;
+      margin: 10px 0;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px;
+    }
+    nav.active {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+    }
+  }
+
+  /* Button glow on hover */
+  .button:hover {
+    box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+  }
+</style>
+
+<!-- Toggle Menu Button -->
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+<!-- Mobile Menu Toggle Script -->
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
+  }
+</script>
+
+<!-- END UPGRADE BLOCK -->
 </html>
