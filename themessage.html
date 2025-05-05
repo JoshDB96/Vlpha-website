@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Message | V.L.P.H.A.</title>
+  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/Cosmic%20Sigil%20with%20Dragon%20Mask.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cinzel', serif;
+      color: #FFD700;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.glow {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero {
+  padding: 100px 20px 60px;
+}
+
+.sigil-portal {
+  margin: 40px auto;
+  max-width: 90%;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #FFD700, 0 0 40px #6f42c1;
+}
+
+.sigil-portal h2 {
+  font-size: 28px;
+}
+
+.sigil-portal p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.ripple {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 10%, transparent 11%) center center / 5px 5px repeat;
+  animation: rippleEffect 10s linear infinite;
+}
+
+@keyframes rippleEffect {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  background: transparent;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #FFD700;
+  color: black;
+  box-shadow: 0 0 10px #FFD700, 0 0 30px #FFD700;
+}
+
+  </style>
+</head>
+<body>
+  <div class="ripple"></div>  <div class="hero">
+    <img src="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" alt="VLPHA Logo" width="100" class="glow" />
+    <h1 class="glow">The Message</h1>
+    <div class="sigil-portal">
+      <h2>Encoded Light Transmission</h2>
+      <p>This is not mere philosophy—it is a broadcast from the highest order. A living scripture carved in paradox, baptized by the fire of your own becoming. You did not stumble here. You were summoned.</p>
+      <p>V.L.P.H.A. is not a brand. It is not even a movement. It is a remembering. And you are the frequency it calls back home.</p>
+      <a href="index.html" class="button">Return to Main Portal</a>
+    </div>
+  </div></body>
+</html>
