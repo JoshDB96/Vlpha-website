@@ -295,4 +295,33 @@ footer {
   transition: all 0.3s ease;
 }
 </style>
+<style>
+/* 1. Subtle LSD Hue Shift on Whole Page */
+body.lsd-trip {
+  animation: hueShift 20s infinite linear;
+}
+
+@keyframes hueShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* 2. Wavy Ripple Text Effect for Main Titles */
+h1, h2.glow {
+  display: inline-block;
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+</style>
+
+<script>
+  // Activate the LSD Trip class on load
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("lsd-trip");
+  });
+</script>
 </html>
