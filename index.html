@@ -267,8 +267,8 @@ footer {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     background: radial-gradient(circle at center, #6f42c1, #000);
     color: #fff;
@@ -285,7 +285,7 @@ footer {
   }
 
   #abraxus-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
     box-shadow: 0 0 40px #cfa0ff, 0 0 80px #6f42c1;
   }
 
@@ -313,8 +313,9 @@ footer {
   }
 </style>
 
-<!-- Optional: Replace button text with symbol for mystery -->
 <script>
-  document.getElementById("abraxus-button").innerText = "✶";
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("abraxus-button").innerText = "✶";
+  });
 </script>
 </html>
