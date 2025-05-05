@@ -98,7 +98,7 @@ footer {
     <h1 class="glow">Welcome Home</h1>
     <h2>Vision. Love. Peace. Huge Action.</h2>
     <a href="#" class="button">Enter the Frequency</a>
-    <p>777 Guardians have entered the Frequency.</p><h2 class="glow">The Message</h2>
+    <p>999 Guardians have entered the Frequency.</p><h2 class="glow">The Message</h2>
 <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
 
 <h2 class="glow">The Codex</h2>
@@ -110,11 +110,16 @@ footer {
 <h2 class="glow">Sigil Gear (Coming Soon)</h2>
 <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
 
-<h2 class="glow">Abraxus AI Therapist</h2>
-<p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
-<a href="abraxus4.html"><img src="images/Mystical%20Abraxus%20AI%20Interface.png" alt="Abraxus Portal" width="150" /></a>
-
-  </div>  <footer>
+<div class="abraxus-box">
+  <h2>Abraxus AI Therapist</h2>
+  <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
+  <a href="abraxus4.html">
+    <img src="images/Mystical%20Abraxus%20AI%20Interface.png"
+         alt="Abraxus Portal"
+         width="150"
+         style="border-radius: 50%; box-shadow: 0 0 20px #a463ff, 0 0 40px #6f42c1;" />
+  </a>
+</div>  <footer>
     <p>© 2023 V.L.P.H.A. — Forged through Light, Love, and Huge Action.</p>
   </footer>  <script>
     const container = document.getElementById("particle-background");
@@ -262,70 +267,32 @@ footer {
     });
   });
 </script>
-<!-- Floating Abraxus Button -->
-<button id="abraxus-button">✶</button>
-
-<!-- Abraxus Chat Popup -->
-<div id="abraxus-chat">
-  <p style="margin: 0 0 10px;">ABRAXUS: Speak your truth.</p>
-  <input type="text" placeholder="Type your message..." />
-</div>
-
 <style>
-  #abraxus-button {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: radial-gradient(circle at center, #6f42c1, #000);
-    color: #fff;
-    font-size: 30px;
-    font-weight: bold;
-    border: 2px solid #a463ff;
-    box-shadow: 0 0 25px #a463ff, 0 0 50px #6f42c1;
-    cursor: pointer;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.abraxus-box {
+  background: radial-gradient(circle at center, #111111, #000000);
+  border: 2px solid #6f42c1;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #6f42c1, 0 0 60px #3e1a88;
+  width: 320px;
+  max-width: 90%;
+  margin: 40px auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  z-index: 10;
+}
 
-  #abraxus-button:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 40px #cfa0ff, 0 0 80px #6f42c1;
-  }
+.abraxus-box a {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+}
 
-  #abraxus-chat {
-    display: none;
-    position: fixed;
-    bottom: 100px;
-    right: 25px;
-    background: #111;
-    border: 2px solid #6f42c1;
-    padding: 20px;
-    width: 300px;
-    z-index: 9998;
-    color: #eee;
-    border-radius: 10px;
-    font-family: sans-serif;
-  }
-
-  #abraxus-chat input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    margin-top: 10px;
-    border-radius: 5px;
-  }
+.abraxus-box img:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
 </style>
 
-<script>
-  document.getElementById('abraxus-button').addEventListener('click', function () {
-    const chat = document.getElementById('abraxus-chat');
-    chat.style.display = chat.style.display === 'none' ? 'block' : 'none';
-  });
-</script>
 </html>
