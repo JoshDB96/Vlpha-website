@@ -1,143 +1,106 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VLPHA Clothing | Symbolic Armor for the Awakened</title>
-  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png" />
+  <title>VLPHA Clothing | Symbolic Armor</title>
+  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
     body {
       margin: 0;
       padding: 0;
-      background: #000 url('images/sacred_symbols.png') no-repeat center center fixed;
-      background-size: cover;
       font-family: 'Cinzel', serif;
+      background: url('images/sacred_symbols.png') no-repeat center center fixed;
+      background-size: cover;
       color: #FFD700;
-    }header {
-  text-align: center;
-  padding: 40px 20px 20px;
-}
+      text-align: center;
+    }
 
-h1 {
-  font-size: 2.5em;
-  text-shadow: 0 0 10px #FFD700, 0 0 30px #FFD700;
-}
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
 
-.store-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: auto;
-}
+    h2 {
+      font-weight: normal;
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
 
-.product {
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 1px solid #FFD700;
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 0 15px #FFD70044;
-  transition: transform 0.3s ease;
-}
+    .product-box {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid #FFD700;
+      border-radius: 15px;
+      margin: 20px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 350px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
 
-.product:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 25px #FFD700aa;
-}
+    .product-box img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+    }
 
-.product img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+    .product-box h3 {
+      margin: 10px 0;
+      font-size: 1.5em;
+    }
 
-.product h3 {
-  margin: 10px 0 5px;
-  font-size: 1.1em;
-}
+    .coming-soon {
+      font-style: italic;
+      color: #aaa;
+    }
 
-.coming-soon {
-  color: #aaa;
-  font-style: italic;
-}
-
-.email-box {
-  text-align: center;
-  margin-top: 60px;
-  padding: 20px;
-}
-
-.email-box input[type="email"] {
-  padding: 10px;
-  width: 240px;
-  border-radius: 5px;
-  border: none;
-  margin-right: 10px;
-}
-
-.email-box button {
-  padding: 10px 20px;
-  background-color: #6f42c1;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #777;
-  font-size: 0.8em;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.6em;
-  }
-  .store-grid {
-    padding: 20px;
-  }
-}
-
+    footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>VLPHA Clothing</h1>
-    <p class="glow">Symbolic Armor for the Awakened</p>
-  </header>  <div class="store-grid">
-    <div class="product">
-      <img src="images/placeholder_hoodie.png" alt="VLPHA Hoodie">
-      <h3>VLPHA Hoodie</h3>
-      <p class="coming-soon">Coming Soon</p>
-    </div>
-    <div class="product">
-      <img src="images/placeholder_tshirt.png" alt="VLPHA Tee">
-      <h3>VLPHA Tee</h3>
-      <p class="coming-soon">Coming Soon</p>
-    </div>
-    <div class="product">
-      <img src="images/placeholder_hat.png" alt="VLPHA Hat">
-      <h3>VLPHA Hat</h3>
-      <p class="coming-soon">Coming Soon</p>
-    </div>
-    <div class="product">
-      <img src="images/placeholder_jacket.png" alt="VLPHA Jacket">
-      <h3>VLPHA Ritual Jacket</h3>
-      <p class="coming-soon">Coming Soon</p>
-    </div>
-  </div>  <div class="email-box">
-    <h3>Want early access?</h3>
-    <p>Enter your frequency and be first to wear the code.</p>
-    <form action="https://formspree.io/f/your-code-here" method="POST">
-      <input type="email" name="email" required placeholder="you@universe.com" />
-      <button type="submit">Join the Ascension List</button>
-    </form>
-  </div>  <footer>
-    <p>© 2025 V.L.P.H.A. Clothing Division — All Rights Reserved</p>
+
+  <h1>VLPHA Clothing</h1>
+  <h2>Symbolic Armor for the Awakened</h2>
+
+  <!-- Hoodie -->
+  <div class="product-box">
+    <img src="images/vlpha-hoodie-preview.png" alt="VLPHA Hoodie">
+    <h3>VLPHA Hoodie</h3>
+    <p class="coming-soon">COMING SOON</p>
+  </div>
+
+  <!-- Tee -->
+  <div class="product-box">
+    <img src="images/vlpha-tee-preview.png" alt="VLPHA Tee">
+    <h3>VLPHA Tee</h3>
+    <p class="coming-soon">COMING SOON</p>
+  </div>
+
+  <!-- Hat -->
+  <div class="product-box">
+    <img src="images/vlpha-hat-snapback.png" alt="VLPHA Snapback Hat">
+    <h3>VLPHA Snapback Hat</h3>
+    <p class="coming-soon">COMING SOON</p>
+  </div>
+
+  <!-- Jacket -->
+  <div class="product-box">
+    <img src="images/vlpha-jacket-preview.png" alt="VLPHA Ritual Jacket">
+    <h3>VLPHA Ritual Jacket</h3>
+    <p class="coming-soon">COMING SOON</p>
+  </div>
+
+  <footer>
+    <p>© 2025 VLPHA Global | Designed to Awaken. Powered by Vision.</p>
   </footer>
+
 </body>
 </html>
