@@ -230,4 +230,36 @@ footer {
 
   <p style="text-align: center; color: #666;">© 2025 VLpha Collective. All rights reserved. 🛸 Transmit the Light.</p>
 </footer>
+<style>
+  .vlpha-logo {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.9),
+                0 0 50px rgba(0, 255, 255, 0.4);
+    background-color: transparent;
+    backdrop-filter: blur(1px);
+    display: block;
+    margin: 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vlpha-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 1),
+                0 0 80px rgba(0, 255, 255, 0.6);
+  }
+</style>
+
+<script>
+  // Optional: auto-apply the class to your logo if it has an ID or known alt tag
+  document.addEventListener("DOMContentLoaded", function () {
+    const imgList = document.querySelectorAll("img");
+    imgList.forEach((img) => {
+      if (img.alt && img.alt.toLowerCase().includes("vlpha")) {
+        img.classList.add("vlpha-logo");
+      }
+    });
+  });
+</script>
 </html>
