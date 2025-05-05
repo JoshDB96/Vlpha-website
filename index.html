@@ -262,4 +262,59 @@ footer {
     });
   });
 </script>
+<style>
+  #abraxus-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #6f42c1, #000);
+    color: #fff;
+    font-size: 26px;
+    font-weight: bold;
+    border: 2px solid #a463ff;
+    box-shadow: 0 0 25px #a463ff, 0 0 50px #6f42c1;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #abraxus-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #cfa0ff, 0 0 80px #6f42c1;
+  }
+
+  #abraxus-chat {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    background: #111;
+    border: 2px solid #6f42c1;
+    padding: 20px;
+    width: 300px;
+    z-index: 9998;
+    color: #eee;
+    border-radius: 10px;
+    font-family: sans-serif;
+  }
+
+  #abraxus-chat input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+</style>
+
+<!-- Optional: Replace button text with symbol for mystery -->
+<script>
+  document.getElementById("abraxus-button").innerText = "✶";
+</script>
 </html>
