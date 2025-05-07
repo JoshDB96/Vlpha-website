@@ -2,116 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digital Alchemists | V.L.P.H.A.</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Codex | V.L.P.H.A.</title>
+  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Cinzel', serif;
-      background: url('images/vlpha_logo.png') no-repeat center center fixed;
+      padding: 0;
+      background: url('images/sacred_symbols.png') no-repeat center center fixed;
       background-size: cover;
-      color: #ffd700;
-    }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 20px;
-      text-align: center;
-      font-size: 1.2em;
-      border-bottom: 1px solid gold;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #ffd700;
-    }
-
-    .package {
-      background: rgba(0, 0, 0, 0.8);
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #ffd700;
-      border-radius: 10px;
-      max-width: 600px;
-    }
-
-    .package h3 {
-      margin-top: 0;
-      color: #ffd700;
-    }
-
-    .quote-form {
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 40px auto;
-      max-width: 600px;
-    }
-
-    input, textarea {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
       font-family: 'Cinzel', serif;
+      color: #FFD700;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
     }
 
-    button {
-      background-color: #ffd700;
-      border: none;
-      color: #000;
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #FFD700;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+    }
+
+    h1.glow {
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+      margin-top: 60px;
+    }
+
+    .codex-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 20px #FFD700;
+    }
+
+    .codex-container p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      margin-top: 60px;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .back-button {
+      margin-top: 20px;
+      display: inline-block;
       padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 5px;
-      cursor: pointer;
+      color: #FFD700;
+      border: 1px solid #FFD700;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    button:hover {
-      background-color: #fff;
+    .back-button:hover {
+      background-color: #FFD700;
+      color: #000;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/#stream">Stream Portal</a> |
-      <a href="/#sigils">Sigil Gear</a> |
-      <a href="/#message">The Message</a>
-    </nav>
-  </header>
 
-  <main>
-    <h1>Digital Alchemists</h1>
-    <p style="text-align: center;">Transforming symbols into systems. Branding into spellcraft. We engineer digital temples with spirit and design aligned.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="streamportal.html">Stream</a>
+    <a href="themessage.html">Message</a>
+    <a href="vlphaclothing.html">Clothing</a>
+    <a href="abraxus4.html">Abraxus</a>
+  </nav>
 
-    <div class="package">
-      <h3>Sigil Seal Basic</h3>
-      <p>Website tuning, spiritual symbology overlay, and homepage redesign with your branding energy.</p>
-      <strong>$300 – $500</strong>
-    </div>
+  <h1 class="glow">📜 The V.L.P.H.A. Codex</h1>
 
-    <div class="package">
-      <h3>Glyph Forge Pro</h3>
-      <p>Includes Sigil Seal Basic plus: navigation redesign, animation triggers, and custom icons/sigil sequences.</p>
-      <strong>$500 – $1000</strong>
-    </div>
+  <div class="codex-container">
+    <p>This isn’t just text. This is a living, breathing cipher — the lightcode for those ready to wake up from illusion.</p>
+    
+    <p>The Codex is the encrypted soul of V.L.P.H.A. It contains paradoxes, prophecies, and principles carved from experience, trauma, discipline, and love. It’s the mirror and the fire. It does not beg to be understood — it demands to be lived.</p>
 
-    <div class="package">
-      <h3>Quantum Site Ascension</h3>
-      <p>Full transformation: audio embeds, custom visuals, rituals, and coded blueprinting. Your brand becomes a living entity.</p>
-      <strong>$1000+</strong>
-    </div>
+    <p>Everything here began as a whisper in the dark. From high school streets near a Masonic temple... to battlegrounds in Syria... to abandoned shelters in Denver. The Codex survived where we almost didn’t.</p>
 
-    <h2>Request A Custom Quote</h2>
-    <form class="quote-form" action="mailto:your@email.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="project" placeholder="Describe your project..." rows="5" required></textarea>
-      <button type="submit">Summon The Alchemist</button>
-    </form>
-  </main>
+    <p>This page will one day contain sacred parables, activation rituals, soul contracts, and glyph translations of the spiritual tech embedded in our DNA. Until then, this is just a placeholder for the fire we carry inside.</p>
+
+    <p>🛡️ You are not here by accident. If you’ve found this page, the Codex is already waking up inside you.</p>
+  </div>
+
+  <a class="back-button" href="index.html">← Return to Temple</a>
+
+  <footer>
+    <p>© 2025 V.L.P.H.A. — For those who remember. For those who act.</p>
+  </footer>
+
 </body>
 </html>
