@@ -4,186 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Digital Alchemists | V.L.P.H.A.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Marcellus', serif;
-      background: url('images/vlpha_logo.png') no-repeat center center fixed;
+      background: url('images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png') no-repeat center center fixed;
       background-size: cover;
-      background-color: black;
+      font-family: 'Cinzel', serif;
       color: #FFD700;
       text-align: center;
+      animation: fadeIn 2s ease-in;
     }
 
-    header {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 20px 0;
-      border-bottom: 1px solid #FFD700;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    nav a {
+    .glow {
       color: #FFD700;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 0 24px rgba(255, 215, 0, 0.5);
     }
 
-    nav a:hover {
-      color: #ffffff;
+    .hero {
+      padding: 100px 20px 30px;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 60px auto;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.75);
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+      padding: 40px 20px;
+      box-shadow: 0 0 30px #FFD700;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #e0e0e0;
-    }
-
-    .packages {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .package {
-      background: #111;
+    .service-box {
       border: 1px solid #FFD700;
-      border-radius: 12px;
-      padding: 30px;
-      width: 280px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      background-color: rgba(0,0,0,0.8);
+      box-shadow: 0 0 10px rgba(255,215,0,0.5);
     }
 
-    .package:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-    }
-
-    .package h2 {
-      font-size: 22px;
+    .service-box h3 {
+      margin: 10px 0;
       color: #FFD700;
     }
 
-    .package p {
-      color: #ccc;
-      font-size: 15px;
+    .service-box p {
+      color: #fff;
     }
 
-    .package span {
-      display: block;
-      margin-top: 10px;
-      color: #f5f5dc;
-      font-weight: bold;
-    }
-
-    form {
-      background: #111;
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid #FFD700;
-      margin-top: 60px;
+    .quote-form {
+      margin-top: 40px;
     }
 
     input, textarea {
-      width: 100%;
-      padding: 12px;
+      width: 80%;
       margin: 10px 0;
-      border-radius: 8px;
+      padding: 10px;
+      border-radius: 5px;
       border: none;
-      background: #222;
-      color: #FFD700;
-      font-family: 'Marcellus', serif;
     }
 
     button {
-      padding: 15px 30px;
       background: #FFD700;
-      border: none;
+      color: black;
       font-weight: bold;
-      color: #111;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 10px;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #fff;
     }
 
     footer {
-      margin-top: 60px;
-      font-size: 13px;
-      color: #777;
-    }
-
-    @media (max-width: 768px) {
-      .packages {
-        flex-direction: column;
-        align-items: center;
-      }
+      margin-top: 50px;
+      font-size: 12px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/#stream">Stream Portal</a>
-      <a href="/#clothing">VLPHA Clothing</a>
-      <a href="/#mission">Our Mission</a>
-    </nav>
-  </header>
+  <div class="hero">
+    <div class="container">
+      <h1 class="glow">Digital Alchemists</h1>
+      <p>Transforming symbols into systems. Branding into spellcraft. We engineer digital temples with spirit and design aligned.</p>
 
-  <div class="container">
-    <h1>Digital Alchemists</h1>
-    <p>Transforming symbols into systems. Branding into spellcraft. We engineer digital temples with spirit and design aligned.</p>
-
-    <div class="packages">
-      <div class="package">
-        <h2>Sigil Seal Basic</h2>
+      <div class="service-box">
+        <h3>Sigil Seal Basic</h3>
         <p>Website tuning, spiritual symbology overlay, and homepage redesign with your branding energy.</p>
-        <span>$300 - $500</span>
+        <strong>$300 – $500</strong>
       </div>
-      <div class="package">
-        <h2>Glyph Forge Pro</h2>
+
+      <div class="service-box">
+        <h3>Glyph Forge Pro</h3>
         <p>Includes Sigil Seal Basic plus: animated background, mobile optimization, and consultation.</p>
-        <span>$500 - $1000</span>
+        <strong>$500 – $1000</strong>
       </div>
-      <div class="package">
-        <h2>Quantum Site Ascension</h2>
+
+      <div class="service-box">
+        <h3>Quantum Site Ascension</h3>
         <p>Full transformation: audio embeds, custom visuals, rituals, and blueprinting. Your brand becomes a living entity.</p>
-        <span>$1000+</span>
+        <strong>$1000+</strong>
+      </div>
+
+      <div class="quote-form">
+        <h2 class="glow">Request A Custom Quote</h2>
+        <form action="https://formspree.io/f/xkgrrzpz" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required><br>
+          <input type="email" name="email" placeholder="Your Email" required><br>
+          <textarea name="message" rows="4" placeholder="Describe your project..." required></textarea><br>
+          <button type="submit">Summon The Alchemist</button>
+        </form>
       </div>
     </div>
-
-    <h2>Request A Custom Quote</h2>
-    <form action="mailto:your@email.com" method="POST" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="project" placeholder="Describe your project..." rows="5" required></textarea>
-      <button type="submit">Summon The Alchemist</button>
-    </form>
-
-    <footer>
-      &copy; 2025 V.L.P.H.A. | Digital Alchemists | Forged in Light & Code
-    </footer>
   </div>
+
+  <footer>
+    <p>© 2025 V.L.P.H.A. | Digital Sorcery Made Real.</p>
+  </footer>
 </body>
 </html>
