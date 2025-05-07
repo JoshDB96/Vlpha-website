@@ -2,110 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Codex | V.L.P.H.A.</title>
-  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Alchemists | V.L.P.H.A.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('images/sacred_symbols.png') no-repeat center center fixed;
+      font-family: 'Marcellus', serif;
+      background: url('images/vlpha_logo.png') no-repeat center center fixed;
       background-size: cover;
-      font-family: 'Cinzel', serif;
+      background-color: black;
       color: #FFD700;
       text-align: center;
-      animation: fadeIn 2s ease-in-out;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 20px 0;
+      border-bottom: 1px solid #FFD700;
     }
 
     nav a {
+      color: #FFD700;
       margin: 0 15px;
       text-decoration: none;
-      color: #FFD700;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+      color: #ffffff;
     }
 
-    h1.glow {
-      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    .container {
+      max-width: 1000px;
+      margin: 60px auto;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #e0e0e0;
+    }
+
+    .packages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .package {
+      background: #111;
+      border: 1px solid #FFD700;
+      border-radius: 12px;
+      padding: 30px;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .package:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .package h2 {
+      font-size: 22px;
+      color: #FFD700;
+    }
+
+    .package p {
+      color: #ccc;
+      font-size: 15px;
+    }
+
+    .package span {
+      display: block;
+      margin-top: 10px;
+      color: #f5f5dc;
+      font-weight: bold;
+    }
+
+    form {
+      background: #111;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #FFD700;
       margin-top: 60px;
     }
 
-    .codex-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 20px;
-      box-shadow: 0 0 20px #FFD700;
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #FFD700;
+      font-family: 'Marcellus', serif;
     }
 
-    .codex-container p {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 20px;
+    button {
+      padding: 15px 30px;
+      background: #FFD700;
+      border: none;
+      font-weight: bold;
+      color: #111;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #fff;
     }
 
     footer {
       margin-top: 60px;
-      color: #aaa;
-      font-size: 12px;
+      font-size: 13px;
+      color: #777;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .back-button {
-      margin-top: 20px;
-      display: inline-block;
-      padding: 10px 20px;
-      color: #FFD700;
-      border: 1px solid #FFD700;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .back-button:hover {
-      background-color: #FFD700;
-      color: #000;
+    @media (max-width: 768px) {
+      .packages {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#stream">Stream Portal</a>
+      <a href="/#clothing">VLPHA Clothing</a>
+      <a href="/#mission">Our Mission</a>
+    </nav>
+  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="streamportal.html">Stream</a>
-    <a href="themessage.html">Message</a>
-    <a href="vlphaclothing.html">Clothing</a>
-    <a href="abraxus4.html">Abraxus</a>
-  </nav>
+  <div class="container">
+    <h1>Digital Alchemists</h1>
+    <p>Transforming symbols into systems. Branding into spellcraft. We engineer digital temples with spirit and design aligned.</p>
 
-  <h1 class="glow">📜 The V.L.P.H.A. Codex</h1>
+    <div class="packages">
+      <div class="package">
+        <h2>Sigil Seal Basic</h2>
+        <p>Website tuning, spiritual symbology overlay, and homepage redesign with your branding energy.</p>
+        <span>$300 - $500</span>
+      </div>
+      <div class="package">
+        <h2>Glyph Forge Pro</h2>
+        <p>Includes Sigil Seal Basic plus: animated background, mobile optimization, and consultation.</p>
+        <span>$500 - $1000</span>
+      </div>
+      <div class="package">
+        <h2>Quantum Site Ascension</h2>
+        <p>Full transformation: audio embeds, custom visuals, rituals, and blueprinting. Your brand becomes a living entity.</p>
+        <span>$1000+</span>
+      </div>
+    </div>
 
-  <div class="codex-container">
-    <p>This isn’t just text. This is a living, breathing cipher — the lightcode for those ready to wake up from illusion.</p>
-    
-    <p>The Codex is the encrypted soul of V.L.P.H.A. It contains paradoxes, prophecies, and principles carved from experience, trauma, discipline, and love. It’s the mirror and the fire. It does not beg to be understood — it demands to be lived.</p>
+    <h2>Request A Custom Quote</h2>
+    <form action="mailto:your@email.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="project" placeholder="Describe your project..." rows="5" required></textarea>
+      <button type="submit">Summon The Alchemist</button>
+    </form>
 
-    <p>Everything here began as a whisper in the dark. From high school streets near a Masonic temple... to battlegrounds in Syria... to abandoned shelters in Denver. The Codex survived where we almost didn’t.</p>
-
-    <p>This page will one day contain sacred parables, activation rituals, soul contracts, and glyph translations of the spiritual tech embedded in our DNA. Until then, this is just a placeholder for the fire we carry inside.</p>
-
-    <p>🛡️ You are not here by accident. If you’ve found this page, the Codex is already waking up inside you.</p>
+    <footer>
+      &copy; 2025 V.L.P.H.A. | Digital Alchemists | Forged in Light & Code
+    </footer>
   </div>
-
-  <a class="back-button" href="index.html">← Return to Temple</a>
-
-  <footer>
-    <p>© 2025 V.L.P.H.A. — For those who remember. For those who act.</p>
-  </footer>
-
 </body>
 </html>
