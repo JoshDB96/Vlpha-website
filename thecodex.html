@@ -1,69 +1,148 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Alchemists | VLPHA</title>
-  <link rel="stylesheet" href="/styles.css"> <!-- Assume Tailwind or custom site style is applied -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Alchemists | V.L.P.H.A</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000 url('images/sacred_symbols.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5f5dc;
+      font-family: 'Marcellus', serif;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 80px auto;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid #444;
+      padding: 40px;
+      border-radius: 20px;
+    }
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      color: #FFD700;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+    .packages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .package {
+      background: #111;
+      border: 1px solid #666;
+      border-radius: 12px;
+      padding: 30px;
+      width: 280px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+      transition: transform 0.4s ease;
+    }
+    .package:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    .package h2 {
+      color: #FFD700;
+      font-size: 24px;
+    }
+    .package p {
+      color: #ccc;
+      font-size: 15px;
+    }
+    .package span {
+      display: block;
+      margin-top: 10px;
+      color: #f5f5dc;
+      font-weight: bold;
+    }
+    form {
+      background: #111;
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid #555;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #f5f5dc;
+    }
+    button {
+      padding: 15px 30px;
+      background: #FFD700;
+      border: none;
+      font-weight: bold;
+      color: #111;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e6c200;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .packages {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
-<body class="bg-black text-white">  <!-- Hero Section -->  <section class="text-center py-20 px-6">
-    <h1 class="text-5xl font-bold mb-4">Digital Alchemists</h1>
-    <p class="text-xl italic">"We don’t build websites—we forge sacred systems of digital power."</p>
-    <p class="mt-4 max-w-xl mx-auto">We help small business owners break free from overpriced tech traps by building high-performance, client-attracting digital systems that they fully own. This is sacred web development with no fluff, no rent, and no compromise.</p>
-    <a href="#contact" class="mt-6 inline-block bg-white text-black px-6 py-3 font-bold uppercase">Start Your Build</a>
-  </section>  <!-- Services Overview -->  <section class="py-16 px-6 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-10 text-center">Our Service Packages</h2><!-- Brass -->
-<div class="mb-12">
-  <h3 class="text-2xl font-semibold">Brass – Quick Transformation ($750–$1,500)</h3>
-  <ul class="list-disc ml-6 mt-2 text-gray-300">
-    <li>5-page mobile-optimized site</li>
-    <li>Free GitHub + Netlify hosting</li>
-    <li>Basic SEO + Google Analytics</li>
-    <li>Contact form and map embeds</li>
-    <li>Timeline: 7–14 days</li>
-  </ul>
-</div>
+<body>
+  <div class="container">
+    <h1>Digital Alchemists</h1>
+    <p>Transforming symbols into systems. Branding into spellcraft. We engineer digital temples with spirit and design aligned.</p>
 
-<!-- Silver -->
-<div class="mb-12">
-  <h3 class="text-2xl font-semibold">Silver – Growth Engine ($1,500–$3,500)</h3>
-  <ul class="list-disc ml-6 mt-2 text-gray-300">
-    <li>10 custom pages, responsive Tailwind design</li>
-    <li>Full local SEO + blog system</li>
-    <li>CTA and conversion-optimized structure</li>
-    <li>Analytics + social media integration</li>
-    <li>Timeline: 3–5 weeks</li>
-  </ul>
-</div>
+    <div class="packages">
+      <div class="package">
+        <h2>Sigil Seal Basic</h2>
+        <p>Website tuning, spiritual symbology overlay, and homepage redesign with your branding energy.</p>
+        <span>$300 - $500</span>
+      </div>
+      <div class="package">
+        <h2>Glyph Forge Pro</h2>
+        <p>Includes 'Sigil Seal Basic' plus one animated background, mobile optimization, and a digital alchemy consult session.</p>
+        <span>$500 - $1000</span>
+      </div>
+      <div class="package">
+        <h2>Quantum Site Ascension</h2>
+        <p>Full transformation: audio embeds, custom visuals, rituals, and coded blueprinting. Your brand becomes a living entity.</p>
+        <span>$1000+</span>
+      </div>
+    </div>
 
-<!-- Gold -->
-<div>
-  <h3 class="text-2xl font-semibold">Gold – Full Stack Expansion ($5,000–$10,000)</h3>
-  <ul class="list-disc ml-6 mt-2 text-gray-300">
-    <li>20+ pages with custom sections</li>
-    <li>Blog, email funnel, CRM & booking systems</li>
-    <li>Digital product or membership setup</li>
-    <li>Heatmaps, analytics, training & SOPs</li>
-    <li>Timeline: 6–8 weeks</li>
-  </ul>
-</div>
-
-  </section>  <!-- PDF Download -->  <section class="bg-gray-900 py-10 text-center">
-    <p class="mb-4">Want all the details?</p>
-    <a href="/downloads/Digital_Alchemists_Service_Manifesto_Rebuild.pdf" class="underline font-bold">Download Our Full PDF Manifesto</a>
-  </section>  <!-- Contact Form -->  <section id="contact" class="py-20 px-6 max-w-2xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-8">Start Your Project</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-6">
-      <input type="text" name="name" placeholder="Full Name" required class="w-full p-3 bg-gray-800 text-white rounded">
-      <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 bg-gray-800 text-white rounded">
-      <input type="text" name="business" placeholder="Business Name (optional)" class="w-full p-3 bg-gray-800 text-white rounded">
-      <select name="package" class="w-full p-3 bg-gray-800 text-white rounded">
-        <option value="">Select a Package</option>
-        <option value="Brass">Brass</option>
-        <option value="Silver">Silver</option>
-        <option value="Gold">Gold</option>
-      </select>
-      <textarea name="message" rows="5" placeholder="Tell us about your project..." class="w-full p-3 bg-gray-800 text-white rounded"></textarea>
-      <button type="submit" class="bg-white text-black px-6 py-3 font-bold rounded">Send Request</button>
+    <h2>Request A Custom Quote</h2>
+    <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Describe your project..." required></textarea>
+      <button type="submit">Summon The Alchemist</button>
     </form>
-  </section></body>
+
+    <footer>
+      &copy; 2025 V.L.P.H.A. — Codex transformed. Welcome to the digital crucible.
+    </footer>
+  </div>
+</body>
 </html>
