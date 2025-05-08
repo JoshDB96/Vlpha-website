@@ -1,372 +1,175 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Alchemists | V.L.P.H.A.</title>
   <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');body {
-  margin: 0;
-  padding: 0;
-  background: url('images/sacred_symbols.png') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Cinzel', serif;
-  color: #FFD700;
-  text-align: center;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
-.glow {
-  color: #FFD700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cinzel', serif;
+      color: #FFD700;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
 
-nav {
-  margin-top: 20px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #FFD700;
-  font-weight: bold;
-}
+    .glow {
+      color: #FFD700;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 0 24px rgba(255, 215, 0, 0.5);
+    }
 
-.hero {
-  margin: 40px auto;
-}
+    .hero {
+      padding: 100px 20px 30px;
+    }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  text-decoration: none;
-  margin-top: 10px;
-}
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 15px;
+      padding: 40px 20px;
+      box-shadow: 0 0 30px #FFD700;
+    }
 
-.logo {
-  width: 120px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+    .section {
+      margin-bottom: 40px;
+    }
 
-footer {
-  margin-top: 50px;
-  font-size: 12px;
-  color: #aaa;
-}
+    .section p {
+      font-size: 16px;
+      color: #f0e6b6;
+      line-height: 1.7;
+    }
 
-#particle-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
+    .service-box {
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      background-color: rgba(0,0,0,0.8);
+      box-shadow: 0 0 10px rgba(255,215,0,0.5);
+    }
 
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #FFD700;
-  border-radius: 50%;
-  animation: floatParticle 15s linear infinite;
-  opacity: 0.5;
-}
+    .service-box h3 {
+      margin: 10px 0;
+      color: #FFD700;
+    }
 
-@keyframes floatParticle {
-  0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-}
+    .service-box p {
+      color: #fff;
+    }
 
+    .quote-form {
+      margin-top: 40px;
+    }
+
+    input, textarea {
+      width: 80%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Cinzel', serif;
+    }
+
+    button {
+      background: #FFD700;
+      color: black;
+      font-weight: bold;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
-  <div id="particle-background"></div>
-  <img src="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" alt="VLPHA Logo" class="logo" />  <nav>
-    <a href="streamportal.html">Stream Portal</a>
-    <a href="vlphaclothing.html">VLPHA Clothing</a>
-    <a href="themessage.html">The Message</a>
-    <a href="DigitalAlchemists.html">Digital Alchemists</a>
-    <a href="abraxus4.html">Abraxus Protocol</a>
-  </nav>  <div class="hero">
-    <h1 class="glow">Welcome Home</h1>
-    <h2>Vision. Love. Peace. Huge Action.</h2>
-    <a href="enterfrequency.html" class="button">Enter the Frequency</a>
-    <p>999 Guardians have entered the Frequency.</p><h2 class="glow">The Message</h2>
-<p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
+  <div class="hero">
+    <div class="container">
+      <h1 class="glow">Digital Alchemists</h1>
 
-<h2 class="glow">Digital Alchemists</h2>
-<p>Websites designed like temples. Built to liberate.</p>
+      <div class="section">
+        <p><strong>The Trap:</strong><br>
+        Tech giants and template platforms lure small businesses with convenience—then bleed them dry. Bloated monthly fees. Hidden limitations. No true ownership.</p>
 
-<h2 class="glow">Stream Portal</h2>
-<p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
+        <p><strong>The Alchemic Solution:</strong><br>
+        <strong>Digital Alchemists</strong> transmute your vision into sacred, lightning-fast websites that you fully own and control.<br>
+        No fluff. No lock-ins. Just handcrafted, scalable, alchemic web design aligned with your brand’s frequency.</p>
 
-<h2 class="glow">VLPHA Clothing (Coming Soon)</h2>
-<p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
+        <p>Built for creators. Forged in truth. Designed to liberate.</p>
+      </div>
 
-<div class="abraxus-box">
-  <h2>Abraxus AI Therapist</h2>
-  <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
-  <a href="abraxus4.html">
-    <img src="images/Mystical%20Abraxus%20AI%20Interface.png"
-         alt="Abraxus Portal"
-         width="150"
-         style="border-radius: 50%; box-shadow: 0 0 20px #a463ff, 0 0 40px #6f42c1;" />
-  </a>
-</div>  <footer>
-    <p>© 2020 V.L.P.H.A. — Forged through Light, Love, and Huge Action.</p>
-  </footer>  <script>
-    const container = document.getElementById("particle-background");
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.animationDelay = `${Math.random() * 30}s`;
-      p.style.animationDuration = `${10 + Math.random() * 20}s`;
-      container.appendChild(p);
-    }
-  </script></body><!-- BEGIN UPGRADE BLOCK -->
+      <div class="section">
+        <h2 class="glow">Choose Your Alchemic Tier</h2>
 
-<!-- Smooth Scrolling -->
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
+        <div class="service-box">
+          <h3>Brass Package</h3>
+          <p>
+            A solid launch pad for startups or rebrands.<br>
+            • 1–3 page custom site<br>
+            • Mobile optimized<br>
+            • Light animations & spiritual styling<br>
+            • Basic contact form<br>
+            <strong>$750 – $1,500</strong>
+          </p>
+        </div>
 
-  /* Animated fade-in on load */
-  body {
-    animation: fadeIn 2s ease-in;
-  }
+        <div class="service-box">
+          <h3>Silver Package</h3>
+          <p>
+            Perfect for brands ready to expand.<br>
+            • 3–6 page site with blog or gallery<br>
+            • Deeper branding infusion<br>
+            • Optimized performance + SEO tools<br>
+            • 1-on-1 design consult<br>
+            <strong>$1,500 – $3,500</strong>
+          </p>
+        </div>
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+        <div class="service-box">
+          <h3>Gold Package</h3>
+          <p>
+            Total spiritual synthesis of your online temple.<br>
+            • Full-site system w/ embedded audio, client portals, forms<br>
+            • Visual storytelling with motion effects<br>
+            • Ongoing support & update option<br>
+            • Advanced integrations<br>
+            <strong>$5,000 – $10,000+</strong>
+          </p>
+        </div>
+      </div>
 
-  /* Hover effects for links */
-  a:hover {
-    color: #fff;
-    text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
-  }
-
-  /* Responsive nav menu for mobile */
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 28px;
-    color: #FFD700;
-    background: none;
-    border: none;
-  }
-
-  @media (max-width: 768px) {
-    nav a {
-      display: block;
-      margin: 10px 0;
-    }
-    nav {
-      display: none;
-      flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px;
-    }
-    nav.active {
-      display: flex;
-    }
-    .menu-toggle {
-      display: block;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-  }
-
-  /* Button glow on hover */
-  .button:hover {
-    box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
-  }
-</style>
-
-<!-- Toggle Menu Button -->
-<button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-<!-- Mobile Menu Toggle Script -->
-<script>
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-  }
-</script>
-
-<!-- END UPGRADE BLOCK -->
-<!-- 🌀 VLPHA Universal Footer -->
-<footer id="vlpha-footer" style="background: #111; color: #eee; padding: 40px 20px; font-family: sans-serif;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <!-- Quick Nav -->
-    <div style="flex: 1 1 200px; margin-bottom: 20px;">
-      <h3 style="color: #fff;">Explore VLpha</h3>
-      <ul style="list-style: none; padding: 0; line-height: 1.8;">
-        <li><a href="DigitalAlchemists.html" style="color: #aaa; text-decoration: none;">Digital Alchemists</a></li>
-        <li><a href="themessage.html" style="color: #aaa; text-decoration: none;">The Message</a></li>
-        <li><a href="streamportal.html" style="color: #aaa; text-decoration: none;">Stream Portal</a></li>
-        <li><a href="vlphaclothing.html" style="color: #aaa; text-decoration: none;">VLPHA Clothing</a></li>
-        <li><a href="abraxus4.html" style="color: #aaa; text-decoration: none;">Abraxus AI</a></li>
-      </ul>
-    </div>
-
-    <!-- Newsletter Signup -->
-    <div style="flex: 1 1 300px; margin-bottom: 20px;">
-      <h3 style="color: #fff;">🌀 Join the Ascension List</h3>
-      <p style="color: #aaa;">Receive encrypted messages from the High Light.</p>
-      <form action="https://formspree.io/f/xkgrrzpz" method="POST">
-        <input type="email" name="email" required placeholder="you@universe.com" style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
-        <button type="submit" style="background: #6f42c1; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Ascend Now</button>
-      </form>
+      <div class="quote-form">
+        <h2 class="glow">Request A Custom Quote</h2>
+        <form action="https://formspree.io/f/xkgrrzpz" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required><br>
+          <input type="email" name="email" placeholder="Your Email" required><br>
+          <textarea name="message" rows="4" placeholder="Describe your project..." required></textarea><br>
+          <button type="submit">Summon The Alchemist</button>
+        </form>
+      </div>
     </div>
   </div>
 
-  <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
-
-  <p style="text-align: center; color: #666;">© 2025 VLpha Global LLC. All rights reserved. 🛸 Transmit the Light.</p>
-</footer>
-<style>
-  .vlpha-logo {
-    width: 120px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.9),
-                0 0 50px rgba(0, 255, 255, 0.4);
-    background-color: transparent;
-    backdrop-filter: blur(1px);
-    display: block;
-    margin: 20px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .vlpha-logo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 1),
-                0 0 80px rgba(0, 255, 255, 0.6);
-  }
-</style>
-
-<script>
-  // Optional: auto-apply the class to your logo if it has an ID or known alt tag
-  document.addEventListener("DOMContentLoaded", function () {
-    const imgList = document.querySelectorAll("img");
-    imgList.forEach((img) => {
-      if (img.alt && img.alt.toLowerCase().includes("vlpha")) {
-        img.classList.add("vlpha-logo");
-      }
-    });
-  });
-</script>
-<style>
-<style>
-.abraxus-box {
-  background: radial-gradient(circle at center, #111, #000);
-  border: 2px solid #FFD700;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px #FFD700, 0 0 60px #FFAA00;
-  width: 320px;
-  max-width: 90%;
-  margin: 40px auto;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  z-index: 10;
-}
-
-.abraxus-box a {
-  display: inline-block;
-  margin-top: 15px;
-  text-decoration: none;
-}
-
-.abraxus-box img:hover {
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-</style>
-<!-- BEGIN VLPHA FOUNDATION POLISH MODULE -->
-
-<!-- Mobile-Friendly Responsive Nav Toggle -->
-<style>
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 28px;
-    color: #FFD700;
-    background: none;
-    border: none;
-  }
-
-  @media (max-width: 768px) {
-    nav a {
-      display: block;
-      margin: 10px 0;
-    }
-
-    nav {
-      display: none;
-      flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 20px;
-      border-radius: 8px;
-    }
-
-    nav.active {
-      display: flex;
-    }
-
-    .menu-toggle {
-      display: block;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-    }
-  }
-
-  /* Upgrade link hover effects */
-  nav a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
-  }
-
-  /* Subtle glow on page load */
-  body {
-    animation: fadeIn 2.5s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* Favicon fallback styles if missing */
-  link[rel~="icon"] {
-    color: transparent !important;
-  }
-</style>
-
-<!-- Toggle Menu Button -->
-<button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</button>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="V.L.P.H.A. is a movement of Vision, Love, Peace, and Huge Action. A digital temple for awakened warriors.">
-<meta name="keywords" content="VLPHA, Spiritual AI, Conscious Clothing, Abraxus AI, Lightcode, Warrior Rising,Digital Alchemists, Web design">
-<meta property="og:title" content="V.L.P.H.A. | Digital Temple of Truth" />
-<meta property="og:description" content="More than a brand. More than a site. This is a spiritual protocol of transformation." />
-<meta property="og:image" content="https://www.vlpha.online/images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" />
-<meta property="og:url" content="https://www.vlpha.online" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<!-- END VLPHA FOUNDATION POLISH MODULE -->
+  <footer>
+    <p>© 2025 V.L.P.H.A. | Sacred Sites for the New World Builders.</p>
+  </footer>
+</body>
 </html>
