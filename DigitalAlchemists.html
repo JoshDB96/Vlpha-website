@@ -2,21 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Alchemists | V.L.P.H.A.</title>
-  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png">
+  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-
     body {
       margin: 0;
       padding: 0;
-      background: url('images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png') no-repeat center center fixed;
+      background: url('images/sacred_symbols.png') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Cinzel', serif;
       color: #FFD700;
       text-align: center;
-      animation: fadeIn 2s ease-in;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #FFD700;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+    }
+
+    h1.glow {
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+      margin-top: 60px;
+    }
+
+    .codex-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 20px #FFD700;
+    }
+
+    .codex-container p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      margin-top: 60px;
+      color: #aaa;
+      font-size: 12px;
     }
 
     @keyframes fadeIn {
@@ -24,152 +61,73 @@
       to { opacity: 1; }
     }
 
-    .glow {
-      color: #FFD700;
-      text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 0 24px rgba(255, 215, 0, 0.5);
-    }
-
-    .hero {
-      padding: 100px 20px 30px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.75);
-      border-radius: 15px;
-      padding: 40px 20px;
-      box-shadow: 0 0 30px #FFD700;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-
-    .section p {
-      font-size: 16px;
-      color: #f0e6b6;
-      line-height: 1.7;
-    }
-
-    .service-box {
-      border: 1px solid #FFD700;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px auto;
-      background-color: rgba(0,0,0,0.8);
-      box-shadow: 0 0 10px rgba(255,215,0,0.5);
-    }
-
-    .service-box h3 {
-      margin: 10px 0;
-      color: #FFD700;
-    }
-
-    .service-box p {
-      color: #fff;
-    }
-
-    .quote-form {
-      margin-top: 40px;
-    }
-
-    input, textarea {
-      width: 80%;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-      font-family: 'Cinzel', serif;
-    }
-
-    button {
-      background: #FFD700;
-      color: black;
-      font-weight: bold;
+    .back-button {
+      margin-top: 20px;
+      display: inline-block;
       padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      color: #FFD700;
+      border: 1px solid #FFD700;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    footer {
-      margin-top: 50px;
-      font-size: 12px;
-      color: #aaa;
+    .back-button:hover {
+      background-color: #FFD700;
+      color: #000;
+    }
+
+    .package {
+      text-align: left;
+      padding: 20px;
+      background-color: rgba(20, 20, 20, 0.7);
+      border: 1px solid #FFD700;
+      margin-bottom: 30px;
+      border-radius: 12px;
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="container">
-      <h1 class="glow">Digital Alchemists</h1>
 
-      <div class="section">
-        <p><strong>The Trap:</strong><br>
-        Tech giants and template platforms lure small businesses with convenience—then bleed them dry. Bloated monthly fees. Hidden limitations. No true ownership.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="streamportal.html">Stream</a>
+    <a href="themessage.html">Message</a>
+    <a href="vlphaclothing.html">Clothing</a>
+    <a href="abraxus4.html">Abraxus</a>
+  </nav>
 
-        <p><strong>The Alchemic Solution:</strong><br>
-        <strong>Digital Alchemists</strong> transmute your vision into sacred, lightning-fast websites that you fully own and control.<br>
-        No fluff. No lock-ins. Just handcrafted, scalable, alchemic web design aligned with your brand’s frequency.</p>
+  <h1 class="glow">⚡ Digital Alchemists</h1>
 
-        <p>Built for creators. Forged in truth. Designed to liberate.</p>
-      </div>
+  <div class="codex-container">
+    <p>We don’t build websites—we forge sacred systems of digital power.</p>
 
-      <div class="section">
-        <h2 class="glow">Choose Your Alchemic Tier</h2>
+    <p>Digital Alchemists is the service wing of V.L.P.H.A., helping local businesses escape overpriced, underperforming tech. Our builds are fast, spiritual, strategic—and you own it all. No subscriptions. No rent. Just power in your hands.</p>
 
-        <div class="service-box">
-          <h3>Brass Package</h3>
-          <p>
-            A solid launch pad for startups or rebrands.<br>
-            • 1–3 page custom site<br>
-            • Mobile optimized<br>
-            • Light animations & spiritual styling<br>
-            • Basic contact form<br>
-            <strong>$750 – $1,500</strong>
-          </p>
-        </div>
-
-        <div class="service-box">
-          <h3>Silver Package</h3>
-          <p>
-            Perfect for brands ready to expand.<br>
-            • 3–6 page site with blog or gallery<br>
-            • Deeper branding infusion<br>
-            • Optimized performance + SEO tools<br>
-            • 1-on-1 design consult<br>
-            <strong>$1,500 – $3,500</strong>
-          </p>
-        </div>
-
-        <div class="service-box">
-          <h3>Gold Package</h3>
-          <p>
-            Total spiritual synthesis of your online temple.<br>
-            • Full-site system w/ embedded audio, client portals, forms<br>
-            • Visual storytelling with motion effects<br>
-            • Ongoing support & update option<br>
-            • Advanced integrations<br>
-            <strong>$5,000 – $10,000+</strong>
-          </p>
-        </div>
-      </div>
-
-      <div class="quote-form">
-        <h2 class="glow">Request A Custom Quote</h2>
-        <form action="https://formspree.io/f/xkgrrzpz" method="POST">
-          <input type="text" name="name" placeholder="Your Name" required><br>
-          <input type="email" name="email" placeholder="Your Email" required><br>
-          <textarea name="message" rows="4" placeholder="Describe your project..." required></textarea><br>
-          <button type="submit">Summon The Alchemist</button>
-        </form>
-      </div>
+    <div class="package">
+      <h3>💎 Brass Package – $750</h3>
+      <p>Perfect for service-based businesses looking for a clean 5-page website with responsive design, contact form, and Google map integration. Built on GitHub + Netlify with zero monthly fees.</p>
     </div>
+
+    <div class="package">
+      <h3>⚙️ Silver Package – $1,500</h3>
+      <p>For growing brands: 10 custom pages with blog setup, local SEO, Formspree lead capture, and analytics. Integrated for mobile-first engagement. Delivered with a Notion dashboard and light training.</p>
+    </div>
+
+    <div class="package">
+      <h3>🚀 Gold Package – $3,000</h3>
+      <p>Includes full-stack digital build with CRM embed, booking engine, blog + SEO system, custom dashboard, Stripe integration, and optional AI assistant setup. Designed for scaling + automation.</p>
+    </div>
+
+    <p>🧾 Transparent pricing. Real ownership. No locked platforms. Full control.</p>
+    <p>💾 <a href="downloads/Digital_Alchemists_Service_Manifesto_Rebuild.pdf" style="color:#FFD700; text-decoration:underline;">Download our full PDF breakdown</a></p>
+    <p>📩 Use the contact form on the homepage to start your project. All submissions are private + secure.</p>
   </div>
 
+  <a class="back-button" href="index.html">← Return to Temple</a>
+
   <footer>
-    <p>© 2025 V.L.P.H.A. | Sacred Sites for the New World Builders.</p>
+    <p>© 2025 V.L.P.H.A. — Sacred systems for sacred business.</p>
   </footer>
+
 </body>
 </html>
