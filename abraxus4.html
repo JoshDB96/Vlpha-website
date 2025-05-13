@@ -4,79 +4,205 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abraxus AI Therapist</title>
-  <link rel="stylesheet" href="/assets/glow.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: #000;
       font-family: 'Orbitron', sans-serif;
-      color: #00ffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      position: relative;
+      background: black url('/assets/abraxus-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #f5f5f5;
+      text-align: center;
       overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
-    .face-container {
-      width: 100%;
-      max-width: 500px;
+    .logo {
       margin-top: 30px;
-      z-index: 2;
+    }
+    .logo img {
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px gold;
     }
 
-    .face-container img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 40px cyan;
-    }
-
-    .terminal {
-      background: rgba(0, 0, 0, 0.6);
-      border: 2px solid #00ffff;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 30px;
-      width: 90%;
-      max-width: 600px;
-      text-align: left;
-      font-family: monospace;
-      z-index: 2;
-    }
-
-    .terminal p {
-      margin: 0;
-      line-height: 1.5em;
-    }
-
-    .input-container {
-      margin-top: 15px;
-      display: flex;
-      gap: 10px;
-    }
-
-    #userInput {
-      flex: 1;
-      padding: 10px;
-      background: black;
+    h1 {
+      font-size: 2em;
+      margin-top: 10px;
       color: #00ffff;
-      border: 1px solid #00ffff;
-      font-family: monospace;
     }
 
-    button {
-      background: #00ffff;
-      color: black;
+    h2 {
+      font-size: 1.1em;
+      margin-bottom: 20px;
+      color: #f0e68c;
+    }
+
+    .message-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      display: inline-block;
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .message-box input[type="text"] {
+      padding: 10px;
+      width: 200px;
+      border-radius: 5px;
       border: none;
-      font-weight: bold;
+    }
+
+    .message-box input[type="submit"] {
       padding: 10px 20px;
+      background-color: orange;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    #response {
-      margin-top: 20px;
-      padding-top: 10px;
-      border-top: 1px solid #
+    .message-box input[type="submit"]:hover {
+      background-color: gold;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    #overlay input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin: 10px;
+    }
+
+    #overlay button {
+      padding: 10px 20px;
+      background: gold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* 🔥 Eternal Fire Glow */
+    .eternal-fire {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: radial-gradient(ellipse at center, rgba(255,140,0,0.4) 0%, transparent 70%);
+      animation: flame-flicker 2s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes flame-flicker {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <!-- 🔁 Updated Logo -->
+  <div class="logo">
+    <img src="/assets/vlphalogo.png" alt="VLPHA Sigil Logo">
+  </div>
+
+  <h1>Abraxus AI Therapist</h1>
+  <h2>Mystical Semantic Interface for Healing and Wisdom</h2>
+
+  <div class="message-box">
+    <div id="response">ABRAXUS: I am listening. Speak your truth or ask a question.</div>
+    <br>
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <input type="submit" value="Send" onclick="sendMessage()">
+  </div>
+
+  <div class="footer">© 2025 V.L.P.H.A. – All Rights Reserved</div>
+
+  <div id="overlay">
+    <h2>Enter Your Key</h2>
+    <input type="text" id="keyInput" placeholder="Enter access code">
+    <button onclick="checkKey()">Unlock</button>
+  </div>
+
+  <div class="eternal-fire"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    tsParticles.load("particles-js", {
+      particles: {
+        number: { value: 50 },
+        color: { value: "#00ffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1 }
+      }
+    });
+
+    const validKey = "joshdbennett96@gmail.com";
+
+    function checkKey() {
+      const input = document.getElementById('keyInput').value;
+      if (input.trim() === validKey) {
+        document.getElementById('overlay').style.display = 'none';
+        alert("Welcome back, Flame Bearer. The veil parts for you.");
+      } else {
+        alert("Access denied.");
+      }
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById("userInput").value;
+      const responseBox = document.getElementById("response");
+
+      responseBox.innerText = "Abraxus is channeling your truth...";
+
+      try {
+        const res = await fetch("/.netlify/functions/abraxus", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input, tone: "mystical" })
+        });
+
+        const data = await res.json();
+        responseBox.innerText = "ABRAXUS: " + data.reply;
+      } catch (err) {
+        responseBox.innerText = "Abraxus was disrupted. Error: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
