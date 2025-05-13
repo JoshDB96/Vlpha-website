@@ -135,12 +135,24 @@
       }
     }
 
-    function sendMessage() {
-      const input = document.getElementById('userInput').value;
-      const responseBox = document.getElementById('response');
-      if (input.trim() !== "") {
-        responseBox.innerText = `ABRAXUS: You said, "${input}". Your truth has been received.`;
-      }
-    }
+  async function sendMessage() {
+  const input = document.getElementById("userInput").value;
+  const responseBox = document.getElementById("response");
+
+  responseBox.innerText = "Abraxus is channeling your truth...";
+
+  try {
+    const res = await fetch("/.netlify/functions/abraxus", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input, tone: "mystical" })
+    });
+
+    const data = await res.json();
+    responseBox.innerText = "ABRAXUS: " + data.reply;
+  } catch (err) {
+    responseBox.innerText = "Abraxus was disrupted. Error: " + err.message;
+  }
+}
   </script></body>
 </html>
