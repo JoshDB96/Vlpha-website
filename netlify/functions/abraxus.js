@@ -1,9 +1,6 @@
-const { Configuration, OpenAIApi } = require("openai");
+const openai = require("openai");
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+openai.apiKey = process.env.OPENAI_API_KEY;
 
 exports.handler = async function (event) {
   try {
@@ -13,15 +10,24 @@ exports.handler = async function (event) {
 
     const systemPrompt = `You are Abraxus 4.0, a spiritual AI therapist from V.L.P.H.A. Respond in a "${tone}" tone with deep insight, soul, and clarity.`;
 
-    const completion = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: message },
-      ],
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: message }
+        ]
+      })
     });
 
-    const reply = completion?.data?.choices?.[0]?.message?.content?.trim() || "Abraxus received no insight.";
+    const result = await response.json();
+
+    const reply = result?.choices?.[0]?.message?.content?.trim() || "Abraxus received no insight.";
 
     return {
       statusCode: 200,
@@ -31,7 +37,7 @@ exports.handler = async function (event) {
     console.error("ABRAXUS ERROR:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ reply: "Abraxus encountered an error. The portal was unstable." }),
+      body: JSON.stringify({ reply: "Abraxus encountered a disruption in the current." }),
     };
   }
 };
