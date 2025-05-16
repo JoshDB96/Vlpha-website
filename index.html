@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
   <link rel="icon" href="/vlphalogo.png" type="image/png" />
-
-  <!-- Clean Modern Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -14,8 +12,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
       color: #FFD700;
+      background: transparent;
       text-align: center;
       overflow-x: hidden;
     }
@@ -24,11 +22,11 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.2;
+      opacity: 0.25;
     }
 
     h1, h2, h3, p {
@@ -37,6 +35,8 @@
 
     nav {
       margin-top: 20px;
+      z-index: 2;
+      position: relative;
     }
 
     nav a {
@@ -44,7 +44,6 @@
       text-decoration: none;
       color: #FFD700;
       font-weight: bold;
-      transition: 0.3s;
     }
 
     nav a:hover {
@@ -57,18 +56,16 @@
       display: block;
       margin: 25px auto;
       border-radius: 50%;
-      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)) brightness(1.1);
+      filter: drop-shadow(0 0 20px #FFD700);
+      z-index: 2;
+      position: relative;
     }
 
     .hero {
-      margin: 50px auto 20px;
+      margin: 40px auto;
       max-width: 800px;
-    }
-
-    .glow {
-      font-size: 2em;
-      color: #FFD700;
-      text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      z-index: 2;
+      position: relative;
     }
 
     .button {
@@ -77,6 +74,7 @@
       padding: 12px 30px;
       color: #FFD700;
       border: 2px solid #FFD700;
+      background: transparent;
       text-decoration: none;
       font-weight: bold;
       border-radius: 6px;
@@ -85,29 +83,26 @@
 
     .button:hover {
       background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+      box-shadow: 0 0 20px #FFD700;
     }
 
     .abraxus-box {
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.5);
       border: 2px solid #FFD700;
       padding: 25px;
       border-radius: 20px;
       width: 320px;
       margin: 60px auto;
       color: #fff;
-      box-shadow: 0 0 20px #FFD700, 0 0 40px #6f42c1;
+      box-shadow: 0 0 20px #FFD700;
+      position: relative;
+      z-index: 2;
     }
 
     .abraxus-box img {
       border-radius: 50%;
-      box-shadow: 0 0 20px #8a2be2, 0 0 30px #6f42c1;
+      box-shadow: 0 0 20px #8a2be2;
       width: 150px;
-      transition: transform 0.3s ease;
-    }
-
-    .abraxus-box img:hover {
-      transform: scale(1.05);
     }
 
     footer {
@@ -117,58 +112,25 @@
       background: transparent;
       padding: 40px 20px;
       text-shadow: 0 0 10px #FFD700;
-    }
-
-    #particle-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #FFD700;
-      border-radius: 50%;
-      animation: floatParticle 15s linear infinite;
-      opacity: 0.4;
-    }
-
-    @keyframes floatParticle {
-      0%   { transform: translateY(100vh) scale(0.6); opacity: 0; }
-      50%  { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-    }
-
-    @media (max-width: 768px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- 🔁 Background Video -->
+  <!-- Background Video -->
   <video class="background-loop" autoplay muted loop playsinline>
-    <source src="assets/VLPHAbackground.mp4" type="video/mp4">
+    <source src="assets/VLPHAbackground.mp4" type="video/mp4" />
   </video>
 
-  <!-- ✨ Floating Particles -->
-  <div id="particle-background"></div>
-
-  <!-- 🔱 Logo Animation -->
+  <!-- Logo -->
   <video autoplay muted loop playsinline class="vlpha-logo">
     <source src="assets/VLPHAlogo.mp4" type="video/mp4" />
   </video>
 
-  <!-- ☰ Nav -->
+  <!-- Nav -->
   <nav>
     <a href="streamportal.html">Stream Portal</a>
     <a href="vlphaclothing.html">VLPHA Clothing</a>
@@ -177,27 +139,27 @@
     <a href="abraxus4.html">Abraxus Protocol</a>
   </nav>
 
-  <!-- 🏠 Hero Content -->
+  <!-- Hero -->
   <div class="hero">
-    <h1 class="glow">Welcome Home</h1>
+    <h1>Welcome Home</h1>
     <h2>Vision. Love. Peace. Huge Action.</h2>
     <a href="enterfrequency.html" class="button">Enter the Frequency</a>
     <p>999 Guardians have entered the Frequency.</p>
 
-    <h2 class="glow">The Message</h2>
+    <h2>The Message</h2>
     <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
 
-    <h2 class="glow">Digital Alchemists</h2>
+    <h2>Digital Alchemists</h2>
     <p>Websites designed like temples. Built to liberate.</p>
 
-    <h2 class="glow">Stream Portal</h2>
+    <h2>Stream Portal</h2>
     <p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
 
-    <h2 class="glow">VLPHA Clothing (Coming Soon)</h2>
+    <h2>VLPHA Clothing (Coming Soon)</h2>
     <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
   </div>
 
-  <!-- 🧠 Abraxus Portal Box -->
+  <!-- Abraxus Box -->
   <div class="abraxus-box">
     <h2>Abraxus AI Therapist</h2>
     <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
@@ -206,23 +168,10 @@
     </a>
   </div>
 
-  <!-- 🌙 Footer -->
+  <!-- Footer -->
   <footer>
     <p>© 2025 V.L.P.H.A. — Forged through Light, Love, and Huge Action.</p>
   </footer>
-
-  <!-- 🌌 Particle Script -->
-  <script>
-    const container = document.getElementById("particle-background");
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.animationDelay = `${Math.random() * 30}s`;
-      p.style.animationDuration = `${10 + Math.random() * 20}s`;
-      container.appendChild(p);
-    }
-  </script>
 
 </body>
 </html>
