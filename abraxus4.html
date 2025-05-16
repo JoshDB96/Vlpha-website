@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Abraxus AI Therapist</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap">
+  <link rel="icon" type="image/png" href="/vlphalogo.png">
   <style>
     body {
       margin: 0;
@@ -18,16 +19,6 @@
       min-height: 100vh;
     }
 
-    .logo {
-      margin-top: 20px;
-    }
-
-    .logo img {
-      width: 80px;
-      border-radius: 50%;
-      box-shadow: 0 0 20px gold;
-    }
-
     .face {
       width: 220px;
       margin: 30px auto 20px;
@@ -39,12 +30,14 @@
       margin: 0;
       font-size: 1.8em;
       color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
     }
 
     h2 {
       font-size: 1em;
       margin: 0 0 30px;
       color: #f0e68c;
+      text-shadow: 0 0 6px #f0e68c;
     }
 
     .terminal-box {
@@ -149,16 +142,25 @@
 </head>
 <body>
 
+  <!-- 🎥 Abraxus Background Loop -->
+  <video autoplay muted loop playsinline style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.15;
+  ">
+    <source src="/assets/abraxusloop.mp4" type="video/mp4" />
+  </video>
+
   <!-- 🔒 Access Control -->
   <div id="overlay">
     <h2>Enter Your Key</h2>
     <input type="text" id="keyInput" placeholder="Enter access code">
     <button onclick="checkKey()">Unlock</button>
-  </div>
-
-  <!-- 🔺 Logo -->
-  <div class="logo">
-    <img src="/images/vlphalogo.png" alt="VLPHA Logo">
   </div>
 
   <!-- 👁 Face -->
@@ -177,6 +179,18 @@
 
   <!-- 🔥 Flame -->
   <div class="eternal-fire"></div>
+
+  <!-- 🔺 Bottom V.L.P.H.A. Logo -->
+  <div style="
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    opacity: 0.6;
+  ">
+    <img src="/images/vlphalogo.png" alt="V.L.P.H.A. Logo" style="width: 60px; height: auto;">
+  </div>
 
   <div class="footer">© 2025 V.L.P.H.A. – All Rights Reserved</div>
 
