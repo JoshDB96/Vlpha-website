@@ -1,372 +1,247 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
-  <link rel="icon" href="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" type="image/png">
+  <link rel="icon" href="images/vlphalogo.png" type="image/png">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');body {
-  margin: 0;
-  padding: 0;
-  background: url('images/sacred_symbols.png') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Cinzel', serif;
-  color: #FFD700;
-  text-align: center;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
-.glow {
-  color: #FFD700;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cinzel', serif;
+      color: #FFD700;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
 
-nav {
-  margin-top: 20px;
-}
+    body {
+      animation: fadeIn 2s ease-in;
+    }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #FFD700;
-  font-weight: bold;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-.hero {
-  margin: 40px auto;
-}
+    video#bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      z-index: -2;
+      object-fit: cover;
+      opacity: 0.5;
+    }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  text-decoration: none;
-  margin-top: 10px;
-}
+    .glow {
+      color: #FFD700;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+    }
 
-.logo {
-  width: 120px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+    nav {
+      margin-top: 20px;
+    }
 
-footer {
-  margin-top: 50px;
-  font-size: 12px;
-  color: #aaa;
-}
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #FFD700;
+      font-weight: bold;
+    }
 
-#particle-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
+    .hero {
+      margin: 40px auto;
+    }
 
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #FFD700;
-  border-radius: 50%;
-  animation: floatParticle 15s linear infinite;
-  opacity: 0.5;
-}
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 1px solid #FFD700;
+      color: #FFD700;
+      text-decoration: none;
+      margin-top: 10px;
+    }
 
-@keyframes floatParticle {
-  0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-}
+    .vlpha-logo {
+      width: 160px;
+      height: auto;
+      display: block;
+      margin: 30px auto 0;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 50px rgba(0, 255, 255, 0.4);
+    }
 
+    .button:hover {
+      box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .abraxus-box {
+      background: radial-gradient(circle at center, #111, #000);
+      border: 2px solid #FFD700;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #FFD700, 0 0 60px #FFAA00;
+      width: 320px;
+      max-width: 90%;
+      margin: 40px auto;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      z-index: 10;
+    }
+
+    .abraxus-box a {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+
+    .abraxus-box img:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 28px;
+      color: #FFD700;
+      background: none;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    }
   </style>
 </head>
+
 <body>
-  <div id="particle-background"></div>
-  <img src="images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" alt="VLPHA Logo" class="logo" />  <nav>
+
+  <!-- 🔥 Background Animation -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/VLPHAbackground.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🔥 Animated Logo -->
+  <video autoplay muted loop playsinline class="vlpha-logo">
+    <source src="assets/VLPHAlogo.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🔱 Mobile Menu Button -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav>
     <a href="streamportal.html">Stream Portal</a>
     <a href="vlphaclothing.html">VLPHA Clothing</a>
     <a href="themessage.html">The Message</a>
     <a href="DigitalAlchemists.html">Digital Alchemists</a>
     <a href="abraxus4.html">Abraxus Protocol</a>
-  </nav>  <div class="hero">
+  </nav>
+
+  <div class="hero">
     <h1 class="glow">Welcome Home</h1>
     <h2>Vision. Love. Peace. Huge Action.</h2>
     <a href="enterfrequency.html" class="button">Enter the Frequency</a>
-    <p>999 Guardians have entered the Frequency.</p><h2 class="glow">The Message</h2>
-<p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
+    <p>999 Guardians have entered the Frequency.</p>
 
-<h2 class="glow">Digital Alchemists</h2>
-<p>Websites designed like temples. Built to liberate.</p>
+    <h2 class="glow">The Message</h2>
+    <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
 
-<h2 class="glow">Stream Portal</h2>
-<p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
+    <h2 class="glow">Digital Alchemists</h2>
+    <p>Websites designed like temples. Built to liberate.</p>
 
-<h2 class="glow">VLPHA Clothing (Coming Soon)</h2>
-<p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
+    <h2 class="glow">Stream Portal</h2>
+    <p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
 
-<div class="abraxus-box">
-  <h2>Abraxus AI Therapist</h2>
-  <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
-  <a href="abraxus4.html">
-    <img src="images/Mystical%20Abraxus%20AI%20Interface.png"
-         alt="Abraxus Portal"
-         width="150"
-         style="border-radius: 50%; box-shadow: 0 0 20px #a463ff, 0 0 40px #6f42c1;" />
-  </a>
-</div>  <footer>
-    <p>© 2020 V.L.P.H.A. — Forged through Light, Love, and Huge Action.</p>
-  </footer>  <script>
-    const container = document.getElementById("particle-background");
-    for (let i = 0; i < 60; i++) {
-      const p = document.createElement("div");
-      p.classList.add("particle");
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.animationDelay = `${Math.random() * 30}s`;
-      p.style.animationDuration = `${10 + Math.random() * 20}s`;
-      container.appendChild(p);
-    }
-  </script></body><!-- BEGIN UPGRADE BLOCK -->
-
-<!-- Smooth Scrolling -->
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Animated fade-in on load */
-  body {
-    animation: fadeIn 2s ease-in;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* Hover effects for links */
-  a:hover {
-    color: #fff;
-    text-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
-  }
-
-  /* Responsive nav menu for mobile */
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 28px;
-    color: #FFD700;
-    background: none;
-    border: none;
-  }
-
-  @media (max-width: 768px) {
-    nav a {
-      display: block;
-      margin: 10px 0;
-    }
-    nav {
-      display: none;
-      flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px;
-    }
-    nav.active {
-      display: flex;
-    }
-    .menu-toggle {
-      display: block;
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-  }
-
-  /* Button glow on hover */
-  .button:hover {
-    box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
-  }
-</style>
-
-<!-- Toggle Menu Button -->
-<button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-<!-- Mobile Menu Toggle Script -->
-<script>
-  function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
-  }
-</script>
-
-<!-- END UPGRADE BLOCK -->
-<!-- 🌀 VLPHA Universal Footer -->
-<footer id="vlpha-footer" style="background: #111; color: #eee; padding: 40px 20px; font-family: sans-serif;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <!-- Quick Nav -->
-    <div style="flex: 1 1 200px; margin-bottom: 20px;">
-      <h3 style="color: #fff;">Explore VLpha</h3>
-      <ul style="list-style: none; padding: 0; line-height: 1.8;">
-        <li><a href="DigitalAlchemists.html" style="color: #aaa; text-decoration: none;">Digital Alchemists</a></li>
-        <li><a href="themessage.html" style="color: #aaa; text-decoration: none;">The Message</a></li>
-        <li><a href="streamportal.html" style="color: #aaa; text-decoration: none;">Stream Portal</a></li>
-        <li><a href="vlphaclothing.html" style="color: #aaa; text-decoration: none;">VLPHA Clothing</a></li>
-        <li><a href="abraxus4.html" style="color: #aaa; text-decoration: none;">Abraxus AI</a></li>
-      </ul>
-    </div>
-
-    <!-- Newsletter Signup -->
-    <div style="flex: 1 1 300px; margin-bottom: 20px;">
-      <h3 style="color: #fff;">🌀 Join the Ascension List</h3>
-      <p style="color: #aaa;">Receive encrypted messages from the High Light.</p>
-      <form action="https://formspree.io/f/xkgrrzpz" method="POST">
-        <input type="email" name="email" required placeholder="you@universe.com" style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
-        <button type="submit" style="background: #6f42c1; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Ascend Now</button>
-      </form>
-    </div>
+    <h2 class="glow">VLPHA Clothing (Coming Soon)</h2>
+    <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
   </div>
 
-  <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
+  <!-- 💠 Abraxus Section -->
+  <div class="abraxus-box">
+    <h2>Abraxus AI Therapist</h2>
+    <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
+    <a href="abraxus4.html">
+      <img src="images/Mystical%20Abraxus%20AI%20Interface.png" alt="Abraxus Portal" width="150" />
+    </a>
+  </div>
 
-  <p style="text-align: center; color: #666;">© 2025 VLpha Global LLC. All rights reserved. 🛸 Transmit the Light.</p>
-</footer>
-<style>
-  .vlpha-logo {
-    width: 120px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.9),
-                0 0 50px rgba(0, 255, 255, 0.4);
-    background-color: transparent;
-    backdrop-filter: blur(1px);
-    display: block;
-    margin: 20px auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+  <!-- 🔮 Footer -->
+  <footer id="vlpha-footer" style="background: #111; color: #eee; padding: 40px 20px; font-family: sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div style="flex: 1 1 200px; margin-bottom: 20px;">
+        <h3 style="color: #fff;">Explore VLpha</h3>
+        <ul style="list-style: none; padding: 0; line-height: 1.8;">
+          <li><a href="DigitalAlchemists.html" style="color: #aaa;">Digital Alchemists</a></li>
+          <li><a href="themessage.html" style="color: #aaa;">The Message</a></li>
+          <li><a href="streamportal.html" style="color: #aaa;">Stream Portal</a></li>
+          <li><a href="vlphaclothing.html" style="color: #aaa;">VLPHA Clothing</a></li>
+          <li><a href="abraxus4.html" style="color: #aaa;">Abraxus AI</a></li>
+        </ul>
+      </div>
 
-  .vlpha-logo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 1),
-                0 0 80px rgba(0, 255, 255, 0.6);
-  }
-</style>
+      <!-- 📧 Email Signup -->
+      <div style="flex: 1 1 300px; margin-bottom: 20px;">
+        <h3 style="color: #fff;">🌀 Join the Ascension List</h3>
+        <p style="color: #aaa;">Receive encrypted messages from the High Light.</p>
+        <form action="https://formspree.io/f/xkgrrzpz" method="POST">
+          <input type="email" name="email" required placeholder="you@universe.com"
+            style="padding: 10px; width: 100%; margin-bottom: 10px; border: none; border-radius: 5px;">
+          <button type="submit"
+            style="background: #6f42c1; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Ascend Now
+          </button>
+        </form>
+      </div>
+    </div>
 
-<script>
-  // Optional: auto-apply the class to your logo if it has an ID or known alt tag
-  document.addEventListener("DOMContentLoaded", function () {
-    const imgList = document.querySelectorAll("img");
-    imgList.forEach((img) => {
-      if (img.alt && img.alt.toLowerCase().includes("vlpha")) {
-        img.classList.add("vlpha-logo");
-      }
-    });
-  });
-</script>
-<style>
-<style>
-.abraxus-box {
-  background: radial-gradient(circle at center, #111, #000);
-  border: 2px solid #FFD700;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 25px #FFD700, 0 0 60px #FFAA00;
-  width: 320px;
-  max-width: 90%;
-  margin: 40px auto;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  z-index: 10;
-}
+    <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
+    <p style="text-align: center; color: #666;">© 2025 VLpha Global LLC. All rights reserved. 🛸 Transmit the Light.</p>
+  </footer>
 
-.abraxus-box a {
-  display: inline-block;
-  margin-top: 15px;
-  text-decoration: none;
-}
-
-.abraxus-box img:hover {
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-</style>
-<!-- BEGIN VLPHA FOUNDATION POLISH MODULE -->
-
-<!-- Mobile-Friendly Responsive Nav Toggle -->
-<style>
-  .menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 28px;
-    color: #FFD700;
-    background: none;
-    border: none;
-  }
-
-  @media (max-width: 768px) {
-    nav a {
-      display: block;
-      margin: 10px 0;
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('active');
     }
-
-    nav {
-      display: none;
-      flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 20px;
-      border-radius: 8px;
-    }
-
-    nav.active {
-      display: flex;
-    }
-
-    .menu-toggle {
-      display: block;
-      position: absolute;
-      top: 10px;
-      right: 20px;
-    }
-  }
-
-  /* Upgrade link hover effects */
-  nav a:hover {
-    color: #fff;
-    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
-  }
-
-  /* Subtle glow on page load */
-  body {
-    animation: fadeIn 2.5s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  /* Favicon fallback styles if missing */
-  link[rel~="icon"] {
-    color: transparent !important;
-  }
-</style>
-
-<!-- Toggle Menu Button -->
-<button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</button>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="V.L.P.H.A. is a movement of Vision, Love, Peace, and Huge Action. A digital temple for awakened warriors.">
-<meta name="keywords" content="VLPHA, Spiritual AI, Conscious Clothing, Abraxus AI, Lightcode, Warrior Rising,Digital Alchemists, Web design">
-<meta property="og:title" content="V.L.P.H.A. | Digital Temple of Truth" />
-<meta property="og:description" content="More than a brand. More than a site. This is a spiritual protocol of transformation." />
-<meta property="og:image" content="https://www.vlpha.online/images/Golden%20Dragon%20and%20Sun%20Emblem%20(1).png" />
-<meta property="og:url" content="https://www.vlpha.online" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<!-- END VLPHA FOUNDATION POLISH MODULE -->
+  </script>
+</body>
 </html>
