@@ -16,10 +16,13 @@
       color: #FFD700;
       scroll-behavior: smooth;
       overflow-x: hidden;
+      background-color: #000; /* Fallback background */
     }
 
     body {
       animation: fadeIn 2s ease-in;
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes fadeIn {
@@ -33,15 +36,14 @@
       bottom: 0;
       min-width: 100vw;
       min-height: 100vh;
-      z-index: -2;
+      z-index: -1;
       object-fit: cover;
-      opacity: 0.18;
-      filter: brightness(0.65) contrast(1.15);
+      opacity: 0.08 !important; /* FIXED: Super low to reduce glare */
+      filter: brightness(0.4) contrast(1.2) saturate(1.1); /* More readable */
     }
 
     .glow {
-      color: #FFD700;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.4);
     }
 
     nav {
@@ -68,12 +70,10 @@
     .button {
       display: inline-block;
       padding: 12px 24px;
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 30px;
       color: #FFD700;
       font-weight: bold;
-      font-size: 1rem;
       box-shadow: 0 0 10px #FFD700;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
@@ -87,17 +87,10 @@
 
     .vlpha-logo {
       width: 160px;
-      height: auto;
       display: block;
       margin: 30px auto 0;
       border-radius: 20px;
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 50px rgba(0, 255, 255, 0.4);
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 12px;
-      color: #aaa;
     }
 
     .abraxus-box {
@@ -109,8 +102,6 @@
       width: 320px;
       max-width: 90%;
       margin: 40px auto;
-      text-align: center;
-      font-family: 'Segoe UI', sans-serif;
       color: #fff;
       z-index: 10;
     }
@@ -164,19 +155,20 @@
 </head>
 <body>
 
-  <!-- 🔥 Background Animation -->
+  <!-- 🔥 Background Animation FIXED -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/VLPHAbackground.mp4" type="video/mp4">
   </video>
 
-  <!-- 🌀 Animated Logo -->
+  <!-- 🔱 Animated Logo -->
   <video autoplay muted loop playsinline class="vlpha-logo">
     <source src="assets/VLPHAlogo.mp4" type="video/mp4">
   </video>
 
+  <!-- ☰ Menu Toggle -->
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-  <!-- 🔗 Navigation -->
+  <!-- NAVIGATION -->
   <nav>
     <a href="streamportal.html">Stream Portal</a>
     <a href="vlphaclothing.html">VLPHA Clothing</a>
@@ -185,12 +177,12 @@
     <a href="abraxus4.html">Abraxus Protocol</a>
   </nav>
 
-  <!-- ✨ Hero Section -->
+  <!-- 🔮 Hero -->
   <div class="hero">
     <h1 class="glow">Welcome Home</h1>
-    <h2>Vision. Love. Peace. Huge Action.</h2>
+    <h2 class="glow">Vision. Love. Peace. Huge Action.</h2>
     <a href="enterfrequency.html" class="button">Enter the Frequency</a>
-    <p>999 Guardians have entered the Frequency.</p>
+    <p class="glow">999 Guardians have entered the Frequency.</p>
 
     <h2 class="glow">The Message</h2>
     <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
@@ -205,7 +197,7 @@
     <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
   </div>
 
-  <!-- 🔮 Abraxus AI -->
+  <!-- 🧠 Abraxus Portal -->
   <div class="abraxus-box">
     <h2>Abraxus AI Therapist</h2>
     <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
@@ -214,7 +206,7 @@
     </a>
   </div>
 
-  <!-- 🧬 Footer + Email Form -->
+  <!-- 👁‍🗨 Footer -->
   <footer id="vlpha-footer" style="background: #111; color: #eee; padding: 40px 20px; font-family: sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div style="flex: 1 1 200px; margin-bottom: 20px;">
@@ -245,7 +237,6 @@
     <p style="text-align: center; color: #666;">© 2025 VLpha Global LLC. All rights reserved. 🛸 Transmit the Light.</p>
   </footer>
 
-  <!-- Mobile Nav Script -->
   <script>
     function toggleMenu() {
       document.querySelector('nav').classList.toggle('active');
