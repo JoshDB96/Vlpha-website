@@ -16,20 +16,17 @@
       color: #FFD700;
       scroll-behavior: smooth;
       overflow-x: hidden;
-      background-color: #000; /* Fallback background */
+      background-color: #000;
     }
-
     body {
       animation: fadeIn 2s ease-in;
       position: relative;
       z-index: 1;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     video#bg-video {
       position: fixed;
       right: 0;
@@ -38,35 +35,30 @@
       min-height: 100vh;
       z-index: -1;
       object-fit: cover;
-      opacity: 0.08 !important; /* FIXED: Super low to reduce glare */
-      filter: brightness(0.4) contrast(1.2) saturate(1.1); /* More readable */
+      opacity: 0.28;  /* Slightly lower to reduce only glare, not color */
+      filter: none;    /* NO brightness filter */
+      pointer-events: none;
     }
-
     .glow {
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.4);
+      text-shadow: 0 0 12px #FFD700, 0 0 24px #FFD70066;
     }
-
     nav {
       margin-top: 20px;
     }
-
     nav a {
       margin: 0 15px;
       text-decoration: none;
       color: #FFD700;
       font-weight: bold;
     }
-
     nav a:hover {
       color: #fff;
       text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
     }
-
     .hero {
       margin: 40px auto;
       padding: 0 20px;
     }
-
     .button {
       display: inline-block;
       padding: 12px 24px;
@@ -77,14 +69,13 @@
       box-shadow: 0 0 10px #FFD700;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
+      border: 1.5px solid #FFD700;
     }
-
     .button:hover {
       background: #FFD700;
       color: #000;
       box-shadow: 0 0 25px #FFD700, 0 0 40px #FFD700;
     }
-
     .vlpha-logo {
       width: 160px;
       display: block;
@@ -92,7 +83,6 @@
       border-radius: 20px;
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 50px rgba(0, 255, 255, 0.4);
     }
-
     .abraxus-box {
       background: radial-gradient(circle at center, #111, #000);
       border: 2px solid #FFD700;
@@ -105,18 +95,15 @@
       color: #fff;
       z-index: 10;
     }
-
     .abraxus-box a {
       display: inline-block;
       margin-top: 15px;
       text-decoration: none;
     }
-
     .abraxus-box img:hover {
       transform: scale(1.05);
       transition: all 0.3s ease;
     }
-
     .menu-toggle {
       display: none;
       cursor: pointer;
@@ -125,13 +112,11 @@
       background: none;
       border: none;
     }
-
     @media (max-width: 768px) {
       nav a {
         display: block;
         margin: 10px 0;
       }
-
       nav {
         display: none;
         flex-direction: column;
@@ -139,11 +124,9 @@
         padding: 20px;
         border-radius: 8px;
       }
-
       nav.active {
         display: flex;
       }
-
       .menu-toggle {
         display: block;
         position: absolute;
@@ -155,7 +138,7 @@
 </head>
 <body>
 
-  <!-- 🔥 Background Animation FIXED -->
+  <!-- 🔥 Background Animation -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/VLPHAbackground.mp4" type="video/mp4">
   </video>
@@ -165,10 +148,7 @@
     <source src="assets/VLPHAlogo.mp4" type="video/mp4">
   </video>
 
-  <!-- ☰ Menu Toggle -->
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-  <!-- NAVIGATION -->
   <nav>
     <a href="streamportal.html">Stream Portal</a>
     <a href="vlphaclothing.html">VLPHA Clothing</a>
@@ -177,27 +157,21 @@
     <a href="abraxus4.html">Abraxus Protocol</a>
   </nav>
 
-  <!-- 🔮 Hero -->
   <div class="hero">
     <h1 class="glow">Welcome Home</h1>
     <h2 class="glow">Vision. Love. Peace. Huge Action.</h2>
     <a href="enterfrequency.html" class="button">Enter the Frequency</a>
     <p class="glow">999 Guardians have entered the Frequency.</p>
-
     <h2 class="glow">The Message</h2>
     <p>This is more than philosophy—it's encoded light. A living transmission forged through fire.</p>
-
     <h2 class="glow">Digital Alchemists</h2>
     <p>Websites designed like temples. Built to liberate.</p>
-
     <h2 class="glow">Stream Portal</h2>
     <p>Broadcasts from the Ministry of Truth. Watch the war, spread the signal.</p>
-
     <h2 class="glow">VLPHA Clothing (Coming Soon)</h2>
     <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
   </div>
 
-  <!-- 🧠 Abraxus Portal -->
   <div class="abraxus-box">
     <h2>Abraxus AI Therapist</h2>
     <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
@@ -206,7 +180,6 @@
     </a>
   </div>
 
-  <!-- 👁‍🗨 Footer -->
   <footer id="vlpha-footer" style="background: #111; color: #eee; padding: 40px 20px; font-family: sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div style="flex: 1 1 200px; margin-bottom: 20px;">
@@ -219,7 +192,6 @@
           <li><a href="abraxus4.html" style="color: #aaa;">Abraxus AI</a></li>
         </ul>
       </div>
-
       <div style="flex: 1 1 300px; margin-bottom: 20px;">
         <h3 style="color: #fff;">🌀 Join the Ascension List</h3>
         <p style="color: #aaa;">Receive encrypted messages from the High Light.</p>
@@ -236,7 +208,6 @@
     <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
     <p style="text-align: center; color: #666;">© 2025 VLpha Global LLC. All rights reserved. 🛸 Transmit the Light.</p>
   </footer>
-
   <script>
     function toggleMenu() {
       document.querySelector('nav').classList.toggle('active');
