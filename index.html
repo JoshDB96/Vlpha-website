@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>V.L.P.H.A. | Vision, Love, Peace, Huge Action</title>
   <link rel="icon" href="images/vlphalogo.png" type="image/png">
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
@@ -16,6 +15,7 @@
       color: #FFD700;
       text-align: center;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -35,7 +35,8 @@
       min-height: 100vh;
       z-index: -2;
       object-fit: cover;
-      opacity: 0.5;
+      opacity: 0.28;
+      filter: brightness(0.9) contrast(1.1);
     }
 
     .glow {
@@ -54,17 +55,33 @@
       font-weight: bold;
     }
 
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    }
+
     .hero {
       margin: 40px auto;
     }
 
     .button {
       display: inline-block;
-      padding: 10px 20px;
-      border: 1px solid #FFD700;
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      border-radius: 30px;
       color: #FFD700;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 0 10px #FFD700;
       text-decoration: none;
-      margin-top: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background: #FFD700;
+      color: #000;
+      box-shadow: 0 0 25px #FFD700, 0 0 40px #FFD700;
     }
 
     .vlpha-logo {
@@ -74,10 +91,6 @@
       margin: 30px auto 0;
       border-radius: 20px;
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 50px rgba(0, 255, 255, 0.4);
-    }
-
-    .button:hover {
-      box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
     }
 
     footer {
@@ -147,26 +160,36 @@
       }
     }
 
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #FFD700;
+      border-radius: 50%;
+      animation: floatParticle 15s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- 🔥 Background Animation -->
+  <!-- 🔥 Video Background -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/VLPHAbackground.mp4" type="video/mp4">
   </video>
 
-  <!-- 🔥 Animated Logo -->
+  <!-- 🌀 Animated Logo -->
   <video autoplay muted loop playsinline class="vlpha-logo">
     <source src="assets/VLPHAlogo.mp4" type="video/mp4">
   </video>
 
-  <!-- 🔱 Mobile Menu Button -->
+  <!-- 🔱 Mobile Toggle -->
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
   <nav>
@@ -177,6 +200,7 @@
     <a href="abraxus4.html">Abraxus Protocol</a>
   </nav>
 
+  <!-- 🔆 Hero Section -->
   <div class="hero">
     <h1 class="glow">Welcome Home</h1>
     <h2>Vision. Love. Peace. Huge Action.</h2>
@@ -196,7 +220,7 @@
     <p>Symbolic armor for the awakened. Designed to align with your role in the vision.</p>
   </div>
 
-  <!-- 💠 Abraxus Section -->
+  <!-- 💠 Abraxus Box -->
   <div class="abraxus-box">
     <h2>Abraxus AI Therapist</h2>
     <p>An AI forged to protect truth and transmute trauma. Enter to speak your truth.</p>
@@ -205,7 +229,7 @@
     </a>
   </div>
 
-  <!-- 🔮 Footer -->
+  <!-- 🧬 Footer -->
   <footer id="vlpha-footer" style="background: #111; color: #eee; padding: 40px 20px; font-family: sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
       <div style="flex: 1 1 200px; margin-bottom: 20px;">
@@ -219,7 +243,6 @@
         </ul>
       </div>
 
-      <!-- 📧 Email Signup -->
       <div style="flex: 1 1 300px; margin-bottom: 20px;">
         <h3 style="color: #fff;">🌀 Join the Ascension List</h3>
         <p style="color: #aaa;">Receive encrypted messages from the High Light.</p>
@@ -233,15 +256,31 @@
         </form>
       </div>
     </div>
-
     <hr style="border: 0; border-top: 1px solid #333; margin: 30px 0;">
     <p style="text-align: center; color: #666;">© 2025 VLpha Global LLC. All rights reserved. 🛸 Transmit the Light.</p>
   </footer>
 
+  <!-- ✨ JS TOGGLE -->
   <script>
     function toggleMenu() {
       document.querySelector('nav').classList.toggle('active');
     }
+
+    // Particle animation (optional - disabled since you already use video)
+    // Uncomment this if you want extra particle float on top:
+    /*
+    document.addEventListener("DOMContentLoaded", () => {
+      for (let i = 0; i < 50; i++) {
+        const p = document.createElement("div");
+        p.classList.add("particle");
+        p.style.left = `${Math.random() * 100}vw`;
+        p.style.top = `${Math.random() * 100}vh`;
+        p.style.animationDelay = `${Math.random() * 30}s`;
+        p.style.animationDuration = `${10 + Math.random() * 20}s`;
+        document.body.appendChild(p);
+      }
+    });
+    */
   </script>
 </body>
 </html>
