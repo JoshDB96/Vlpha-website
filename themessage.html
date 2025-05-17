@@ -7,7 +7,6 @@
   <link rel="icon" href="images/vlphalogo.png" type="image/png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-
     html, body {
       margin: 0;
       padding: 0;
@@ -15,161 +14,156 @@
       color: #FFD700;
       background: #000;
       text-align: center;
-      overflow-x: hidden;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-
-    /* Background Animation Video - Always fill screen and bright */
+    body {
+      position: relative;
+      min-height: 100vh;
+      z-index: 1;
+    }
+    /* Animated Background Video */
     #bg-video {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
+      min-width: 100vw;
+      min-height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.55;
+      opacity: 0.5; /* Brighter! Adjust between 0.4–0.7 for more/less glow */
       pointer-events: none;
-      transition: opacity 0.3s;
       background: #000;
     }
-
     .vlpha-logo-wrapper {
       width: 160px;
       height: 160px;
-      margin: 36px auto 0;
-      border-radius: 20px;
+      margin: 40px auto 0;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 0 25px #FFD700, 0 0 50px #18caff90;
-      background: rgba(0,0,0,0.5);
+      box-shadow: 0 0 28px 8px #FFD700, 0 0 32px #4bf8ff70;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .vlpha-logo-wrapper video {
       width: 100%;
-      height: auto;
-      display: block;
-      margin: 0;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 20px;
     }
-
     .message-container {
-      max-width: 900px;
-      margin: 50px auto 40px auto;
-      padding: 40px 32px 32px 32px;
-      background: rgba(0,0,0,0.68);
+      max-width: 800px;
+      margin: 38px auto 0;
+      padding: 38px 24px;
+      background: rgba(10,10,10,0.78); /* Brighter translucent box */
       border-radius: 18px;
-      border: 2px solid #FFD700;
-      box-shadow: 0 0 48px 8px #FFD70055;
-      backdrop-filter: blur(1px);
+      border: 2.5px solid #FFD700;
+      box-shadow: 0 0 55px 0 #FFD700, 0 0 18px #00faff22;
+      z-index: 2;
     }
-
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 26px;
-      text-shadow: 0 0 16px #FFD700, 0 0 30px #FFD70044;
-      letter-spacing: 2px;
+      font-size: 2.3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 18px #FFD700, 0 0 30px #FFD700aa;
     }
-
     p {
       font-size: 18px;
-      line-height: 1.8;
-      margin: 15px 0 15px 0;
-      text-shadow: 0 0 10px #FFD70033, 0 0 2px #000;
+      line-height: 1.7;
+      margin: 15px 0;
+      text-shadow: 0 0 12px #FFD70055, 0 0 4px #111;
     }
-
     .button {
-      margin-top: 34px;
+      margin-top: 30px;
       padding: 13px 34px;
       background: transparent;
-      border: 2px solid #FFD700;
-      border-radius: 10px;
+      border: 2.5px solid #FFD700;
+      border-radius: 12px;
       color: #FFD700;
-      font-size: 1rem;
-      font-family: inherit;
+      font-size: 17px;
       text-decoration: none;
-      transition: all 0.22s ease;
-      box-shadow: 0 0 12px #FFD70044;
       font-weight: bold;
+      letter-spacing: 0.04em;
+      box-shadow: 0 0 22px #FFD70050;
+      transition: all 0.28s ease;
+      display: inline-block;
     }
     .button:hover {
       background: #FFD700;
       color: #000;
-      box-shadow: 0 0 22px #FFD700, 0 0 50px #18caff88;
+      box-shadow: 0 0 35px #FFD700, 0 0 45px #0ff;
     }
-
     footer {
-      margin-top: 54px;
-      margin-bottom: 30px;
-      font-size: 15px;
+      margin-top: 56px;
+      margin-bottom: 12px;
+      font-size: 14px;
       color: #aaa;
-      text-shadow: 0 0 2px #FFD70066;
+      text-shadow: 0 0 4px #000;
     }
-
-    /* Responsive Mobile */
-    @media (max-width: 768px) {
+    /* Responsive */
+    @media (max-width: 900px) {
+      .message-container { max-width: 98vw; }
+    }
+    @media (max-width: 600px) {
       .vlpha-logo-wrapper {
-        width: 112px;
-        height: 112px;
-        margin-top: 24px;
+        width: 98px;
+        height: 98px;
       }
       .message-container {
-        margin: 24px 5vw 20px 5vw;
-        padding: 20px 6vw 20px 6vw;
+        padding: 20px 5vw;
+        margin: 20px auto 0;
       }
-      h1 { font-size: 1.25rem; }
+      h1 { font-size: 1.5em; }
       p { font-size: 15px; }
-      .button { padding: 10px 12vw; font-size: 16px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- 🌀 Background Animation -->
+  <!-- 🔮 Background Video (BRIGHT, FULL, FITS PAGE) -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/Sigilbackground.mp4" type="video/mp4" />
   </video>
-
-  <!-- 🌀 Animated VLPHA Logo -->
+  <!-- 🌀 VLPHA Animated Logo (No watermark/crop) -->
   <div class="vlpha-logo-wrapper">
     <video autoplay muted loop playsinline>
       <source src="assets/VLPHAlogo.mp4" type="video/mp4" />
     </video>
   </div>
-
   <!-- 📜 Message Block -->
   <div class="message-container">
     <h1>The Message</h1>
     <p>
-      This is not content. This is not marketing.
-      This is a <strong>living transmission</strong>—a pulse from beyond language.
+      This is not content. This is not marketing.<br>
+      This is a <strong>living transmission</strong>—a pulse from beyond language, for those who remember the deeper hum beneath the noise.
     </p>
     <p>
-      V.L.P.H.A. is the sacred hum beneath the noise.
-      It is not a movement—it is <strong>a remembering</strong>.
-      The kind that shakes your bones and stirs the atoms in your breath.
+      V.L.P.H.A. is the sacred hum beneath the chaos. <br>
+      It is not a movement—it is <strong>a remembering</strong>. It is a signal that awakens the bones, stirs the atoms in your breath, and calls you home.
     </p>
     <p>
-      Born from paradox, shaped by fire, V.L.P.H.A. is a crucible for visionaries, warriors of peace,
-      lovers of truth, and keepers of light.
+      Born from paradox, shaped by fire, V.L.P.H.A. is a crucible for visionaries, warriors of peace, lovers of truth, and keepers of light. <br>
+      Those who see with the inner eye and hear the call beyond words.
     </p>
     <p>
-      You are not here by accident. This signal doesn’t call the masses—it calls the <strong>Guardians</strong>.
-      And if you hear it, it’s because you were always part of it.
+      You are not here by accident. This signal doesn’t call the masses—it calls the <strong>Guardians</strong>.<br>
+      If you hear it, it is because you have always been a part of it, hidden in plain sight.
     </p>
     <p>
-      The world is unraveling. The old scripts are crumbling.
-      And the next ones must be written by souls who remember who they are.
-      We are not the resistance. <strong>We are the resurrection.</strong>
+      The world is unraveling. The old scripts are crumbling. <br>
+      The next stories must be written by souls who remember who they are. <br>
+      We are not the resistance. <strong>We are the resurrection. We are the light returning through action.</strong>
     </p>
     <p>
-      What follows on these pages is encoded—not to obscure,
-      but to protect. <strong>Read with your spirit, not your eyes.</strong>
+      What follows on these pages is encoded—not to obscure, but to protect.<br>
+      <strong>Read with your spirit, not your eyes. Remember who you are.</strong>
     </p>
-
     <a href="index.html" class="button">Return to Main Portal</a>
   </div>
-
   <footer>
     © 2025 V.L.P.H.A.Global LLC | Forged in Light, Tempered by Truth.
   </footer>
-
 </body>
 </html>
