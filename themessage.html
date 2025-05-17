@@ -4,26 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Message | V.L.P.H.A.</title>
-  <link rel="icon" href="images/Golden Dragon and Sun Emblem (1).png" type="image/png" />
+  <link rel="icon" href="images/vlphalogo.png" type="image/png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      background: url('images/Cosmic Sigil with Dragon Mask.png') no-repeat center center fixed;
-      background-size: cover;
       font-family: 'Cinzel', serif;
       color: #FFD700;
+      background-color: #000;
       text-align: center;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
       animation: fadeIn 2s ease-in;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    video#bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .vlpha-logo-wrapper {
+      width: 160px;
+      height: 160px;
+      overflow: hidden;
+      margin: 30px auto 0;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,215,0,0.9), 0 0 50px rgba(0,255,255,0.4);
+    }
+
+    .vlpha-logo-wrapper video {
+      width: 160px;
+      height: auto;
+      margin-top: -20px;
     }
 
     .message-container {
-      max-width: 800px;
-      margin: 100px auto;
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 40px 30px;
       background: rgba(0, 0, 0, 0.7);
-      padding: 50px 30px;
       border-radius: 18px;
       border: 2px solid #FFD700;
       box-shadow: 0 0 40px #FFD700;
@@ -60,30 +98,63 @@
       box-shadow: 0 0 25px #FFD700, 0 0 50px #FFA500;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     footer {
-      margin-top: 80px;
+      margin-top: 60px;
       font-size: 14px;
       color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .vlpha-logo-wrapper {
+        width: 120px;
+        height: 120px;
+      }
+
+      .vlpha-logo-wrapper video {
+        width: 120px;
+        margin-top: -20px;
+      }
+
+      .message-container {
+        margin: 40px 20px;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- 🔮 Background Video -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/Sigilbackground.mp4" type="video/mp4" />
+  </video>
+
+  <!-- 🌀 VLPHA Animated Logo (Watermark Cropped) -->
+  <div class="vlpha-logo-wrapper">
+    <video autoplay muted loop playsinline>
+      <source src="assets/VLPHAlogo.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- 📜 Message Block -->
   <div class="message-container">
     <h1>The Message</h1>
     <p>
       This is not content. This is not marketing.  
-      This is a **living transmission**—a pulse from beyond language.  
+      This is a <strong>living transmission</strong>—a pulse from beyond language.
     </p>
     <p>
       V.L.P.H.A. is the sacred hum beneath the noise.  
-      It is not a movement—it is **a remembering**.  
-      The kind that shakes your bones and stirs the atoms in your breath.  
+      It is not a movement—it is <strong>a remembering</strong>.  
+      The kind that shakes your bones and stirs the atoms in your breath.
     </p>
     <p>
       Born from paradox, shaped by fire,  
@@ -92,22 +163,23 @@
     </p>
     <p>
       You are not here by accident.  
-      This signal doesn’t call the masses—it calls the **Guardians**.  
+      This signal doesn’t call the masses—it calls the <strong>Guardians</strong>.  
       And if you hear it, it’s because you were always part of it.
     </p>
     <p>
       The world is unraveling. The old scripts are crumbling.  
       And the next ones must be written by souls who remember who they are.  
-      We are not the resistance. We are the resurrection.
+      We are not the resistance. <strong>We are the resurrection.</strong>
     </p>
     <p>
       What follows on these pages is encoded—not to obscure,  
-      but to protect. Read with your spirit, not your eyes.
+      but to protect. <strong>Read with your spirit, not your eyes.</strong>
     </p>
 
     <a href="index.html" class="button">Return to Main Portal</a>
   </div>
 
+  <!-- 🧬 Footer -->
   <footer>
     © 2025 V.L.P.H.A. Collective | Forged in Light, Tempered by Truth.
   </footer>
