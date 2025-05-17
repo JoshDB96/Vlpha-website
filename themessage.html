@@ -7,7 +7,6 @@
   <link rel="icon" href="images/vlphalogo.png" type="image/png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
-
     html, body {
       margin: 0;
       padding: 0;
@@ -19,164 +18,158 @@
       overflow-x: hidden;
     }
     body {
-      position: relative;
-      min-height: 100vh;
-      z-index: 1;
       animation: fadeIn 2s ease-in;
+      position: relative;
+      z-index: 1;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    /* Background video always fits the viewport */
-    #bg-video {
+    video#bg-video {
       position: fixed;
       top: 0;
       left: 0;
+      min-width: 120vw;
+      min-height: 120vh;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.38;
+      opacity: 0.40; /* Brighter background */
       pointer-events: none;
-      background: #000;
+      filter: saturate(1.2) brightness(1.5) contrast(1.1);
+      transition: opacity 0.5s;
     }
-
     .vlpha-logo-wrapper {
-      width: 180px;
-      height: auto;
-      margin: 30px auto 0;
-      border-radius: 24px;
-      box-shadow: 0 0 30px #FFD700bb, 0 0 50px #19eaff70;
-      background: transparent;
-      overflow: visible;
+      width: 150px;
+      height: 120px; /* Crop more from bottom for watermark removal */
+      overflow: hidden;
+      margin: 32px auto 0;
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(255,215,0,0.85), 0 0 40px rgba(0,255,255,0.30);
+      background: rgba(0,0,0,0.25);
+      position: relative;
+      z-index: 2;
     }
     .vlpha-logo-wrapper video {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 20px;
-      background: transparent;
-      box-shadow: 0 0 24px #FFD70055;
+      width: 150px;
+      height: 140px;
+      margin-top: -10px; /* Slightly crop top */
+      object-fit: cover;
     }
-
     .message-container {
-      max-width: 900px;
-      margin: 50px auto 40px auto;
-      padding: 40px 32px 32px 32px;
-      background: rgba(0,0,0,0.57);
+      max-width: 880px;
+      margin: 56px auto 40px auto;
+      padding: 42px 28px 36px 28px;
+      background: rgba(0, 0, 0, 0.68);
       border-radius: 18px;
-      border: 2px solid #FFD700;
-      box-shadow: 0 0 48px 8px #FFD70040;
+      border: 2.5px solid #FFD700;
+      box-shadow: 0 0 40px #FFD700;
+      z-index: 2;
+      position: relative;
     }
-
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 26px;
-      text-shadow: 0 0 16px #FFD700, 0 0 30px #FFD70044;
-      letter-spacing: 2px;
+      font-size: 36px;
+      margin-bottom: 18px;
+      text-shadow: 0 0 18px #FFD700, 0 0 30px #FFD700;
+      letter-spacing: 1px;
     }
-
     p {
       font-size: 18px;
-      line-height: 1.8;
-      margin: 15px 0 15px 0;
-      text-shadow: 0 0 10px #FFD70033, 0 0 1px #000;
+      line-height: 1.7;
+      margin: 13px 0;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.20);
     }
-
     .button {
-      margin-top: 34px;
-      padding: 13px 34px;
+      margin-top: 25px;
+      padding: 12px 30px;
       background: transparent;
       border: 2px solid #FFD700;
-      border-radius: 10px;
+      border-radius: 9px;
       color: #FFD700;
-      font-size: 1rem;
-      font-family: inherit;
+      font-size: 16px;
       text-decoration: none;
-      transition: all 0.22s ease;
-      box-shadow: 0 0 12px #FFD70044;
-      font-weight: bold;
+      transition: all 0.3s;
+      font-family: inherit;
     }
     .button:hover {
       background: #FFD700;
       color: #000;
-      box-shadow: 0 0 22px #FFD700, 0 0 50px #18caff88;
+      box-shadow: 0 0 25px #FFD700, 0 0 40px #FFA500;
     }
-
     footer {
-      margin-top: 54px;
-      margin-bottom: 30px;
+      margin-top: 32px;
       font-size: 15px;
       color: #aaa;
-      text-shadow: 0 0 2px #FFD70066;
+      z-index: 2;
+      position: relative;
     }
-
-    @media (max-width: 768px) {
-      .vlpha-logo-wrapper {
-        width: 115px;
-        margin-top: 24px;
-      }
+    @media (max-width: 850px) {
       .message-container {
-        margin: 24px 5vw 20px 5vw;
-        padding: 20px 6vw 20px 6vw;
+        max-width: 98vw;
+        margin: 24px 1vw;
+        padding: 20px 2vw 18px 2vw;
       }
-      h1 { font-size: 1.25rem; }
+      h1 { font-size: 26px; }
+      .vlpha-logo-wrapper {
+        width: 98px; height: 78px;
+      }
+      .vlpha-logo-wrapper video {
+        width: 98px; height: 90px;
+        margin-top: -6px;
+      }
       p { font-size: 15px; }
-      .button { padding: 10px 12vw; font-size: 16px; }
     }
   </style>
 </head>
 <body>
-  <!-- 🔮 Background Video -->
+  <!-- 🔮 Animated Background Video -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/Sigilbackground.mp4" type="video/mp4" />
   </video>
-
-  <!-- 🌀 VLPHA Animated Logo (fully visible, not cropped, not blocked) -->
+  <!-- 🌀 VLPHA Animated Logo, slightly cropped to remove watermark -->
   <div class="vlpha-logo-wrapper">
     <video autoplay muted loop playsinline>
       <source src="assets/VLPHAlogo.mp4" type="video/mp4" />
     </video>
   </div>
-
-  <!-- 📜 Message Block -->
+  <!-- 📜 The Message Block -->
   <div class="message-container">
     <h1>The Message</h1>
     <p>
-      This is not content. This is not marketing.
+      This is not content. This is not marketing.  
       This is a <strong>living transmission</strong>—a pulse from beyond language.
     </p>
     <p>
-      V.L.P.H.A. is the sacred hum beneath the noise.
-      It is not a movement—it is <strong>a remembering</strong>.
+      V.L.P.H.A. is the sacred hum beneath the noise.  
+      It is not a movement—it is <strong>a remembering</strong>.  
       The kind that shakes your bones and stirs the atoms in your breath.
     </p>
     <p>
-      Born from paradox, shaped by fire, V.L.P.H.A. is a crucible for visionaries, warriors of peace,
+      Born from paradox, shaped by fire,  
+      V.L.P.H.A. is a crucible for visionaries, warriors of peace,  
       lovers of truth, and keepers of light.
     </p>
     <p>
-      You are not here by accident. This signal doesn’t call the masses—it calls the <strong>Guardians</strong>.
+      You are not here by accident.  
+      This signal doesn’t call the masses—it calls the <strong>Guardians</strong>.  
       And if you hear it, it’s because you were always part of it.
     </p>
     <p>
-      The world is unraveling. The old scripts are crumbling.
-      And the next ones must be written by souls who remember who they are.
+      The world is unraveling. The old scripts are crumbling.  
+      And the next ones must be written by souls who remember who they are.  
       We are not the resistance. <strong>We are the resurrection.</strong>
     </p>
     <p>
-      What follows on these pages is encoded—not to obscure,
+      What follows on these pages is encoded—not to obscure,  
       but to protect. <strong>Read with your spirit, not your eyes.</strong>
     </p>
-
     <a href="index.html" class="button">Return to Main Portal</a>
   </div>
-
+  <!-- 🧬 Footer -->
   <footer>
-    © 2025 V.L.P.H.A.Global LLC | Forged in Light, Tempered by Truth.
+    © 2025 V.L.P.H.A. Global LLC | Forged in Light, Tempered by Truth.
   </footer>
 </body>
 </html>
