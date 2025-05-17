@@ -28,41 +28,42 @@
     }
     video#bg-video {
       position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      width: 100vw;
-      height: 100vh;
+      top: 50%;
+      left: 50%;
+      min-width: 110vw;   /* Slightly zoomed out */
+      min-height: 110vh;   /* Slightly zoomed out */
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
       object-fit: cover;
       z-index: -1;
-      opacity: 0.62;
+      opacity: 0.55; /* Brighter background */
       pointer-events: none;
-      filter: saturate(1.3) brightness(1.65) contrast(1.13);
+      filter: saturate(1.25) brightness(1.6) contrast(1.1);
       transition: opacity 0.5s;
     }
     .vlpha-logo-wrapper {
       width: 180px;
-      height: 125px; /* Crop just a little from bottom for watermark removal */
+      height: 110px;   /* Only crop a tiny bit from the bottom */
       overflow: hidden;
       margin: 32px auto 0;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(255,215,0,0.88), 0 0 44px rgba(0,255,255,0.36);
-      background: rgba(0,0,0,0.18);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,215,0,0.85), 0 0 40px rgba(0,255,255,0.30);
+      background: rgba(0,0,0,0.12);
       position: relative;
       z-index: 2;
     }
     .vlpha-logo-wrapper video {
       width: 180px;
-      height: 140px;
-      margin-top: 0; /* barely crop, show full logo */
+      height: 135px;
+      margin-top: -8px; /* Tiny crop from top only */
       object-fit: cover;
     }
     .message-container {
-      max-width: 900px;
-      margin: 56px auto 40px auto;
+      max-width: 880px;
+      margin: 48px auto 40px auto;
       padding: 42px 28px 36px 28px;
-      background: rgba(0, 0, 0, 0.61);
+      background: rgba(0, 0, 0, 0.60);
       border-radius: 18px;
       border: 2.5px solid #FFD700;
       box-shadow: 0 0 40px #FFD700;
@@ -70,7 +71,7 @@
       position: relative;
     }
     h1 {
-      font-size: 38px;
+      font-size: 36px;
       margin-bottom: 18px;
       text-shadow: 0 0 18px #FFD700, 0 0 30px #FFD700;
       letter-spacing: 1px;
@@ -79,7 +80,7 @@
       font-size: 18px;
       line-height: 1.7;
       margin: 13px 0;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.16);
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.20);
     }
     .button {
       margin-top: 25px;
@@ -107,17 +108,17 @@
     }
     @media (max-width: 850px) {
       .message-container {
-        max-width: 99vw;
+        max-width: 98vw;
         margin: 24px 1vw;
         padding: 20px 2vw 18px 2vw;
       }
-      h1 { font-size: 27px; }
+      h1 { font-size: 26px; }
       .vlpha-logo-wrapper {
-        width: 110px; height: 74px;
+        width: 110px; height: 65px;
       }
       .vlpha-logo-wrapper video {
-        width: 110px; height: 88px;
-        margin-top: 0;
+        width: 110px; height: 90px;
+        margin-top: -3px;
       }
       p { font-size: 15px; }
     }
@@ -128,7 +129,7 @@
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/Sigilbackground.mp4" type="video/mp4" />
   </video>
-  <!-- 🌀 VLPHA Animated Logo, cropped only at bottom for watermark -->
+  <!-- 🌀 VLPHA Animated Logo, full image with watermark cropped just a little -->
   <div class="vlpha-logo-wrapper">
     <video autoplay muted loop playsinline>
       <source src="assets/VLPHAlogo.mp4" type="video/mp4" />
