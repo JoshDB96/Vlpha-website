@@ -7,9 +7,12 @@
   <link rel="icon" href="images/vlphalogo.png" type="image/png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      width: 100%;
       font-family: 'Cinzel', serif;
       color: #FFD700;
       background: #000;
@@ -17,125 +20,137 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
+
     body {
-      animation: fadeIn 2s ease-in;
+      min-height: 100vh;
+      min-width: 100vw;
       position: relative;
       z-index: 1;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    video#bg-video {
+
+    /* Video background, always covers */
+    #bg-video {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      min-width: 100vw; min-height: 100vh;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
-      opacity: 0.53; /* Brighter */
-      filter: brightness(1.5) saturate(1.2) contrast(1.12);
+      filter: brightness(1.22) saturate(1.22) contrast(1.1); /* Brighter & more vibrant */
       pointer-events: none;
-      transition: opacity 0.5s;
-      background: #000;
     }
+
     .vlpha-logo-wrapper {
-      width: 168px;
-      height: 132px; /* Only crops a sliver off the bottom */
+      width: 220px;
+      height: 160px;
+      margin: 18px auto 0 auto;
       overflow: hidden;
-      margin: 32px auto 0;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(255,215,0,0.85), 0 0 40px rgba(0,255,255,0.30);
-      background: rgba(0,0,0,0.20);
-      position: relative;
-      z-index: 2;
+      border-radius: 22px;
+      box-shadow: 0 0 25px #FFD700, 0 0 50px #20F4FF40;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
+      background: transparent;
     }
+    /* Only crop off bottom watermark, not the main logo */
     .vlpha-logo-wrapper video {
-      width: 168px;
-      height: 144px;
-      margin-top: -10px; /* Only crops bottom watermark */
+      width: 220px;
+      height: 220px;
       object-fit: cover;
+      object-position: top center;
+      margin-top: 0;
     }
+
     .message-container {
-      max-width: 880px;
-      margin: 48px auto 36px auto;
-      padding: 44px 32px 32px 32px;
-      background: rgba(0, 0, 0, 0.68);
+      max-width: 750px;
+      margin: 36px auto 0 auto;
+      padding: 36px 26px 32px 26px;
+      background: rgba(0, 0, 0, 0.70);
       border-radius: 18px;
-      border: 2.5px solid #FFD700;
-      box-shadow: 0 0 40px #FFD700;
-      z-index: 2;
+      border: 2px solid #FFD700;
+      box-shadow: 0 0 32px 2px #FFD700, 0 0 80px 10px #111;
       position: relative;
+      z-index: 2;
     }
+
     h1 {
       font-size: 36px;
-      margin-bottom: 18px;
-      text-shadow: 0 0 18px #FFD700, 0 0 30px #FFD700;
-      letter-spacing: 1px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 18px #FFD700, 0 0 35px #FFD700;
     }
+
     p {
       font-size: 18px;
-      line-height: 1.7;
-      margin: 13px 0;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.16);
+      line-height: 1.85;
+      margin: 15px 0;
+      text-shadow: 0 0 10px #FFD70033;
     }
+
     .button {
-      margin-top: 25px;
+      margin-top: 30px;
       padding: 12px 30px;
       background: transparent;
       border: 2px solid #FFD700;
-      border-radius: 9px;
+      border-radius: 10px;
       color: #FFD700;
       font-size: 16px;
       text-decoration: none;
       transition: all 0.3s;
-      font-family: inherit;
     }
+
     .button:hover {
       background: #FFD700;
       color: #000;
-      box-shadow: 0 0 25px #FFD700, 0 0 40px #FFA500;
+      box-shadow: 0 0 25px #FFD700, 0 0 50px #FFA500;
     }
+
     footer {
-      margin-top: 32px;
-      font-size: 15px;
+      margin-top: 40px;
+      font-size: 14px;
       color: #aaa;
-      z-index: 2;
-      position: relative;
+      text-shadow: 0 0 8px #000;
     }
-    @media (max-width: 900px) {
-      .message-container {
-        max-width: 98vw;
-        margin: 24px 1vw;
-        padding: 20px 2vw 18px 2vw;
-      }
-      h1 { font-size: 26px; }
+
+    @media (max-width: 800px) {
       .vlpha-logo-wrapper {
-        width: 108px; height: 85px;
+        width: 120px;
+        height: 88px;
       }
       .vlpha-logo-wrapper video {
-        width: 108px; height: 92px;
-        margin-top: -7px;
+        width: 120px;
+        height: 120px;
       }
-      p { font-size: 15px; }
+      .message-container {
+        margin: 24px 8px 0 8px;
+        padding: 18px 6vw 18px 6vw;
+      }
+      h1 {
+        font-size: 25px;
+      }
+      p {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- 🔮 Animated Background Video -->
+
+  <!-- 🔮 Background Video -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="assets/Sigilbackground.mp4" type="video/mp4" />
   </video>
-  <!-- 🌀 VLPHA Animated Logo (FULL logo, minimal crop at bottom for watermark) -->
+
+  <!-- 🌀 VLPHA Animated Logo (Watermark Cropped at bottom only) -->
   <div class="vlpha-logo-wrapper">
     <video autoplay muted loop playsinline>
       <source src="assets/VLPHAlogo.mp4" type="video/mp4" />
     </video>
   </div>
-  <!-- 📜 The Message Block -->
+
+  <!-- 📜 Message Block -->
   <div class="message-container">
     <h1>The Message</h1>
     <p>
@@ -168,9 +183,9 @@
     </p>
     <a href="index.html" class="button">Return to Main Portal</a>
   </div>
-  <!-- 🧬 Footer -->
+
   <footer>
-    © 2025 V.L.P.H.A. Global LLC | Forged in Light, Tempered by Truth.
+    © 2025 V.L.P.H.A. Collective | Forged in Light, Tempered by Truth.
   </footer>
 </body>
 </html>
