@@ -1,0 +1,164 @@
+/* Highlight System Styles */
+.highlight {
+  position: relative;
+  border-radius: 3px;
+  padding: 0 2px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.highlight:hover {
+  filter: brightness(1.2);
+}
+
+.highlight-yellow {
+  background-color: rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 2px rgba(255, 215, 0, 0.5);
+}
+
+.highlight-purple {
+  background-color: rgba(111, 66, 193, 0.3);
+  box-shadow: 0 0 2px rgba(111, 66, 193, 0.5);
+}
+
+.highlight-blue {
+  background-color: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 2px rgba(0, 255, 255, 0.5);
+}
+
+.highlight-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-bg);
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  z-index: 90;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.highlight-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+}
+
+.highlight-controls {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 90;
+  transform: translateX(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.highlight-controls.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.highlight-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.highlight-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.highlight-btn.yellow {
+  background-color: rgba(255, 215, 0, 0.3);
+}
+
+.highlight-btn.purple {
+  background-color: rgba(111, 66, 193, 0.3);
+}
+
+.highlight-btn.blue {
+  background-color: rgba(0, 255, 255, 0.3);
+}
+
+/* Note System */
+.note-indicator {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  margin-left: 5px;
+  vertical-align: super;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: var(--dark-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.note-indicator:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+.note-popup {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  z-index: 95;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.note-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.note-content {
+  color: var(--light-text);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.note-edit {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.note-edit:hover {
+  color: #ffd700;
+}

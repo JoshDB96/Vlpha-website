@@ -1,0 +1,230 @@
+/* Zoomable Sigils and Metaphysical Art Styles */
+.sigil-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.zoomable-sigil {
+  width: 120px;
+  height: 120px;
+  cursor: zoom-in;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.5s ease;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.zoomable-sigil:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+}
+
+.sigil-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sigil-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sigil-zoom-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sigil-image {
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+}
+
+.sigil-overlay.active .sigil-image {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.sigil-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sigil-close:hover {
+  background: var(--primary-color);
+  color: var(--dark-bg);
+  transform: rotate(90deg);
+}
+
+.sigil-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--light-text);
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.sigil-controls {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sigil-zoom-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sigil-zoom-btn:hover {
+  background: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+/* Transition Sigils */
+.chapter-transition {
+  position: relative;
+  margin: 60px 0;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.transition-sigil {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.5s ease;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.transition-sigil:hover {
+  transform: scale(1.2) rotate(10deg);
+  cursor: zoom-in;
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+}
+
+.transition-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 215, 0, 0.3) 20%, 
+    var(--primary-color) 50%, 
+    rgba(255, 215, 0, 0.3) 80%, 
+    transparent 100%);
+  z-index: 1;
+}
+
+/* Animated Sigils */
+.animated-sigil {
+  animation: sigil-pulse 3s infinite alternate;
+}
+
+@keyframes sigil-pulse {
+  from { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5)); }
+  to { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); }
+}
+
+.rotating-sigil {
+  animation: sigil-rotate 20s linear infinite;
+}
+
+@keyframes sigil-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .zoomable-sigil {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .transition-sigil {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .chapter-transition {
+    height: 100px;
+    margin: 40px 0;
+  }
+  
+  .sigil-controls {
+    bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zoomable-sigil {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .transition-sigil {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .chapter-transition {
+    height: 80px;
+    margin: 30px 0;
+  }
+}
