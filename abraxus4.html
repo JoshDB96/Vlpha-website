@@ -432,7 +432,7 @@
   <script>
     // Placeholder for PayPal client ID. Replace with your actual sandbox or live client ID.
     // For sandbox testing, you can use: "YOUR_SANDBOX_CLIENT_ID"
-    const PAYPAL_CLIENT_ID = "YOUR_PAYPAL_CLIENT_ID"; // Replace with your actual client ID
+    const PAYPAL_CLIENT_ID = "ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq"; // Replace with your actual client ID
 
     // User credentials (for client-side simulation)
     const VALID_USERNAME = "vlphauser";
@@ -537,7 +537,12 @@
                 console.log('PayPal subscription cancelled.', data);
                 alert('PayPal subscription cancelled.');
             }
-        }).render('#paypal-button-container'); // Render the PayPal button into the container
+        }).render('<style>.pp-V2TZG2WUT5JD8{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#000000;color:#ffffff;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/V2TZG2WUT5JD8" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-V2TZG2WUT5JD8" type="submit" value="Buy Now" />
+  <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
+  <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+</form>'); // Render the PayPal button into the container
     }
 
     // --- Chat Functions ---
