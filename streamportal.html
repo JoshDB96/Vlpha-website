@@ -172,6 +172,12 @@
       margin: 20px auto; /* Center it like the disabled player */
       border-radius: 12px; /* Add some styling */
       box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); /* Add some glow */
+      background-color: #000; /* Placeholder background */
+      display: flex; /* For centering content when no stream */
+      justify-content: center;
+      align-items: center;
+      color: #FFF;
+      font-size: 1.2em;
     }
 
     .video-embed-container iframe {
@@ -239,7 +245,6 @@
         <iframe
           src="https://player.twitch.tv/?channel=suicidecharlie96&parent=vlpha.online"
           frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
           title="Twitch Stream - SuicideCharlie96"
         ></iframe>
@@ -274,5 +279,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
