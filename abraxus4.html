@@ -185,7 +185,7 @@
     }
   </style>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq&currency=USD"></script>
 
 </head>
 <body>
@@ -240,8 +240,10 @@
   <script src="js/main.js"></script>
   <script>
     // Access credentials (for login, if you still want a username/password check)
-    const validUsername = "JoshDB96"; // Example username
-    const validPassword = "Yung@993590"; // Example password
+    // NOTE: Hardcoding credentials directly in HTML is generally not recommended for production.
+    // Consider server-side authentication for better security.
+    const validUsername = "JoshDB96"; 
+    const validPassword = "Yung@993590"; 
 
     // Function to check access (payment status and optional login)
     function checkAccess() {
@@ -254,7 +256,7 @@
       const paypalButtonContainer = document.getElementById('paypal-button-container');
 
       const isPaid = localStorage.getItem('abraxusPaid') === 'true';
-      const isLoggedIn = localStorage.getItem('abraxusLoggedIn') === 'true'; // Assuming you have a login check
+      const isLoggedIn = localStorage.getItem('abraxusLoggedIn') === 'true'; 
 
       if (isPaid && isLoggedIn) {
         // If paid AND logged in, grant full access
@@ -263,7 +265,7 @@
         main.style.display = 'block';
         footer.style.display = 'block';
       } else if (isPaid && !isLoggedIn) {
-        // If paid but NOT logged in, show login form
+        // If paid but NOT logged in, show login form and hide PayPal button
         accessContainer.style.display = 'flex';
         header.style.display = 'none';
         main.style.display = 'none';
@@ -272,7 +274,7 @@
         loginForm.style.display = 'block';
         paypalButtonContainer.style.display = 'none'; // Hide PayPal button if already paid
       } else {
-        // If NOT paid, show purchase option and login form
+        // If NOT paid, show purchase option, login form, and PayPal button
         accessContainer.style.display = 'flex';
         header.style.display = 'none';
         main.style.display = 'none';
@@ -292,7 +294,7 @@
       if (usernameInput === validUsername && passwordInput === validPassword) {
         localStorage.setItem('abraxusLoggedIn', 'true'); // Set logged in status
         alert("Login successful. Welcome, Flame Bearer.");
-        checkAccess(); // Re-check access to hide overlay
+        checkAccess(); // Re-check access to hide overlay and show content
       } else {
         alert("Login denied. Please check your username and password.");
       }
@@ -300,6 +302,14 @@
 
     // Function to render the PayPal button
     function renderPayPalButton() {
+        const container = document.getElementById('paypal-button-container');
+        
+        // IMPORTANT FIX: Clear any existing buttons in the container to prevent duplicates
+        // This loop removes all child nodes from the container, ensuring a clean slate.
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+
         paypal.Buttons({
             createOrder: function(data, actions) {
                 return actions.order.create({
@@ -366,7 +376,7 @@
     // Initialize functions on page load
     document.addEventListener('DOMContentLoaded', function() {
       checkAccess(); // This will determine whether to show overlay or content
-      // initAbraxusChat(); // Removed as it was not defined in the provided code
+      // The initAbraxusChat() call was commented out as it was not defined in the provided code previously.
     });
   </script>
 </body>
