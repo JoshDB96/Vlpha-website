@@ -197,28 +197,30 @@
 
   <div id="overlay">
     <h2 class="glow" id="access-title">Access Abraxus AI</h2>
-    <form id="access-form" style="display: none;"> <input type="text" id="keyInputUsername" placeholder="Username">
+    
+    <form id="access-form"> 
+      <input type="text" id="keyInputUsername" placeholder="Username">
       <input type="password" id="keyInputPassword" placeholder="Password">
       <button type="button" onclick="checkAccessCredentials()">Login</button>
     </form>
 
-    <div id="paypal-button-container" style="display: none;"></div>
+    <div id="paypal-button-container"></div>
     
     <p class="glow" style="margin-top: 20px;">Not a member? Purchase access below.</p>
     <p class="glow" style="margin-top: 10px; font-size: 0.8em;">By accessing, you agree to our <a href="terms.html" target="_blank" style="color: #00ffff; text-decoration: underline;">Terms & Conditions</a>.</p>
   </div>
 
-  <header class="site-header" style="display: none;"> <img class="abraxus-face fade-in-section" src="images/Mystical Metallic Face with Glowing Symbols.png" alt="Abraxus Face">
-    
+  <header class="site-header" style="display: none;"> 
+    <img class="abraxus-face fade-in-section" src="images/Mystical Metallic Face with Glowing Symbols.png" alt="Abraxus Face">
     <h1 class="glow fade-in-section">Abraxus AI Therapist</h1>
     <h2 class="glow fade-in-section">Mystical Semantic Interface for Healing and Wisdom</h2>
-    
     <div class="main-nav">
       <a href="index.html">Return to V.L.P.H.A. Home</a>
     </div>
   </header>
 
-  <main style="display: none;"> <section class="terminal-box fade-in-section">
+  <main style="display: none;"> 
+    <section class="terminal-box fade-in-section">
       <div id="response">ABRAXUS: I am listening. Speak your truth or ask a question.</div>
       <br>
       <form id="abraxus-chat-form" onsubmit="event.preventDefault(); sendMessage();">
@@ -234,16 +236,17 @@
     <img class="vlpha-footer-logo" src="images/vlphalogo.png" alt="V.L.P.H.A. Logo">
   </a>
 
-  <footer class="site-footer" style="display: none;"> <p class="copyright">© 2025 V.L.P.H.A. Global LLC – All Rights Reserved</p>
+  <footer class="site-footer" style="display: none;"> 
+    <p class="copyright">© 2025 V.L.P.H.A. Global LLC – All Rights Reserved</p>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    // Access credentials (for login, if you still want a username/password check)
+    // Access credentials for login
     // NOTE: Hardcoding credentials directly in HTML is generally not recommended for production.
     // Consider server-side authentication for better security.
-    const validUsername = "JoshDB96"; 
-    const validPassword = "Yung@993590"; 
+    const validUsername = "JoshDB96"; // Example username
+    const validPassword = "Yung@993590"; // Example password
 
     // Function to check access (payment status and optional login)
     function checkAccess() {
@@ -256,7 +259,7 @@
       const paypalButtonContainer = document.getElementById('paypal-button-container');
 
       const isPaid = localStorage.getItem('abraxusPaid') === 'true';
-      const isLoggedIn = localStorage.getItem('abraxusLoggedIn') === 'true'; 
+      const isLoggedIn = localStorage.getItem('abraxusLoggedIn') === 'true';
 
       if (isPaid && isLoggedIn) {
         // If paid AND logged in, grant full access
@@ -286,7 +289,7 @@
       }
     }
 
-    // Optional: Function for checking username/password
+    // Function for checking username/password
     function checkAccessCredentials() {
       const usernameInput = document.getElementById('keyInputUsername').value.trim();
       const passwordInput = document.getElementById('keyInputPassword').value.trim();
@@ -376,7 +379,6 @@
     // Initialize functions on page load
     document.addEventListener('DOMContentLoaded', function() {
       checkAccess(); // This will determine whether to show overlay or content
-      // The initAbraxusChat() call was commented out as it was not defined in the provided code previously.
     });
   </script>
 </body>
