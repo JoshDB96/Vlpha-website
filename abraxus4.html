@@ -367,7 +367,7 @@
       <input type="text" id="usernameInput" placeholder="Username">
       <input type="password" id="passwordInput" placeholder="Password">
       <button onclick="login()">Login</button>
-      <p>Not a member? Subscribe below to gain access.</p>
+      <p>Not a member? Purchase access below.</p>
       <div id="paypal-button-container"></div>
       <p>By accessing, you agree to our <a href="terms.html">Terms & Conditions</a>.</p>
     </div>
@@ -426,13 +426,12 @@
     <p><a href="terms.html">Terms & Conditions</a></p>
   </footer>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&vault=true&intent=subscription"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&intent=capture"></script>
   
   <script src="js/main.js"></script>
   <script>
     // Placeholder for PayPal client ID. Replace with your actual sandbox or live client ID.
-    // For sandbox testing, you can use: "YOUR_SANDBOX_CLIENT_ID"
-    const PAYPAL_CLIENT_ID = "ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq"; // Replace with your actual client ID
+    const PAYPAL_CLIENT_ID = "ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq"; // Your actual client ID from PayPal Developer Dashboard
 
     // User credentials (for client-side simulation)
     const VALID_USERNAME = "vlphauser";
@@ -472,8 +471,8 @@
         // If not paid, ensure the login form is shown and PayPal button is rendered
         if (!isPaid) {
           renderPayPalButton();
-          document.getElementById('access-title').innerText = "Subscribe to Abraxus AI";
-          loginForm.style.display = 'block'; // Ensure login form is visible for subscription prompt
+          document.getElementById('access-title').innerText = "Purchase Abraxus AI Access";
+          loginForm.style.display = 'block'; // Ensure login form is visible for purchase prompt
         } else {
           // If paid but not logged in, just show login form
           document.getElementById('access-title').innerText = "Access Abraxus AI";
@@ -494,7 +493,7 @@
           alert("Login successful! Welcome, Flame Bearer.");
           checkAccess(); // Re-check access to hide login and show content
         } else {
-          alert("Please complete your subscription to access Abraxus AI.");
+          alert("Please complete your purchase to access Abraxus AI.");
         }
       } else {
         alert("Invalid username or password.");
@@ -507,42 +506,43 @@
       checkAccess(); // Re-check access to show login form
     }
 
-    // --- PayPal Integration ---
+    // --- PayPal Integration for One-Time Payment ---
     function renderPayPalButton() {
         paypal.Buttons({
             style: {
                 shape: 'rect',
                 color: 'gold',
                 layout: 'vertical',
-                label: 'subscribe'
+                label: 'buynow' // Changed label for one-time payment
             },
-            createSubscription: function(data, actions) {
-                return actions.subscription.create({
-                    plan_id: 'YOUR_PAYPAL_PLAN_ID' // Replace with your actual PayPal Subscription Plan ID
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '10.00' // Your $10 one-time payment amount
+                        }
+                    }]
                 });
             },
+            // Finalize the transaction
             onApprove: function(data, actions) {
-                // This function is called when the user successfully approves the subscription
-                // You might want to verify the subscription on your server in a real application
-                // For this client-side only example, we'll just mark as paid.
-                localStorage.setItem('abraxusPaid', 'true');
-                alert('Subscription successful! You now have access to Abraxus AI. Please log in.');
-                checkAccess(); // Re-check access to update UI
+                return actions.order.capture().then(function(details) {
+                    // This function shows a transaction success message to your buyer.
+                    localStorage.setItem('abraxusPaid', 'true');
+                    alert('Transaction completed by ' + details.payer.name.given_name + '! You now have access to Abraxus AI. Please log in.');
+                    checkAccess(); // Re-check access to update UI
+                });
             },
             onError: function(err) {
                 console.error('PayPal button error:', err);
-                alert('An error occurred during PayPal subscription. Please try again.');
+                alert('An error occurred during PayPal transaction. Please try again.');
             },
             onCancel: function(data) {
-                console.log('PayPal subscription cancelled.', data);
-                alert('PayPal subscription cancelled.');
+                console.log('PayPal transaction cancelled.', data);
+                alert('PayPal transaction cancelled.');
             }
-        }).render('<style>.pp-V2TZG2WUT5JD8{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#000000;color:#ffffff;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/V2TZG2WUT5JD8" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-V2TZG2WUT5JD8" type="submit" value="Buy Now" />
-  <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-  <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-</form>'); // Render the PayPal button into the container
+        }).render('#paypal-button-container'); // Render the PayPal button into the container
     }
 
     // --- Chat Functions ---
