@@ -47,11 +47,9 @@
       border-radius: 12px;
       padding: 20px;
       width: 90%;
-      max-width: 600px; /* Increased max-width for chat bubbles */
+      max-width: 500px;
       margin: 30px auto;
       transition: box-shadow 0.3s ease;
-      display: flex; /* Added flex for chat layout */
-      flex-direction: column; /* Added flex for chat layout */
     }
     
     .terminal-box:hover {
@@ -92,87 +90,12 @@
       transform: translateY(-2px);
     }
     
-    /* Updated response container for chat bubbles */
-    #chat-display {
+    #response {
       margin-top: 20px;
       font-size: 1rem;
       color: #ffffff;
       padding-top: 10px;
       border-top: 1px solid #00ffff;
-      overflow-y: auto; /* Allow scrolling for chat history */
-      max-height: 400px; /* Limit height for chat history */
-      display: flex;
-      flex-direction: column;
-      gap: 10px; /* Space between chat bubbles */
-      margin-bottom: 20px;
-    }
-
-    /* Chat bubble styles */
-    .chat-bubble {
-      max-width: 80%;
-      padding: 10px 15px;
-      border-radius: 15px;
-      position: relative;
-      word-wrap: break-word;
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    .chat-bubble.user-message {
-      background: rgba(0, 120, 255, 0.7); /* Blue for user */
-      align-self: flex-end; /* Align user messages to the right */
-      border-bottom-right-radius: 2px;
-      box-shadow: 0 0 10px rgba(0, 120, 255, 0.5);
-    }
-
-    .chat-bubble.abraxus-message {
-      background: rgba(0, 255, 255, 0.7); /* Cyan for Abraxus */
-      align-self: flex-start; /* Align Abraxus messages to the left */
-      border-bottom-left-radius: 2px;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    }
-
-    /* Typing indicator */
-    .typing-indicator {
-      color: #00ffff;
-      font-style: italic;
-      margin-top: 10px;
-      padding-left: 15px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Tone selector styles */
-    .tone-selector-group {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .tone-selector-group label {
-      color: #00ffff;
-      font-weight: 600;
-    }
-
-    .tone-selector-group select {
-      padding: 8px 12px;
-      border-radius: 5px;
-      border: 1px solid #00ffff;
-      background: #000;
-      color: #00ffff;
-      font-family: 'Poppins', sans-serif;
-      cursor: pointer;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .tone-selector-group select:focus {
-      outline: none;
-      border-color: #00ffff;
-      box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
     }
     
     /* Access Control */
@@ -216,88 +139,16 @@
       transform: translateY(-2px);
     }
 
-    /* Styles for the login/membership container */
-    #access-container {
-      background: rgba(0, 0, 0, 0.7);
-      border: 2px solid #00ffff;
-      border-radius: 12px;
-      padding: 30px;
-      max-width: 450px;
-      width: 90%;
+    #access-form { /* Added this style for the login form */
+      display: block; /* Ensure it's shown when needed */
+      margin-top: 20px;
       text-align: center;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
-      margin: 50px auto;
     }
 
-    #access-container h2 {
-      color: #00ffff;
-      margin-bottom: 20px;
-      font-size: 1.8em;
-      text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
-    }
-
-    #access-container input {
-      width: calc(100% - 24px);
-      margin-bottom: 15px;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #00ffff;
-      background: rgba(0, 0, 0, 0.6);
-      color: #00ffff;
-      font-size: 1em;
-    }
-
-    #access-container button {
-      padding: 12px 25px;
-      background: gold;
-      color: #000;
-      font-weight: 600;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      margin-top: 10px;
-      font-size: 1.1em;
-    }
-
-    #access-container button:hover {
-      background: #ffd700;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-    }
-
-    #access-container p {
-      color: #fff;
-      margin-top: 20px;
-      font-size: 0.95em;
-    }
-
-    #access-container a {
-      color: gold;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    #access-container a:hover {
-      color: #ffd700;
-      text-decoration: underline;
-    }
-
-    /* Logout button specific style */
-    #logoutButton {
-      background: #cc0000;
-      margin-top: 20px;
-    }
-
-    #logoutButton:hover {
-      background: #ff3333;
-    }
-
-    /* PayPal button container */
     #paypal-button-container {
-      margin-top: 25px;
-      min-height: 40px; /* Ensure space for the button to render */
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px; /* Adjust as needed */
     }
     
     /* Eternal Flame */
@@ -332,27 +183,10 @@
     .vlpha-footer-logo:hover {
       opacity: 1;
     }
-
-    /* Footer Icons */
-    .footer-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .footer-icons img {
-      width: 30px;
-      height: 30px;
-      opacity: 0.7;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .footer-icons img:hover {
-      opacity: 1;
-      transform: scale(1.1);
-    }
   </style>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq"></script>
+
 </head>
 <body>
   <video autoplay muted loop playsinline class="bg-video">
@@ -361,21 +195,20 @@
   
   <canvas class="psychedelic-shimmer"></canvas>
 
-  <div id="access-container">
+  <div id="overlay">
     <h2 class="glow" id="access-title">Access Abraxus AI</h2>
-    <div id="login-form">
-      <input type="text" id="usernameInput" placeholder="Username">
-      <input type="password" id="passwordInput" placeholder="Password">
-      <button onclick="login()">Login</button>
-      <p>Not a member? Purchase access below.</p>
-      <div id="paypal-button-container"></div>
-      <p>By accessing, you agree to our <a href="terms.html">Terms & Conditions</a>.</p>
-    </div>
-    <button id="logoutButton" onclick="logout()" style="display:none;">Logout</button>
+    <form id="access-form" style="display: none;"> <input type="text" id="keyInputUsername" placeholder="Username">
+      <input type="password" id="keyInputPassword" placeholder="Password">
+      <button type="button" onclick="checkAccessCredentials()">Login</button>
+    </form>
+
+    <div id="paypal-button-container" style="display: none;"></div>
+    
+    <p class="glow" style="margin-top: 20px;">Not a member? Purchase access below.</p>
+    <p class="glow" style="margin-top: 10px; font-size: 0.8em;">By accessing, you agree to our <a href="terms.html" target="_blank" style="color: #00ffff; text-decoration: underline;">Terms & Conditions</a>.</p>
   </div>
 
-  <header class="site-header" style="display:none;">
-    <img class="abraxus-face fade-in-section" src="images/Mystical Metallic Face with Glowing Symbols.png" alt="Abraxus Face">
+  <header class="site-header" style="display: none;"> <img class="abraxus-face fade-in-section" src="images/Mystical Metallic Face with Glowing Symbols.png" alt="Abraxus Face">
     
     <h1 class="glow fade-in-section">Abraxus AI Therapist</h1>
     <h2 class="glow fade-in-section">Mystical Semantic Interface for Healing and Wisdom</h2>
@@ -385,23 +218,9 @@
     </div>
   </header>
 
-  <main style="display:none;">
-    <section class="terminal-box fade-in-section">
-      <div id="chat-display">
-        <div class="chat-bubble abraxus-message">ABRAXUS: I am listening. Speak your truth or ask a question.</div>
-      </div>
-      
-      <div class="tone-selector-group">
-        <label for="toneSelect">Choose Abraxus's Tone:</label>
-        <select id="toneSelect">
-          <option value="mystical">Mystical</option>
-          <option value="healer">Healer</option>
-          <option value="warrior">Warrior</option>
-          <option value="oracle">Oracle</option>
-          <option value="alchemist">Alchemist</option>
-        </select>
-      </div>
-      
+  <main style="display: none;"> <section class="terminal-box fade-in-section">
+      <div id="response">ABRAXUS: I am listening. Speak your truth or ask a question.</div>
+      <br>
       <form id="abraxus-chat-form" onsubmit="event.preventDefault(); sendMessage();">
         <input type="text" id="userInput" placeholder="Type your message...">
         <input type="submit" value="Send">
@@ -415,194 +234,119 @@
     <img class="vlpha-footer-logo" src="images/vlphalogo.png" alt="V.L.P.H.A. Logo">
   </a>
 
-  <footer class="site-footer">
-    <p class="copyright">© 2025 V.L.P.H.A. Global LLC – All Rights Reserved</p>
-    <div class="footer-icons">
-      <a href="https://x.com/VLPHA_1" target="_blank" aria-label="VLPHA on X (Twitter)">
-        <img src="images/x-icon.png" alt="X (Twitter) Icon"> </a>
-      <a href="https://www.youtube.com/@VLPHAGLOBAL" target="_blank" aria-label="VLPHA on YouTube">
-        <img src="images/youtube-icon.png" alt="YouTube Icon"> </a>
-    </div>
-    <p><a href="terms.html">Terms & Conditions</a></p>
+  <footer class="site-footer" style="display: none;"> <p class="copyright">© 2025 V.L.P.H.A. Global LLC – All Rights Reserved</p>
   </footer>
 
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD&intent=capture"></script>
-  
   <script src="js/main.js"></script>
   <script>
-    // Placeholder for PayPal client ID. Replace with your actual sandbox or live client ID.
-    const PAYPAL_CLIENT_ID = "ActVV9YG3-qWPXSbB2YDU2UIikelad-GMBs51iTTE-tKQJZjnS3U5WCPS345S0sVr5vUG5DY6vpXHtfq"; // Your actual client ID from PayPal Developer Dashboard
+    // Access credentials (for login, if you still want a username/password check)
+    const validUsername = "user"; // Example username
+    const validPassword = "password"; // Example password
 
-    // User credentials (for client-side simulation)
-    const VALID_USERNAME = "vlphauser";
-    const VALID_PASSWORD = "securepassword"; // In a real app, never store passwords like this!
-    const ABRAXUS_KEY = "joshdbennett96@gmail.com"; // Your existing Abraxus key
-
-    const CHAT_HISTORY_MAX_LENGTH = 5; // Max 5 messages in memory
-    let chatHistory = [];
-
-    // Elements
-    const accessContainer = document.getElementById('access-container');
-    const loginForm = document.getElementById('login-form');
-    const headerSection = document.querySelector('header.site-header');
-    const mainContent = document.querySelector('main');
-    const logoutBtn = document.getElementById('logoutButton');
-    const chatDisplay = document.getElementById("chat-display");
-    const userInput = document.getElementById("userInput");
-    const toneSelect = document.getElementById("toneSelect");
-
-    // --- Login/Membership Functions ---
+    // Function to check access (payment status and optional login)
     function checkAccess() {
-      const isLoggedIn = localStorage.getItem('abraxusLoggedIn') === 'true';
-      const isPaid = localStorage.getItem('abraxusPaid') === 'true';
+      const accessContainer = document.getElementById('overlay');
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      const footer = document.querySelector('footer');
+      const accessTitle = document.getElementById('access-title');
+      const loginForm = document.getElementById('access-form');
+      const paypalButtonContainer = document.getElementById('paypal-button-container');
 
-      if (isLoggedIn && isPaid) {
+      const isPaid = localStorage.getItem('abraxusPaid') === 'true';
+      const isLoggedIn = localStorage.getItem('abraxusLoggedIn') === 'true'; // Assuming you have a login check
+
+      if (isPaid && isLoggedIn) {
+        // If paid AND logged in, grant full access
         accessContainer.style.display = 'none';
-        headerSection.style.display = 'block';
-        mainContent.style.display = 'block';
-        logoutBtn.style.display = 'block';
-        initAbraxusChat(); // Initialize chat only if access is granted
+        header.style.display = 'block';
+        main.style.display = 'block';
+        footer.style.display = 'block';
+      } else if (isPaid && !isLoggedIn) {
+        // If paid but NOT logged in, show login form
+        accessContainer.style.display = 'flex';
+        header.style.display = 'none';
+        main.style.display = 'none';
+        footer.style.display = 'none';
+        accessTitle.innerText = "Access Abraxus AI";
+        loginForm.style.display = 'block';
+        paypalButtonContainer.style.display = 'none'; // Hide PayPal button if already paid
       } else {
-        accessContainer.style.display = 'flex'; // Show access container
-        headerSection.style.display = 'none';
-        mainContent.style.display = 'none';
-        logoutBtn.style.display = 'none';
-        
-        // If not paid, ensure the login form is shown and PayPal button is rendered
-        if (!isPaid) {
-          renderPayPalButton();
-          document.getElementById('access-title').innerText = "Purchase Abraxus AI Access";
-          loginForm.style.display = 'block'; // Ensure login form is visible for purchase prompt
-        } else {
-          // If paid but not logged in, just show login form
-          document.getElementById('access-title').innerText = "Access Abraxus AI";
-          loginForm.style.display = 'block';
-          document.getElementById('paypal-button-container').style.display = 'none'; // Hide PayPal if already paid
-        }
+        // If NOT paid, show purchase option and login form
+        accessContainer.style.display = 'flex';
+        header.style.display = 'none';
+        main.style.display = 'none';
+        footer.style.display = 'none';
+        accessTitle.innerText = "Purchase Abraxus AI Access";
+        loginForm.style.display = 'block';
+        paypalButtonContainer.style.display = 'block'; // Show PayPal button
+        renderPayPalButton(); // Call to render the PayPal button
       }
     }
 
-    function login() {
-      const username = document.getElementById('usernameInput').value;
-      const password = document.getElementById('passwordInput').value;
-      const isPaid = localStorage.getItem('abraxusPaid') === 'true';
+    // Optional: Function for checking username/password
+    function checkAccessCredentials() {
+      const usernameInput = document.getElementById('keyInputUsername').value.trim();
+      const passwordInput = document.getElementById('keyInputPassword').value.trim();
 
-      if (username === VALID_USERNAME && password === VALID_PASSWORD) {
-        if (isPaid) {
-          localStorage.setItem('abraxusLoggedIn', 'true');
-          alert("Login successful! Welcome, Flame Bearer.");
-          checkAccess(); // Re-check access to hide login and show content
-        } else {
-          alert("Please complete your purchase to access Abraxus AI.");
-        }
+      if (usernameInput === validUsername && passwordInput === validPassword) {
+        localStorage.setItem('abraxusLoggedIn', 'true'); // Set logged in status
+        alert("Login successful. Welcome, Flame Bearer.");
+        checkAccess(); // Re-check access to hide overlay
       } else {
-        alert("Invalid username or password.");
+        alert("Login denied. Please check your username and password.");
       }
     }
 
-    function logout() {
-      localStorage.removeItem('abraxusLoggedIn');
-      alert("You have been logged out.");
-      checkAccess(); // Re-check access to show login form
-    }
-
-    // --- PayPal Integration for One-Time Payment ---
+    // Function to render the PayPal button
     function renderPayPalButton() {
         paypal.Buttons({
-            style: {
-                shape: 'rect',
-                color: 'gold',
-                layout: 'vertical',
-                label: 'buynow' // Changed label for one-time payment
-            },
-            // Set up the transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '10.00' // Your $10 one-time payment amount
+                            value: '10.00' // One-time payment of $10 USD
                         }
                     }]
                 });
             },
-            // Finalize the transaction
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
-                    // This function shows a transaction success message to your buyer.
-                    localStorage.setItem('abraxusPaid', 'true');
-                    alert('Transaction completed by ' + details.payer.name.given_name + '! You now have access to Abraxus AI. Please log in.');
-                    checkAccess(); // Re-check access to update UI
+                    // Successful transaction logic
+                    alert('Transaction completed by ' + details.payer.name.given_name + '! Access granted to Abraxus AI.');
+                    localStorage.setItem('abraxusPaid', 'true'); // Mark user as paid
+                    localStorage.setItem('abraxusLoggedIn', 'true'); // Optional: Automatically log them in after payment
+                    checkAccess(); // Re-check access to hide overlay and show content
+                }).catch(function(error) {
+                    console.error('Error capturing order:', error);
+                    alert('Payment failed. Please try again or contact support.');
                 });
             },
             onError: function(err) {
                 console.error('PayPal button error:', err);
-                alert('An error occurred during PayPal transaction. Please try again.');
-            },
-            onCancel: function(data) {
-                console.log('PayPal transaction cancelled.', data);
-                alert('PayPal transaction cancelled.');
+                alert('An error occurred with PayPal. Please try again later.');
             }
-        }).render('#paypal-button-container'); // Render the PayPal button into the container
+        }).render('#paypal-button-container'); // Renders the PayPal button into the div
     }
 
-    // --- Chat Functions ---
-    function appendMessage(sender, message) {
-      const bubble = document.createElement('div');
-      bubble.classList.add('chat-bubble');
-      if (sender === 'user') {
-        bubble.classList.add('user-message');
-        bubble.innerText = "YOU: " + message;
-      } else {
-        bubble.classList.add('abraxus-message');
-        bubble.innerText = "ABRAXUS: " + message;
-      }
-      chatDisplay.appendChild(bubble);
-      chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to bottom
-      
-      // Keep only the last 5 messages in history
-      chatHistory.push({ sender, message });
-      if (chatHistory.length > CHAT_HISTORY_MAX_LENGTH) {
-        chatHistory.shift(); // Remove the oldest message
-        // Re-render chat display from history to ensure oldest is removed from UI too
-        renderChatHistory();
-      }
-    }
-
-    function renderChatHistory() {
-      chatDisplay.innerHTML = ''; // Clear current display
-      chatHistory.forEach(msg => appendMessage(msg.sender, msg.message));
-    }
-
+    // --- Abraxus AI Chat Functionality ---
     async function sendMessage() {
-      const input = userInput.value.trim();
-      if (!input) return;
-
-      appendMessage('user', input); // Add user message to display
-
-      // Show typing indicator
-      const typingIndicator = document.createElement('div');
-      typingIndicator.classList.add('typing-indicator');
-      typingIndicator.innerText = "Abraxus is channeling your truth...";
-      chatDisplay.appendChild(typingIndicator);
-      chatDisplay.scrollTop = chatDisplay.scrollHeight;
-
-      userInput.value = ""; // Clear input field
-
-      const selectedTone = toneSelect.value;
+      const input = document.getElementById("userInput").value;
+      if (!input.trim()) return;
+      
+      const responseDiv = document.getElementById("response");
+      responseDiv.innerText = "Abraxus is channeling your truth...";
 
       try {
         const res = await fetch("/.netlify/functions/abraxus", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: input, tone: selectedTone })
+          body: JSON.stringify({ message: input, tone: "mystical" })
         });
 
         const data = await res.json();
-        chatDisplay.removeChild(typingIndicator); // Remove typing indicator
-        appendMessage('abraxus', data.reply);
+        responseDiv.innerText = "ABRAXUS: " + data.reply;
       } catch (err) {
-        console.error("Error fetching Abraxus response:", err);
-        chatDisplay.removeChild(typingIndicator); // Remove typing indicator
         // Fallback for local testing
         const abraxusResponses = [
           "I sense your energy seeking alignment with the V.L.P.H.A. frequency.",
@@ -613,16 +357,16 @@
         ];
         
         const randomResponse = abraxusResponses[Math.floor(Math.random() * abraxusResponses.length)];
-        appendMessage('abraxus', randomResponse + " (Fallback response due to error.)");
+        responseDiv.innerText = "ABRAXUS: " + randomResponse;
       }
+      
+      document.getElementById("userInput").value = "";
     }
     
-    // --- Initialization ---
+    // Initialize functions on page load
     document.addEventListener('DOMContentLoaded', function() {
-      // Set initial Abraxus message in chat history
-      chatHistory.push({ sender: 'abraxus', message: "I am listening. Speak your truth or ask a question." });
-      renderChatHistory();
-      checkAccess(); // Check login status on page load
+      checkAccess(); // This will determine whether to show overlay or content
+      // initAbraxusChat(); // Removed as it was not defined in the provided code
     });
   </script>
 </body>
