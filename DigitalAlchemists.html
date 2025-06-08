@@ -34,8 +34,8 @@
       text-align: center;
       border-bottom: 2px solid var(--primary-color);
       margin-bottom: 50px;
-      position: relative; /* Needed for absolute positioning of logo */
-      z-index: 2; /* Ensure header content is above video */
+      position: relative;
+      z-index: 2;
     }
 
     .digital-alchemists-header h1 {
@@ -158,22 +158,21 @@
       color: #aaa;
     }
 
-    /* === DIGITAL ALCHEMISTS LOGO STYLING START === */
+    /* === DIGITAL ALCHEMISTS LOGO STYLING (using exactly DigitalAlchemistslogo.png) START === */
     .digital-alchemists-logo-container {
-        width: 100%; /* Take full width to center effectively */
-        text-align: center; /* Center the image within the container */
-        padding: 20px 0; /* Add some vertical space around the logo */
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
         position: relative;
-        z-index: 10; /* Ensure it's above other elements like video backgrounds */
+        z-index: 10;
     }
 
     .digital-alchemists-logo-container img {
-        max-width: 250px; /* Adjust max width as needed, e.g., 300px, 400px */
+        max-width: 250px; /* Adjust this value if you want it larger or smaller */
         height: auto;
-        display: inline-block; /* Treat as inline-block for text-align: center to work */
-        vertical-align: middle; /* Align middle if other content is nearby */
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); /* Optional: add a glow */
-        border-radius: 10px; /* Optional: slight rounded corners */
+        display: inline-block;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        border-radius: 10px;
     }
     /* === DIGITAL ALCHEMISTS LOGO STYLING END === */
 
@@ -184,9 +183,9 @@
         margin: 0;
         padding: 0;
         line-height: 1.6;
-        overflow-x: hidden; /* Prevent horizontal scroll */
-        position: relative; /* For video background positioning */
-        z-index: 1; /* Ensure body content is on top of video */
+        overflow-x: hidden;
+        position: relative;
+        z-index: 1;
     }
 
     .main-nav {
@@ -211,9 +210,9 @@
     }
 
     .site-header {
-        position: relative; /* Important for z-index and positioning elements inside */
-        z-index: 10; /* Ensure header content is above background elements */
-        padding-top: 20px; /* Add some padding at the top */
+        position: relative;
+        z-index: 10;
+        padding-top: 20px;
     }
 
     .site-footer {
@@ -224,7 +223,7 @@
         color: #aaa;
         font-size: 0.9em;
         position: relative;
-        z-index: 2; /* Ensure footer is above video */
+        z-index: 2;
     }
 
     .glow {
@@ -265,7 +264,7 @@
         margin: 0 5px;
       }
       .digital-alchemists-logo-container img {
-          max-width: 200px; /* Smaller on smaller screens */
+          max-width: 200px;
       }
     }
 
@@ -291,7 +290,7 @@
         width: calc(100% - 30px);
       }
       .digital-alchemists-logo-container img {
-          max-width: 180px; /* Even smaller on mobile */
+          max-width: 180px;
       }
     }
   </style>
