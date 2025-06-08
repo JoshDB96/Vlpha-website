@@ -4,40 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VLPHA | Stream Portal</title>
-  
-  <!-- SEO Meta Tags -->
+
   <meta name="description" content="Stream Portal - Broadcasts from the Ministry of Truth. Watch the war, spread the signal.">
   <meta name="keywords" content="V.L.P.H.A., Spiritual entrepreneurship, Digital alchemy, Stream Portal, Podcast, Video Feed">
   <meta name="author" content="V.L.P.H.A. Global LLC">
-  
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vlpha.com/streamportal.html">
   <meta property="og:title" content="VLPHA Stream Portal - Broadcasts from the Ministry of Truth">
   <meta property="og:description" content="Stream Portal - Broadcasts from the Ministry of Truth. Watch the war, spread the signal.">
   <meta property="og:image" content="images/sacred_symbols.png">
-  
-  <!-- Twitter -->
+
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://vlpha.com/streamportal.html">
   <meta property="twitter:title" content="VLPHA Stream Portal - Broadcasts from the Ministry of Truth">
   <meta property="twitter:description" content="Stream Portal - Broadcasts from the Ministry of Truth. Watch the war, spread the signal.">
   <meta property="twitter:image" content="images/sacred_symbols.png">
-  
-  <!-- Favicon -->
+
   <link rel="icon" href="images/VLPHAFavicon.png" type="image/png">
-  
-  <!-- Stylesheets -->
+
   <link rel="stylesheet" href="css/styles.min.css">
   <link rel="stylesheet" href="css/video-fix.css">
-  
+
   <style>
     /* Page-specific styles */
-    body {
+    /* Removed body background image to allow video background to show */
+    /* body {
       background: url('images/sacred_symbols.png') no-repeat center center fixed;
       background-size: cover;
-    }
-    
+    } */
+
     .stream-container {
       max-width: 1200px;
       margin: 40px auto;
@@ -46,7 +42,7 @@
       flex-direction: column;
       align-items: center;
     }
-    
+
     .coming-soon {
       margin: 30px auto;
       padding: 40px;
@@ -58,12 +54,12 @@
       box-shadow: 0 0 25px var(--primary-color), 0 0 40px var(--primary-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .coming-soon:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 35px var(--primary-color), 0 0 50px var(--primary-color);
     }
-    
+
     .disabled-player {
       width: 100%;
       height: 200px;
@@ -77,17 +73,17 @@
       font-size: 1.2em;
       transition: background-color 0.3s ease, border-color 0.3s ease;
     }
-    
+
     .disabled-player:hover {
       background: #1a1a1a;
       border-color: #fff;
     }
-    
+
     .section-title {
       margin-top: 50px;
       font-size: 1.8em;
     }
-    
+
     .signup-form {
       margin-top: 30px;
       display: flex;
@@ -95,7 +91,7 @@
       justify-content: center;
       gap: 10px;
     }
-    
+
     .signup-form input[type="email"] {
       padding: 12px 15px;
       width: 250px;
@@ -106,13 +102,13 @@
       font-family: 'Poppins', sans-serif;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .signup-form input[type="email"]:focus {
       outline: none;
       border-color: var(--primary-color);
       box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
-    
+
     .signup-form button {
       padding: 12px 25px;
       background-color: var(--secondary-color);
@@ -123,12 +119,12 @@
       font-family: 'Poppins', sans-serif;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
-    
+
     .signup-form button:hover {
       background-color: #8a5cf6;
       transform: translateY(-3px);
     }
-    
+
     .future-section {
       opacity: 0.7;
       padding: 30px;
@@ -138,11 +134,11 @@
       max-width: 800px;
       transition: opacity 0.3s ease;
     }
-    
+
     .future-section:hover {
       opacity: 1;
     }
-    
+
     .future-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -152,34 +148,55 @@
       padding: 0;
       margin-top: 20px;
     }
-    
+
     .future-list li {
       padding: 10px;
       border-left: 2px solid var(--primary-color);
       background: rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
-    
+
     .future-list li:hover {
       transform: translateX(5px);
       background: rgba(0, 0, 0, 0.7);
     }
-    
+
+    /* CSS for responsive video embedding */
+    .video-embed-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* For 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 1200px; /* Match your stream-container max-width */
+      margin: 20px auto; /* Center it like the disabled player */
+      border-radius: 12px; /* Add some styling */
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); /* Add some glow */
+    }
+
+    .video-embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     @media (max-width: 768px) {
       .coming-soon {
         padding: 30px 20px;
       }
-      
+
       .signup-form {
         flex-direction: column;
         align-items: center;
       }
-      
+
       .signup-form input[type="email"] {
         width: 100%;
         max-width: 300px;
       }
-      
+
       .future-list {
         grid-template-columns: 1fr;
       }
@@ -187,59 +204,60 @@
   </style>
 </head>
 <body>
-  <!-- Background Animation -->
   <video autoplay muted loop playsinline class="bg-video">
     <source src="assets/VLPHAbackground.mp4" type="video/mp4">
   </video>
-  
-  <!-- Psychedelic Shimmer Effect Canvas -->
+
   <canvas class="psychedelic-shimmer"></canvas>
 
-  <!-- Header Section -->
   <header class="site-header">
-    <!-- Animated Logo -->
     <div class="logo-container">
       <video autoplay muted loop playsinline class="logo-video">
         <source src="assets/VLPHAlogo.mp4" type="video/mp4">
       </video>
     </div>
-    
-    <!-- Mobile Menu Toggle -->
+
     <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-    
-    <!-- Main Navigation -->
+
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="vlphaclothing.html">VLPHA Clothing</a>
-      <a href="themessage.html">The Message</a>
+      <a href="themessage.html">Paradox Book</a>
       <a href="DigitalAlchemists.html">Digital Alchemists</a>
       <a href="abraxus4.html">Abraxus Protocol</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="stream-container">
     <h1 class="glow fade-in-section">Stream Portal</h1>
-    
+
     <section class="coming-soon fade-in-section">
       <h2 class="glow">Broadcasts from the Ministry of Truth</h2>
       <p>The signal is still being forged. Our transmissions will begin soon. Enter your frequency to receive first access.</p>
-      
-      <div class="disabled-player">Podcast & Video Feed - Coming Soon</div>
-      
+
+      <div class="video-embed-container">
+        <iframe
+          src="https://player.twitch.tv/?channel=suicidecharlie96&parent=vlpha.online"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Twitch Stream - SuicideCharlie96"
+        ></iframe>
+      </div>
+
       <form class="signup-form" action="https://formspree.io/f/xkgrrzpz" method="POST">
         <input type="email" name="email" required placeholder="you@universe.com">
         <button type="submit">Notify Me</button>
       </form>
     </section>
-    
+
     <section class="fade-in-section">
       <h2 class="section-title glow">The VLPHA Podcast</h2>
       <p>Hosted by Shadeed & $uicideCharlie. These conversations will tear the veil, break illusions, and reveal encoded truths.
          Stay tuned—this is the voice of the new Earth.</p>
       <div class="disabled-player">Podcast Stream Placeholder</div>
     </section>
-    
+
     <section class="future-section fade-in-section">
       <h3 class="glow">Future Sections</h3>
       <ul class="future-list">
@@ -251,12 +269,10 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p class="copyright">© 2025 V.L.P.H.A. Global LLC | Forged in Light, Tempered by Truth.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
 </html>
