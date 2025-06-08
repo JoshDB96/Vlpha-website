@@ -24,157 +24,162 @@
   <link rel="icon" href="images/VLPHAFavicon.png" type="image/png">
   
   <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="stylesheet" href="css/video-fix.css">
   
   <style>
-    /* Custom styles for VLPHA Clothing page */
+    /* Page-specific styles */
+    /* Removed background image from body to allow video background to show */
     body {
-      background-color: #000; /* Replaced background image with solid black */
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      /* background: url('images/sacred_symbols.png') no-repeat center center fixed; */
+      /* background-size: cover; */
     }
-
-    .clothing-header {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 40px 20px;
-      text-align: center;
-      border-bottom: 2px solid #00ffff;
+    
+    .clothing-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    
+    .clothing-intro {
+      margin-bottom: 50px;
+    }
+    
+    .clothing-intro h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
+    
+    .clothing-intro h2 {
+      font-weight: normal;
+      font-size: 1.3em;
       margin-bottom: 30px;
+      color: #ccc;
     }
-
-    .clothing-header h1 {
-      font-size: 3em;
-      color: #00ffff;
-      text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-      margin-bottom: 10px;
-    }
-
-    .clothing-header p {
-      font-size: 1.2em;
-      max-width: 800px;
-      margin: 0 auto;
-      color: #e0e0e0;
-    }
-
+    
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 30px;
-      padding: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      justify-content: center;
     }
-
+    
     .product-box {
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid #00ffff;
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--primary-color);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
-
+    
     .product-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
     }
-
+    
     .product-box img {
-      max-width: 100%;
-      height: auto;
+      width: 100%;
       border-radius: 8px;
       margin-bottom: 15px;
-      border: 1px solid #00ffff;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+      transition: transform 0.3s ease;
     }
-
+    
+    .product-box img:hover {
+      transform: scale(1.03);
+    }
+    
     .product-box h3 {
-      font-size: 1.8em;
-      color: #00ffff;
-      margin-bottom: 10px;
+      margin: 10px 0;
+      font-size: 1.5em;
+      color: var(--primary-color);
     }
-
-    .product-box .coming-soon {
-      color: orange;
-      font-weight: bold;
-      font-size: 1.1em;
-      margin-bottom: 15px;
+    
+    .coming-soon {
+      font-style: italic;
+      color: #aaa;
+      margin-top: auto;
+      padding-top: 10px;
     }
-
+    
     .notify-button {
       display: inline-block;
-      background: gold;
-      color: #000;
-      padding: 12px 25px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .notify-button:hover {
-      background-color: #ffd700;
-      transform: translateY(-2px);
-    }
-
-    /* General site-wide styles (from styles.min.css or similar) */
-    .main-nav {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .main-nav a {
-      color: #00ffff;
-      text-decoration: none;
-      font-weight: bold;
+      margin-top: 15px;
       padding: 10px 20px;
-      border: 1px solid #00ffff;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      background: transparent;
+      border: 1px solid var(--primary-color);
+      border-radius: 30px;
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
     }
-
-    .main-nav a:hover {
-      background-color: #00ffff;
+    
+    .notify-button:hover {
+      background: var(--primary-color);
       color: #000;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
     }
-
-    .site-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-      border-top: 1px solid rgba(0, 255, 255, 0.3);
-      color: #aaa;
-      font-size: 0.9em;
+    
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+      }
     }
-
-    /* Fade-in animation (assuming you have a common CSS for this) */
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+    
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .clothing-intro h1 {
+        font-size: 2em;
+      }
+      
+      .clothing-intro h2 {
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
 <body>
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="assets/VLPHAbackground.mp4" type="video/mp4">
+  </video>
+  
+  <canvas class="psychedelic-shimmer"></canvas>
+
   <header class="site-header">
-    <div class="clothing-header fade-in-section">
-      <h1>VLPHA Clothing</h1>
-      <p>Symbolic Armor for the Awakened. Each piece is designed to align with your role in the vision, imbued with the frequency of V.L.P.H.A. principles.</p>
-      <div class="main-nav">
-        <a href="index.html">Return to V.L.P.H.A. Home</a>
-      </div>
+    <div class="logo-container">
+      <video autoplay muted loop playsinline class="logo-video">
+        <source src="assets/VLPHAlogo.mp4" type="video/mp4">
+      </video>
     </div>
+    
+    <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="streamportal.html">Stream Portal</a>
+      <a href="themessage.html">Paradox Book</a>
+      <a href="DigitalAlchemists.html">Digital Alchemists</a>
+      <a href="abraxus4.html">Abraxus Protocol</a>
+    </nav>
   </header>
 
   <main>
-    <div class="container">
+    <div class="clothing-container">
+      <section class="clothing-intro fade-in-section">
+        <h1 class="glow">VLPHA Clothing</h1>
+        <h2>Symbolic Armor for the Awakened</h2>
+      </section>
+      
       <section class="products-grid">
         <div class="product-box fade-in-section">
           <img src="images/vlpha-hoodie-preview.png" alt="VLPHA Hoodie">
@@ -208,29 +213,9 @@
   </main>
 
   <footer class="site-footer">
-    <p class="copyright">© 2025 V.L.P.H.A. Global LLC – All Rights Reserved</p>
+    <p class="copyright">© 2025 VLPHA Global | Designed to Awaken. Powered by Vision.</p>
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    // Fade-in effect script (assuming you have a common main.js or separate this)
-    document.addEventListener('DOMContentLoaded', function() {
-      const sections = document.querySelectorAll('.fade-in-section');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, {
-        threshold: 0.1 // Trigger when 10% of the section is visible
-      });
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
 </body>
 </html>
