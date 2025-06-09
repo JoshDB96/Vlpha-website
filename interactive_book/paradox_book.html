@@ -25,7 +25,7 @@
 
     <header class="book-header">
         <nav class="chapter-nav">
-            <button id="prevChapterBtn" class="nav-button" aria-label="Previous Chapter">&laquo; Previous</button>
+            <button id="prevChapter" class="nav-button" aria-label="Previous Chapter">&laquo; Previous</button>
             <select id="chapterSelect" aria-label="Select Chapter">
                 <option value="cover">Cover Page</option>
                 <option value="preface">P. Preface: An Invitation Into the Impossible</option>
@@ -43,8 +43,20 @@
                 <option value="chapter9">9. Paradox Philosophy</option>
                 <option value="epilogue">E. Epilogue: The Paradox Continues</option>
             </select>
-            <button id="nextChapterBtn" class="nav-button" aria-label="Next Chapter">Next &raquo;</button>
+            <button id="nextChapter" class="nav-button" aria-label="Next Chapter">Next &raquo;</button>
         </nav>
+        <div class="highlight-controls">
+            <button id="highlightToggle" class="button">Highlight</button>
+            <div class="highlight-colors">
+                <button class="highlight-btn" data-color="yellow" style="background-color: yellow;"></button>
+                <button class="highlight-btn" data-color="blue" style="background-color: lightblue;"></button>
+                <button class="highlight-btn" data-color="purple" style="background-color: lightpurple;"></button>
+            </div>
+        </div>
+        <div class="voice-preference-toggle">
+            <label for="voiceToggle">Enable Voice Playback:</label>
+            <input type="checkbox" id="voiceToggle">
+        </div>
     </header>
 
     <main class="book-container">
@@ -82,64 +94,64 @@
                 <p class="cover-author glow fade-in-section">By Joshua Bennett</p>
                 
                 <div class="start-reading fade-in-section">
-                    <button class="button" data-navigate-to="preface">Start Reading</button>
+                    <button class="button" data-chapter="preface">Start Reading</button> 
                 </div>
 
                 <div class="toc fade-in-section">
                     <h3 class="toc-title glow">Table of Contents</h3>
-                    <div class="toc-item" data-navigate-to="preface">
+                    <div class="toc-item" data-chapter="preface">
                         <span class="toc-item-number">P</span>
                         <span class="toc-item-title">Preface: An Invitation Into the Impossible</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter1">
+                    <div class="toc-item" data-chapter="chapter1">
                         <span class="toc-item-number">1</span>
                         <span class="toc-item-title">The Bootstrap Paradox</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter2">
+                    <div class="toc-item" data-chapter="chapter2">
                         <span class="toc-item-number">2</span>
                         <span class="toc-item-title">The Consciousness Paradox</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter3">
+                    <div class="toc-item" data-chapter="chapter3">
                         <span class="toc-item-number">3</span>
                         <span class="toc-item-title">The Liar's Paradox</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="reflection1">
+                    <div class="toc-item" data-chapter="reflection1">
                         <span class="toc-item-number">R1</span>
                         <span class="toc-item-title">Reflection: Paradoxes in Your Life</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter4">
+                    <div class="toc-item" data-chapter="chapter4">
                         <span class="toc-item-number">4</span>
                         <span class="toc-item-title">Zeno's Paradox of Motion</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter5">
+                    <div class="toc-item" data-chapter="chapter5">
                         <span class="toc-item-number">5</span>
                         <span class="toc-item-title">The Control Paradox</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter6">
+                    <div class="toc-item" data-chapter="chapter6">
                         <span class="toc-item-number">6</span>
                         <span class="toc-item-title">The Observer Paradox</span>
                     </div>
-                     <div class="toc-item" data-navigate-to="reflection2">
+                     <div class="toc-item" data-chapter="reflection2">
                         <span class="toc-item-number">R2</span>
                         <span class="toc-item-title">Reflection: Control and Observation</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter7">
+                    <div class="toc-item" data-chapter="chapter7">
                         <span class="toc-item-number">7</span>
                         <span class="toc-item-title">The Sorites Paradox</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter8">
+                    <div class="toc-item" data-chapter="chapter8">
                         <span class="toc-item-number">8</span>
                         <span class="toc-item-title">The Ship of Theseus Paradox</span>
                     </div>
-                     <div class="toc-item" data-navigate-to="reflection3">
+                     <div class="toc-item" data-chapter="reflection3">
                         <span class="toc-item-number">R3</span>
                         <span class="toc-item-title">Reflection: Identity and Change</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="chapter9">
+                    <div class="toc-item" data-chapter="chapter9">
                         <span class="toc-item-number">9</span>
                         <span class="toc-item-title">Paradox Philosophy</span>
                     </div>
-                    <div class="toc-item" data-navigate-to="epilogue">
+                    <div class="toc-item" data-chapter="epilogue">
                         <span class="toc-item-number">E</span>
                         <span class="toc-item-title">Epilogue: The Paradox Continues</span>
                     </div>
@@ -218,6 +230,4 @@
                 </div>
                 <div class="chapter-content">
                     <p>The Liar's Paradox is philosophy's most famous logical contradiction: "This statement is false." If the statement is true, then it's false. If it's false, then it's true. Classical logic calls this an "undecidable proposition" - it breaks binary thinking by refusing to be either true or false.</p>
-                    <p>Ancient philosophers like Epimenides used this paradox to reveal the limitations of rigid logical systems. Modern logicians recognize it as proof that language and reality are more complex than simple true and false categories can capture.</p>
-                    <p>I learned this paradox growing up in Hollywood - the entertainment capital where manufactured reality teaches you what's actually real. My mother's modeling career gave me front-row seats to the gap between public image and private truth. Everyone's performing some version of themselves, but the performance reveals something authentic about the performer.</p>
-                    <p>The paradox works like this: The more fake something appears, the more it reveals what's genuinely real. Hollywood's illusions taught me to recognize authentic truth p
+                    <p>Ancient philosophers like Epimenides used this paradox to reveal the limitations of rigid logical systems. Modern logicians recognize it as proof that language and reality a
