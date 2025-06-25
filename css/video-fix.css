@@ -1,0 +1,28 @@
+/* Background Video Fix for All Devices */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Ensure videos are centered on all devices */
+@media (max-width: 768px) {
+  .bg-video {
+    object-position: center;
+  }
+}
+
+/* Fix for iOS devices that may have issues with fixed positioning */
+@supports (-webkit-overflow-scrolling: touch) {
+  .bg-video {
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+}
