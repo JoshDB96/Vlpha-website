@@ -5,51 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Alchemists | V.L.P.H.A.</title>
   
-  <!-- SEO Meta Tags -->
   <meta name="description" content="We transmute outdated websites into sacred digital temples. Veteran-owned. Spirit-guided. Web design for creators, visionaries, and rebels.">
   <meta name="keywords" content="V.L.P.H.A., Digital alchemy, Spiritual entrepreneurship, Conscious branding, Web design, Digital temples">
   <meta name="author" content="V.L.P.H.A. Global LLC">
   
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vlpha.com/DigitalAlchemists.html">
   <meta property="og:title" content="Digital Alchemists - V.L.P.H.A.">
   <meta property="og:description" content="We transmute outdated websites into sacred digital temples. Veteran-owned. Spirit-guided. Web design for creators, visionaries, and rebels.">
   <meta property="og:image" content="images/Golden Dragon and Sun Emblem (1).png">
   
-  <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://vlpha.com/DigitalAlchemists.html">
   <meta property="twitter:title" content="Digital Alchemists - V.L.P.H.A.">
   <meta property="twitter:description" content="We transmute outdated websites into sacred digital temples. Veteran-owned. Spirit-guided. Web design for creators, visionaries, and rebels.">
   <meta property="twitter:image" content="images/Golden Dragon and Sun Emblem (1).png">
   
-  <!-- Favicon -->
   <link rel="icon" href="images/VLPHAFavicon.png" type="image/png">
   
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.min.css">
   <link rel="stylesheet" href="css/video-fix.css">
+
+  <style>
+    /* Digital Alchemists Logo Styling */
+    .alchemist-logo {
+      display: block; /* Makes the image a block element so margin: auto works */
+      margin: 30px auto; /* Centers the image horizontally and adds vertical spacing */
+      max-width: 250px; /* Adjust size as needed */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 50%; /* Makes the image circular */
+      box-shadow: 0 0 20px var(--primary-color), 0 0 40px rgba(255, 215, 0, 0.5); /* Adds a subtle glow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulsate-glow 2s infinite alternate; /* Optional: adds a pulsing glow */
+    }
+
+    .alchemist-logo:hover {
+      transform: scale(1.05); /* Slightly enlarges on hover */
+      box-shadow: 0 0 30px var(--primary-color), 0 0 60px rgba(255, 215, 0, 0.8);
+    }
+
+    @keyframes pulsate-glow {
+      from { box-shadow: 0 0 20px var(--primary-color), 0 0 40px rgba(255, 215, 0, 0.5); }
+      to { box-shadow: 0 0 25px var(--primary-color), 0 0 50px rgba(255, 215, 0, 0.7); }
+    }
+
+    /* Adjustments for section spacing after logo */
+    .alchemist-container .section:first-of-type {
+        margin-top: 50px; /* Add extra space above the first section after the logo */
+    }
+
+    /* Responsive adjustments for logo */
+    @media (max-width: 768px) {
+        .alchemist-logo {
+            max-width: 200px; /* Smaller on tablets */
+            margin: 20px auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .alchemist-logo {
+            max-width: 150px; /* Even smaller on mobile */
+            margin: 15px auto;
+        }
+    }
+  </style>
 </head>
 <body class="digital-alchemists">
-  <!-- Background Animation -->
   <video autoplay muted loop playsinline class="bg-video">
     <source src="assets/VLPHAbackground.mp4" type="video/mp4">
   </video>
   
-  <!-- Psychedelic Shimmer Effect Canvas -->
   <canvas class="psychedelic-shimmer"></canvas>
 
-  <!-- Header Section -->
   <header class="site-header">
-    <!-- Animated Logo -->
     <div class="logo-container">
       <video autoplay muted loop playsinline class="logo-video">
         <source src="assets/VLPHAlogo.mp4" type="video/mp4">
       </video>
     </div>
     
-    <!-- Main Navigation -->
     <nav class="main-nav">
       <a href="index.html">Home</a>
       <a href="streamportal.html">Stream Portal</a>
@@ -59,12 +93,13 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
     <div class="hero">
       <div class="alchemist-container fade-in-section">
         <h1 class="glow">Digital Alchemists</h1>
         
+        <img src="images/DigitalAlchemistslogo.png" alt="Digital Alchemists Logo" class="alchemist-logo fade-in-section">
+
         <section class="section fade-in-section">
           <h2 class="glow">Who We Serve</h2>
           <p>
@@ -182,18 +217,16 @@
             <textarea name="message" rows="4" placeholder="Describe your project..." required></textarea><br>
             <button type="submit">Summon The Alchemist</button>
           </form>
-          <p class="contact-info">Or email directly: vlpha1global@zohomail.com</p>
+          <p class="contact-info">Or text directly: (318) 834-1660</p>
         </section>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p class="copyright">© 2025 V.L.P.H.A. | Sacred Sites for the New World Builders.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
 </html>
