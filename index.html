@@ -212,7 +212,45 @@
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
     }
-    /* Responsive adjustments */
+
+    /* VLPHA Mix Playlist Styles */
+    .vlpha-mix-section {
+      text-align: center;
+      margin: 40px auto 0 auto;
+    }
+    .playlist-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .playlist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+    .playlist li {
+      background: rgba(255,215,0,0.12);
+      color: var(--primary-color, gold);
+      padding: 8px 18px;
+      border-radius: 22px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      border: 1.5px solid var(--primary-color, gold);
+    }
+    .playlist li.active,
+    .playlist li:hover {
+      background: var(--primary-color, gold);
+      color: #222;
+    }
+    #playlist-loading {
+      font-size: 1em;
+    }
     @media (max-width: 900px) {
       .featured-book-banner,
       .featured-service-banner { flex-direction: column; text-align: center; padding: 25px; margin: 30px auto; }
@@ -224,6 +262,9 @@
       .service-info h3 { font-size: 16px; }
       .book-info p,
       .service-info p { font-size: 15px; }
+    }
+    @media (max-width: 600px) {
+      .playlist { flex-direction: column; gap: 6px; }
     }
     @media (max-width: 480px) {
       .featured-book-banner,
@@ -257,36 +298,12 @@
       opacity: 1;
       transform: scale(1.1);
     }
-
-    /* Music Player Button Styles */
-    .music-player-container {
-        text-align: center;
-        margin-top: 20px; /* Adjust as needed for spacing */
-    }
-    .music-button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background: linear-gradient(135deg, var(--primary-color) 0%, #d4af37 100%);
-        color: var(--dark-bg);
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        font-weight: 600;
-        letter-spacing: 0.5px;
-    }
-    .music-button:hover {
-        transform: translateY(-2px) scale(1.03);
-        box-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
-    }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPHMSBTHG6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-488641979');
   </script>
 </head>
@@ -323,9 +340,16 @@
       <p class="glow fade-in-section">999 Guardians have entered the Frequency.</p>
     </section>
 
-    <section class="music-player-container fade-in-section">
-      <audio id="hypnotonic-audio" src="assets/HypnoTonic.mp3" loop></audio>
-      <button id="play-pause-button" class="music-button">Play HypnoTonic 🎵</button>
+    <!-- VLPHA MIX SECTION (DYNAMIC PLAYLIST) -->
+    <section class="vlpha-mix-section fade-in-section">
+      <h2 class="glow">VLPHA Mix</h2>
+      <div class="playlist-container">
+        <audio id="vlpha-mix-audio" controls preload="none"></audio>
+        <ul class="playlist" id="vlpha-playlist">
+          <!-- Songs will be injected here -->
+        </ul>
+        <div id="playlist-loading" style="color:var(--primary-color);margin-top:10px;">Loading playlist...</div>
+      </div>
     </section>
     
     <section class="featured-book-banner fade-in-section">
@@ -415,28 +439,58 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <!-- VLPHA MIX PLAYLIST SCRIPT -->
   <script>
-    // Music Player JavaScript
-    const audio = document.getElementById('hypnotonic-audio');
-    const playPauseButton = document.getElementById('play-pause-button');
-    let isPlaying = false;
+  document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('vlpha-mix-audio');
+    const playlist = document.getElementById('vlpha-playlist');
+    const loading = document.getElementById('playlist-loading');
 
-    playPauseButton.addEventListener('click', () => {
-      if (isPlaying) {
-        audio.pause();
-        playPauseButton.textContent = 'Play HypnoTonic 🎵';
-      } else {
-        audio.play();
-        playPauseButton.textContent = 'Pause HypnoTonic ⏸️';
-      }
-      isPlaying = !isPlaying;
-    });
+    // Try to fetch a list of MP3s from the assets directory (requires directory listing enabled)
+    fetch('assets/')
+      .then(response => response.text())
+      .then(html => {
+        // Parse the HTML directory listing
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const links = doc.querySelectorAll('a');
+        let mp3s = [];
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if(href && href.match(/\.mp3$/i)) {
+            mp3s.push(href);
+          }
+        });
+        if(mp3s.length === 0) {
+          loading.textContent = "No music tracks found in assets!";
+          return;
+        }
+        // Populate playlist
+        mp3s.forEach((mp3, i) => {
+          const li = document.createElement('li');
+          li.textContent = decodeURIComponent(mp3.replace(/^.*\//, '').replace(/\.mp3$/i, '').replace(/[_-]/g, ' '));
+          li.dataset.src = 'assets/' + mp3.replace(/^.*\//, '');
+          if(i == 0) li.classList.add('active');
+          playlist.appendChild(li);
+        });
+        // Set first song as default
+        audio.src = playlist.querySelector('li').dataset.src;
+        loading.style.display = 'none';
 
-    // Optional: If you want the button to reset when the audio finishes playing naturally (if not looped)
-    audio.addEventListener('ended', () => {
-      playPauseButton.textContent = 'Play HypnoTonic 🎵';
-      isPlaying = false;
-    });
+        // Playlist click events
+        playlist.querySelectorAll('li').forEach(item => {
+          item.addEventListener('click', function() {
+            playlist.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+            this.classList.add('active');
+            audio.src = this.dataset.src;
+            audio.play();
+          });
+        });
+      })
+      .catch(e => {
+        loading.textContent = "Couldn't load playlist. (Is directory listing enabled on your host?)";
+      });
+  });
   </script>
 </body>
 </html>
