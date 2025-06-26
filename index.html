@@ -10,7 +10,7 @@
   <meta name="author" content="V.L.P.H.A. Global LLC">
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content=https://www.vlpha.online/">
+  <meta property="og:url" content="https://www.vlpha.online/">
   <meta property="og:title" content="V.L.P.H.A. – A Digital Temple of Vision, Peace, Love, Huge Action">
   <meta property="og:description" content="Awaken your digital spirit. V.L.P.H.A. is more than a brand—it's a metaphysical operating system.">
   <meta property="og:image" content="images/paradox_book_cover.png">
@@ -47,12 +47,10 @@
       overflow: hidden;
       z-index: 5;
     }
-    
     .featured-book-banner:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 60px var(--primary-color);
     }
-    
     .featured-book-banner::before {
       content: '';
       position: absolute;
@@ -65,55 +63,46 @@
       opacity: 0.7;
       animation: pulse 4s infinite alternate;
     }
-    
     @keyframes pulse {
       from { opacity: 0.5; }
       to { opacity: 0.9; }
     }
-    
     .book-cover-container {
       flex: 0 0 auto;
       width: 250px;
       position: relative;
     }
-    
     .book-cover-container img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
       transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
     }
-    
     .book-cover-container:hover img {
       transform: scale(1.05) rotate(2deg);
       box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
     }
-    
     .book-info {
       flex: 1 1 auto;
     }
-    
     .book-info h2 {
       font-size: 36px;
       margin-bottom: 15px;
       text-shadow: 0 0 18px var(--primary-color), 0 0 30px var(--primary-color);
       letter-spacing: 1px;
     }
-    
     .book-info h3 {
       font-size: 22px;
       margin-bottom: 20px;
       color: var(--primary-color);
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
     }
-    
     .book-info p {
       font-size: 18px;
       line-height: 1.7;
       margin-bottom: 25px;
       text-shadow: 0 0 8px rgba(255, 215, 0, 0.19);
     }
-    
     .book-cta {
       padding: 15px 30px;
       font-size: 18px;
@@ -127,65 +116,128 @@
       font-weight: 600;
       letter-spacing: 1px;
     }
-    
     .book-cta:hover {
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
     }
-    
+
+    /* Digital Alchemists Banner Styles */
+    .featured-service-banner {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 18px;
+      border: 2.5px solid var(--primary-color);
+      box-shadow: 0 0 42px var(--primary-color);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 5;
+    }
+    .featured-service-banner:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 60px var(--primary-color);
+    }
+    .featured-service-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, rgba(255, 215, 0, 0.12) 0%, transparent 70%);
+      z-index: -1;
+      opacity: 0.6;
+      animation: pulse 4s infinite alternate;
+    }
+    .service-logo-container {
+      flex: 0 0 auto;
+      width: 250px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-logo-container img {
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+      background: #111;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
+      padding: 16px;
+    }
+    .service-logo-container:hover img {
+      transform: scale(1.06) rotate(2deg);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+    }
+    .service-info {
+      flex: 1 1 auto;
+    }
+    .service-info h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+      text-shadow: 0 0 18px var(--primary-color), 0 0 30px var(--primary-color);
+      letter-spacing: 1px;
+    }
+    .service-info h3 {
+      font-size: 20px;
+      margin-bottom: 18px;
+      color: var(--primary-color);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    .service-info p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.16);
+    }
+    .service-cta {
+      padding: 14px 28px;
+      font-size: 18px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #d4af37 100%);
+      color: var(--dark-bg);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .service-cta:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+    }
     /* Responsive adjustments */
     @media (max-width: 900px) {
-      .featured-book-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 25px;
-        margin: 30px auto;
-      }
-      
-      .book-cover-container {
-        width: 200px;
-        margin-bottom: 20px;
-      }
-      
-      .book-info h2 {
-        font-size: 28px;
-      }
-      
-      .book-info h3 {
-        font-size: 18px;
-      }
-      
-      .book-info p {
-        font-size: 16px;
-      }
+      .featured-book-banner,
+      .featured-service-banner { flex-direction: column; text-align: center; padding: 25px; margin: 30px auto; }
+      .book-cover-container,
+      .service-logo-container { width: 180px; margin-bottom: 20px; }
+      .book-info h2,
+      .service-info h2 { font-size: 26px; }
+      .book-info h3,
+      .service-info h3 { font-size: 16px; }
+      .book-info p,
+      .service-info p { font-size: 15px; }
     }
-    
     @media (max-width: 480px) {
-      .featured-book-banner {
-        padding: 20px;
-        margin: 20px auto;
-      }
-      
-      .book-cover-container {
-        width: 150px;
-      }
-      
-      .book-info h2 {
-        font-size: 24px;
-      }
-      
-      .book-info h3 {
-        font-size: 16px;
-      }
-      
-      .book-info p {
-        font-size: 14px;
-      }
-      
-      .book-cta {
-        padding: 12px 24px;
-        font-size: 16px;
-      }
+      .featured-book-banner,
+      .featured-service-banner { padding: 16px; margin: 16px auto; }
+      .book-cover-container,
+      .service-logo-container { width: 120px; }
+      .book-info h2,
+      .service-info h2 { font-size: 20px; }
+      .book-info h3,
+      .service-info h3 { font-size: 14px; }
+      .book-info p,
+      .service-info p { font-size: 12px; }
+      .book-cta,
+      .service-cta { padding: 10px 18px; font-size: 15px; }
     }
 
     /* Footer Icons */
@@ -195,14 +247,12 @@
       gap: 15px;
       margin-top: 15px;
     }
-
     .footer-icons img {
       width: 30px;
       height: 30px;
       opacity: 0.7;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
-
     .footer-icons img:hover {
       opacity: 1;
       transform: scale(1.1);
@@ -213,7 +263,6 @@
         text-align: center;
         margin-top: 20px; /* Adjust as needed for spacing */
     }
-
     .music-button {
         padding: 10px 20px;
         font-size: 16px;
@@ -227,7 +276,6 @@
         font-weight: 600;
         letter-spacing: 0.5px;
     }
-
     .music-button:hover {
         transform: translateY(-2px) scale(1.03);
         box-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
@@ -292,11 +340,16 @@
       </div>
     </section>
     
-    <section class="card-section fade-in-section">
-      <h2 class="glow">Digital Alchemists</h2>
-      <img src="images/DigitalAlchemistslogo.png" class="alchemist-logo fade-in-section" alt="Digital Alchemists Logo">
-      <p class="glow">Websites designed like temples. Built to liberate.</p>
-      <a href="DigitalAlchemists.html" class="button">Discover Alchemy</a>
+    <section class="featured-service-banner fade-in-section">
+      <div class="service-logo-container">
+        <img src="images/DigitalAlchemistslogo.png" alt="Digital Alchemists Logo">
+      </div>
+      <div class="service-info">
+        <h2 class="glow">DIGITAL ALCHEMISTS</h2>
+        <h3>HANDCRAFTED SITES FOR THE AWAKENED</h3>
+        <p>Websites designed like temples—built for liberation, not just for looks. Each project is a ritual of transformation, blending your vision with AI-powered artistry and metaphysical precision.<br>No fluff. No templates. Only pure signal for those who can feel it.</p>
+        <a href="DigitalAlchemists.html" class="service-cta">Discover Alchemy</a>
+      </div>
     </section>
     
     <section class="card-section fade-in-section">
