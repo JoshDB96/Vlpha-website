@@ -248,6 +248,41 @@
       background: var(--primary-color, gold);
       color: #222;
     }
+    /* Custom Audio Player Styling */
+    audio#vlpha-mix-audio {
+      width: 350px;
+      max-width: 90vw;
+      background: #111;
+      border-radius: 18px;
+      padding: 10px;
+      margin-bottom: 5px;
+      box-shadow: 0 0 16px 3px rgba(255,215,0,0.13),0 0 0 2.5px var(--primary-color, gold);
+      filter: brightness(0.85) contrast(1.2) drop-shadow(0 0 10px gold);
+      color-scheme: dark;
+      /* Hide default outline */
+      outline: none;
+    }
+    /* Hide white default controls and style them dark for Chrome */
+    audio#vlpha-mix-audio::-webkit-media-controls-panel {
+      background: #111 !important;
+      border-radius: 18px;
+      color: #FFD700 !important;
+      border: 1.5px solid var(--primary-color, gold);
+      filter: brightness(0.85) contrast(1.2);
+    }
+    audio#vlpha-mix-audio::-webkit-media-controls-play-button,
+    audio#vlpha-mix-audio::-webkit-media-controls-current-time-display,
+    audio#vlpha-mix-audio::-webkit-media-controls-time-remaining-display,
+    audio#vlpha-mix-audio::-webkit-media-controls-timeline,
+    audio#vlpha-mix-audio::-webkit-media-controls-volume-slider,
+    audio#vlpha-mix-audio::-webkit-media-controls-mute-button {
+      color: #FFD700 !important;
+      filter: brightness(1.2);
+    }
+    /* For Firefox */
+    audio#vlpha-mix-audio {
+      color-scheme: dark;
+    }
     #playlist-loading {
       font-size: 1em;
     }
@@ -262,9 +297,11 @@
       .service-info h3 { font-size: 16px; }
       .book-info p,
       .service-info p { font-size: 15px; }
+      audio#vlpha-mix-audio { width: 95vw; }
     }
     @media (max-width: 600px) {
       .playlist { flex-direction: column; gap: 6px; }
+      audio#vlpha-mix-audio { width: 99vw; }
     }
     @media (max-width: 480px) {
       .featured-book-banner,
@@ -279,6 +316,7 @@
       .service-info p { font-size: 12px; }
       .book-cta,
       .service-cta { padding: 10px 18px; font-size: 15px; }
+      audio#vlpha-mix-audio { width: 100vw; }
     }
 
     /* Footer Icons */
@@ -340,7 +378,7 @@
       <p class="glow fade-in-section">999 Guardians have entered the Frequency.</p>
     </section>
 
-    <!-- VLPHA MIX SECTION (SIMPLE PLAYLIST) -->
+    <!-- VLPHA MIX SECTION (SIMPLE PLAYLIST, CUSTOM DARK AUDIO PLAYER) -->
     <section class="vlpha-mix-section fade-in-section">
       <h2 class="glow">VLPHA Mix</h2>
       <div class="playlist-container">
