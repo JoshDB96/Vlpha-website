@@ -340,15 +340,20 @@
       <p class="glow fade-in-section">999 Guardians have entered the Frequency.</p>
     </section>
 
-    <!-- VLPHA MIX SECTION (DYNAMIC PLAYLIST) -->
+    <!-- VLPHA MIX SECTION (SIMPLE PLAYLIST) -->
     <section class="vlpha-mix-section fade-in-section">
       <h2 class="glow">VLPHA Mix</h2>
       <div class="playlist-container">
         <audio id="vlpha-mix-audio" controls preload="none"></audio>
         <ul class="playlist" id="vlpha-playlist">
-          <!-- Songs will be injected here -->
+          <li data-src="assets/HypnoTonic.mp3" class="active">HypnoTonic</li>
+          <li data-src="assets/EntertheFrequency.mp3">Enter the Frequency</li>
+          <li data-src="assets/Ether-Knot.mp3">Ether Knot</li>
+          <li data-src="assets/Paradox-Loop.mp3">Paradox Loop</li>
+          <li data-src="assets/SUMMON.mp3">SUMMON</li>
+          <li data-src="assets/Transmit-the-Light.mp3">Transmit the Light</li>
+          <li data-src="assets/U-I.mp3">U-I</li>
         </ul>
-        <div id="playlist-loading" style="color:var(--primary-color);margin-top:10px;">Loading playlist...</div>
       </div>
     </section>
     
@@ -439,58 +444,24 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <!-- VLPHA MIX PLAYLIST SCRIPT -->
+  <!-- SIMPLE PLAYLIST SCRIPT -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('vlpha-mix-audio');
-    const playlist = document.getElementById('vlpha-playlist');
-    const loading = document.getElementById('playlist-loading');
-
-    // Try to fetch a list of MP3s from the assets directory (requires directory listing enabled)
-    fetch('assets/')
-      .then(response => response.text())
-      .then(html => {
-        // Parse the HTML directory listing
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const links = doc.querySelectorAll('a');
-        let mp3s = [];
-        links.forEach(link => {
-          const href = link.getAttribute('href');
-          if(href && href.match(/\.mp3$/i)) {
-            mp3s.push(href);
-          }
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('vlpha-mix-audio');
+      const playlistItems = document.querySelectorAll('#vlpha-playlist li');
+      if(playlistItems.length) {
+        // Set first as default
+        audio.src = playlistItems[0].dataset.src;
+      }
+      playlistItems.forEach(item => {
+        item.addEventListener('click', function() {
+          playlistItems.forEach(li => li.classList.remove('active'));
+          this.classList.add('active');
+          audio.src = this.dataset.src;
+          audio.play();
         });
-        if(mp3s.length === 0) {
-          loading.textContent = "No music tracks found in assets!";
-          return;
-        }
-        // Populate playlist
-        mp3s.forEach((mp3, i) => {
-          const li = document.createElement('li');
-          li.textContent = decodeURIComponent(mp3.replace(/^.*\//, '').replace(/\.mp3$/i, '').replace(/[_-]/g, ' '));
-          li.dataset.src = 'assets/' + mp3.replace(/^.*\//, '');
-          if(i == 0) li.classList.add('active');
-          playlist.appendChild(li);
-        });
-        // Set first song as default
-        audio.src = playlist.querySelector('li').dataset.src;
-        loading.style.display = 'none';
-
-        // Playlist click events
-        playlist.querySelectorAll('li').forEach(item => {
-          item.addEventListener('click', function() {
-            playlist.querySelectorAll('li').forEach(li => li.classList.remove('active'));
-            this.classList.add('active');
-            audio.src = this.dataset.src;
-            audio.play();
-          });
-        });
-      })
-      .catch(e => {
-        loading.textContent = "Couldn't load playlist. (Is directory listing enabled on your host?)";
       });
-  });
+    });
   </script>
 </body>
 </html>
