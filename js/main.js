@@ -31,6 +31,34 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize psychedelic shimmer effect
   initPsychedelicShimmer();
+
+  // Music Player JavaScript
+  const audio = document.getElementById('hypnotonic-audio');
+  const playPauseButton = document.getElementById('play-pause-button');
+  let isPlaying = false;
+
+  // Check if both audio and button elements exist before adding listeners
+  if (audio && playPauseButton) {
+    playPauseButton.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        playPauseButton.textContent = 'Play HypnoTonic 🎵';
+      } else {
+        audio.play();
+        playPauseButton.textContent = 'Pause HypnoTonic ⏸️';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Optional: If you want the button to reset when the audio finishes playing naturally (if not looped)
+    audio.addEventListener('ended', () => {
+      playPauseButton.textContent = 'Play HypnoTonic 🎵';
+      isPlaying = false;
+    });
+  }
+
+  // Initialize Abraxus Chat if elements exist on the page
+  initAbraxusChat(); // Call this here since you moved the function outside DOMContentLoaded
 });
 
 /**
