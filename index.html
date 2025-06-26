@@ -259,10 +259,8 @@
       box-shadow: 0 0 16px 3px rgba(255,215,0,0.13),0 0 0 2.5px var(--primary-color, gold);
       filter: brightness(0.85) contrast(1.2) drop-shadow(0 0 10px gold);
       color-scheme: dark;
-      /* Hide default outline */
       outline: none;
     }
-    /* Hide white default controls and style them dark for Chrome */
     audio#vlpha-mix-audio::-webkit-media-controls-panel {
       background: #111 !important;
       border-radius: 18px;
@@ -279,7 +277,6 @@
       color: #FFD700 !important;
       filter: brightness(1.2);
     }
-    /* For Firefox */
     audio#vlpha-mix-audio {
       color-scheme: dark;
     }
@@ -378,7 +375,7 @@
       <p class="glow fade-in-section">999 Guardians have entered the Frequency.</p>
     </section>
 
-    <!-- VLPHA MIX SECTION (SIMPLE PLAYLIST, CUSTOM DARK AUDIO PLAYER) -->
+    <!-- VLPHA MIX SECTION (SIMPLE PLAYLIST, CUSTOM DARK AUDIO PLAYER, AUTOPLAY & LOOP) -->
     <section class="vlpha-mix-section fade-in-section">
       <h2 class="glow">VLPHA Mix</h2>
       <div class="playlist-container">
@@ -482,22 +479,39 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <!-- SIMPLE PLAYLIST SCRIPT -->
+  <!-- SIMPLE PLAYLIST SCRIPT, AUTOPLAY/LOOP -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const audio = document.getElementById('vlpha-mix-audio');
       const playlistItems = document.querySelectorAll('#vlpha-playlist li');
+      let currentTrack = 0;
       if(playlistItems.length) {
-        // Set first as default
+        // Set first as default and autoplay
         audio.src = playlistItems[0].dataset.src;
+        playlistItems[0].classList.add('active');
+        audio.autoplay = true;
       }
-      playlistItems.forEach(item => {
+      playlistItems.forEach((item, idx) => {
         item.addEventListener('click', function() {
           playlistItems.forEach(li => li.classList.remove('active'));
           this.classList.add('active');
           audio.src = this.dataset.src;
           audio.play();
+          currentTrack = idx;
         });
+      });
+      // On audio end, play next or loop to start
+      audio.addEventListener('ended', function() {
+        currentTrack++;
+        if(currentTrack >= playlistItems.length) currentTrack = 0;
+        playlistItems.forEach(li => li.classList.remove('active'));
+        playlistItems[currentTrack].classList.add('active');
+        audio.src = playlistItems[currentTrack].dataset.src;
+        audio.play();
+      });
+      // Optional: Start autoplay on load
+      window.addEventListener('load', () => {
+        audio.play().catch(()=>{});
       });
     });
   </script>
