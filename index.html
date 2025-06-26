@@ -11,13 +11,13 @@
   
   <meta property="og:type" content="website">
   <meta property="og:url" content=https://www.vlpha.online/">
-  <meta property="og:title" content="V.L.P.H.A. – A Digital Temple of Vision, Love, Peace, Huge Action">
+  <meta property="og:title" content="V.L.P.H.A. – A Digital Temple of Vision, Peace, Love, Huge Action">
   <meta property="og:description" content="Awaken your digital spirit. V.L.P.H.A. is more than a brand—it's a metaphysical operating system.">
   <meta property="og:image" content="images/paradox_book_cover.png">
   
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.vlpha.online/">
-  <meta property="twitter:title" content="V.L.P.H.A. – A Digital Temple of Vision, Love, Peace, Huge Action">
+  <meta property="twitter:title" content="V.L.P.H.A. – A Digital Temple of Vision, Peace, Love, Huge Action">
   <meta property="twitter:description" content="Awaken your digital spirit. V.L.P.H.A. is more than a brand—it's a metaphysical operating system.">
   <meta property="twitter:image" content="images/paradox_book_cover.png">
   
@@ -207,6 +207,31 @@
       opacity: 1;
       transform: scale(1.1);
     }
+
+    /* Music Player Button Styles */
+    .music-player-container {
+        text-align: center;
+        margin-top: 20px; /* Adjust as needed for spacing */
+    }
+
+    .music-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: linear-gradient(135deg, var(--primary-color) 0%, #d4af37 100%);
+        color: var(--dark-bg);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .music-button:hover {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
+    }
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPHMSBTHG6"></script>
   <script>
@@ -248,6 +273,11 @@
       <h2 class="glow fade-in-section">Vision. Love. Peace. Huge Action.</h2>
       <a href="enterfrequency.html" class="button fade-in-section">Enter the Frequency</a>
       <p class="glow fade-in-section">999 Guardians have entered the Frequency.</p>
+    </section>
+
+    <section class="music-player-container fade-in-section">
+      <audio id="hypnotonic-audio" src="assets/HypnoTonic.mp3" loop></audio>
+      <button id="play-pause-button" class="music-button">Play HypnoTonic 🎵</button>
     </section>
     
     <section class="featured-book-banner fade-in-section">
@@ -331,5 +361,28 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Music Player JavaScript
+    const audio = document.getElementById('hypnotonic-audio');
+    const playPauseButton = document.getElementById('play-pause-button');
+    let isPlaying = false;
+
+    playPauseButton.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        playPauseButton.textContent = 'Play HypnoTonic 🎵';
+      } else {
+        audio.play();
+        playPauseButton.textContent = 'Pause HypnoTonic ⏸️';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Optional: If you want the button to reset when the audio finishes playing naturally (if not looped)
+    audio.addEventListener('ended', () => {
+      playPauseButton.textContent = 'Play HypnoTonic 🎵';
+      isPlaying = false;
+    });
+  </script>
 </body>
 </html>
