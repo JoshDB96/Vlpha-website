@@ -1,66 +1,170 @@
-/* Music Visualizer Styles for VLPHA Website */
+/**
+ * VLPHA Music Visualizer Synchronization
+ * Syncs the music visualizer video with the website's audio player
+ */
 
-/* Visualizer Video Element */
-#music-visualizer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1; /* Behind content but above background video */
-    opacity: 0.6; /* Subtle presence to complement existing design */
-    pointer-events: none; /* Prevent interaction */
-    filter: hue-rotate(15deg) saturate(1.2) brightness(0.8); /* Enhance mystical colors */
-    mix-blend-mode: screen; /* Blend with background for ethereal effect */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #music-visualizer {
-        opacity: 0.4; /* Reduce opacity on mobile for better readability */
+class VLPHAVisualizerSync {
+    constructor() {
+        this.audioPlayer = null;
+        this.visualizer = null;
+        this.visualizerDuration = 8.043; // Duration of the visualizer loop in seconds
+        this.syncTolerance = 0.5; // Tolerance for time sync in seconds
+        this.isInitialized = false;
+        
+        this.init();
+    }
+    
+    init() {
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setup());
+        } else {
+            this.setup();
+        }
+    }
+    
+    setup() {
+        // Find the audio player and visualizer elements
+        this.audioPlayer = document.querySelector('audio');
+        this.visualizer = document.querySelector('#music-visualizer');
+        
+        if (!this.audioPlayer) {
+            console.warn('VLPHA Visualizer: Audio player not found');
+            return;
+        }
+        
+        if (!this.visualizer) {
+            console.warn('VLPHA Visualizer: Visualizer element not found');
+            return;
+        }
+        
+        this.setupEventListeners();
+        this.setupVisualizer();
+        this.isInitialized = true;
+        
+        console.log('VLPHA Visualizer: Initialized successfully');
+    }
+    
+    setupVisualizer() {
+        // Ensure visualizer is muted and set to loop
+        this.visualizer.muted = true;
+        this.visualizer.loop = true;
+        this.visualizer.preload = 'auto';
+        
+        // Handle visualizer loading states
+        this.visualizer.addEventListener('loadstart', () => {
+            this.visualizer.classList.add('loading');
+        });
+        
+        this.visualizer.addEventListener('canplay', () => {
+            this.visualizer.classList.remove('loading');
+        });
+        
+        this.visualizer.addEventListener('error', () => {
+            this.visualizer.classList.add('error');
+            console.error('VLPHA Visualizer: Failed to load visualizer video');
+        });
+        
+        // Start visualizer if audio is already playing
+        if (!this.audioPlayer.paused) {
+            this.startVisualizer();
+        }
+    }
+    
+    setupEventListeners() {
+        // Audio player event listeners
+        this.audioPlayer.addEventListener('play', () => this.onAudioPlay());
+        this.audioPlayer.addEventListener('pause', () => this.onAudioPause());
+        this.audioPlayer.addEventListener('timeupdate', () => this.onAudioTimeUpdate());
+        this.audioPlayer.addEventListener('seeked', () => this.onAudioSeeked());
+        this.audioPlayer.addEventListener('ended', () => this.onAudioEnded());
+        
+        // Visualizer event listeners
+        this.visualizer.addEventListener('ended', () => this.onVisualizerEnded());
+    }
+    
+    onAudioPlay() {
+        this.startVisualizer();
+        document.body.classList.add('audio-playing');
+    }
+    
+    onAudioPause() {
+        this.pauseVisualizer();
+        document.body.classList.remove('audio-playing');
+    }
+    
+    onAudioTimeUpdate() {
+        if (this.audioPlayer.paused || this.visualizer.paused) return;
+        
+        this.syncVisualizerTime();
+    }
+    
+    onAudioSeeked() {
+        if (!this.audioPlayer.paused) {
+            this.syncVisualizerTime();
+        }
+    }
+    
+    onAudioEnded() {
+        this.pauseVisualizer();
+        document.body.classList.remove('audio-playing');
+    }
+    
+    onVisualizerEnded() {
+        // This shouldn't happen since we set loop=true, but handle it just in case
+        if (!this.audioPlayer.paused) {
+            this.visualizer.currentTime = 0;
+            this.visualizer.play();
+        }
+    }
+    
+    startVisualizer() {
+        if (this.visualizer.classList.contains('error')) return;
+        
+        this.syncVisualizerTime();
+        
+        const playPromise = this.visualizer.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.warn('VLPHA Visualizer: Autoplay prevented', error);
+            });
+        }
+    }
+    
+    pauseVisualizer() {
+        this.visualizer.pause();
+    }
+    
+    syncVisualizerTime() {
+        const audioTime = this.audioPlayer.currentTime;
+        const syncedTime = audioTime % this.visualizerDuration;
+        
+        // Only sync if the difference is significant to avoid constant adjustments
+        if (Math.abs(this.visualizer.currentTime - syncedTime) > this.syncTolerance) {
+            this.visualizer.currentTime = syncedTime;
+        }
+    }
+    
+    // Public methods for external control
+    setOpacity(opacity) {
+        this.visualizer.style.opacity = opacity;
+    }
+    
+    setBlendMode(mode) {
+        this.visualizer.style.mixBlendMode = mode;
+    }
+    
+    destroy() {
+        if (this.isInitialized) {
+            this.pauseVisualizer();
+            document.body.classList.remove('audio-playing');
+            // Remove event listeners if needed
+        }
     }
 }
 
-@media (max-width: 480px) {
-    #music-visualizer {
-        opacity: 0.3; /* Further reduce on small screens */
-    }
-}
+// Initialize the visualizer sync when the script loads
+const vlphaVisualizer = new VLPHAVisualizerSync();
 
-/* Enhanced glow effect when audio is playing */
-.audio-playing #music-visualizer {
-    animation: visualizer-pulse 4s ease-in-out infinite;
-}
-
-@keyframes visualizer-pulse {
-    0%, 100% { 
-        opacity: 0.6;
-        filter: hue-rotate(15deg) saturate(1.2) brightness(0.8);
-    }
-    50% { 
-        opacity: 0.8;
-        filter: hue-rotate(25deg) saturate(1.4) brightness(1.0);
-    }
-}
-
-/* Ensure visualizer doesn't interfere with existing background video */
-.bg-video {
-    z-index: -2; /* Keep existing background video further back */
-}
-
-/* Smooth transitions */
-#music-visualizer {
-    transition: opacity 0.5s ease-in-out, filter 0.3s ease-in-out;
-}
-
-/* Loading state */
-#music-visualizer.loading {
-    opacity: 0;
-}
-
-/* Error state - hide visualizer if it fails to load */
-#music-visualizer.error {
-    display: none;
-}
-
+// Make it globally accessible for debugging or external control
+window.VLPHAVisualizer = vlphaVisualizer;
