@@ -168,4 +168,3 @@ const vlphaVisualizer = new VLPHAVisualizerSync();
 
 // Make it globally accessible for debugging or external control
 window.VLPHAVisualizer = vlphaVisualizer;
-
