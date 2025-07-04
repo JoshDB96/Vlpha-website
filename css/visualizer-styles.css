@@ -1,0 +1,66 @@
+/* Music Visualizer Styles for VLPHA Website */
+
+/* Visualizer Video Element */
+#music-visualizer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* Behind content but above background video */
+    opacity: 0.6; /* Subtle presence to complement existing design */
+    pointer-events: none; /* Prevent interaction */
+    filter: hue-rotate(15deg) saturate(1.2) brightness(0.8); /* Enhance mystical colors */
+    mix-blend-mode: screen; /* Blend with background for ethereal effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #music-visualizer {
+        opacity: 0.4; /* Reduce opacity on mobile for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    #music-visualizer {
+        opacity: 0.3; /* Further reduce on small screens */
+    }
+}
+
+/* Enhanced glow effect when audio is playing */
+.audio-playing #music-visualizer {
+    animation: visualizer-pulse 4s ease-in-out infinite;
+}
+
+@keyframes visualizer-pulse {
+    0%, 100% { 
+        opacity: 0.6;
+        filter: hue-rotate(15deg) saturate(1.2) brightness(0.8);
+    }
+    50% { 
+        opacity: 0.8;
+        filter: hue-rotate(25deg) saturate(1.4) brightness(1.0);
+    }
+}
+
+/* Ensure visualizer doesn't interfere with existing background video */
+.bg-video {
+    z-index: -2; /* Keep existing background video further back */
+}
+
+/* Smooth transitions */
+#music-visualizer {
+    transition: opacity 0.5s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Loading state */
+#music-visualizer.loading {
+    opacity: 0;
+}
+
+/* Error state - hide visualizer if it fails to load */
+#music-visualizer.error {
+    display: none;
+}
+
